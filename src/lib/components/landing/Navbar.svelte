@@ -1,8 +1,28 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import logo from '$lib/assets/masche-logo-primary-03.png';
+
+	let scrollY = $state(0);
+	let heroHeight = $state(0);
+
+	onMount(() => {
+		const hero = document.getElementById('hero');
+		if (hero) {
+			heroHeight = hero.offsetHeight;
+			const ro = new ResizeObserver(() => {
+				heroHeight = hero.offsetHeight;
+			});
+			ro.observe(hero);
+			return () => ro.disconnect();
+		}
+	});
+
+	let pastHero = $derived(scrollY >= heroHeight && heroHeight > 0);
 </script>
 
-<header class="fixed top-0 z-50 w-full bg-plum/80 backdrop-blur-sm">
+<svelte:window bind:scrollY />
+
+<header class="fixed top-0 z-50 w-full backdrop-blur-sm transition-colors duration-300 {pastHero ? 'bg-plum' : 'bg-plum/80'}">
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
 		<a href="/" class="transition-opacity duration-200 hover:opacity-70">
 			<img src={logo} alt="Masche Academics" class="h-7 w-auto" />

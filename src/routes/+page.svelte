@@ -26,8 +26,8 @@
 	<Ecosystem />
 	<PainPoints />
 	<TheShift />
-	<Impact />
 	<Product />
+	<Impact />
 	<!-- <ProductPreview /> -->
 	<Testimonials />
 	<CallToAction />

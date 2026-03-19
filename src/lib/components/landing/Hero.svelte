@@ -83,7 +83,7 @@
 	}));
 </script>
 
-<section class="relative flex min-h-svh items-center justify-center overflow-hidden bg-plum">
+<section id="hero" class="relative flex min-h-svh items-center justify-center overflow-hidden bg-plum">
 	<!-- Soft center glow for text readability -->
 	<div
 		class="pointer-events-none absolute top-1/2 left-1/2 h-125 w-175 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/4 blur-[120px]"
@@ -231,7 +231,7 @@
 
 		<!-- CTA -->
 		<div
-			class="mt-12 transition-all delay-[600ms] duration-700 ease-out {mounted
+			class="mt-12 transition-all delay-600 duration-700 ease-out {mounted
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-6 opacity-0'}"
 		>

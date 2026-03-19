@@ -8,36 +8,24 @@
 			heading: 'Product',
 			links: [
 				{ label: 'Academic Core', href: '/#product' },
-				{ label: 'Student Intelligence', href: '/#product' },
-				{ label: 'Student Portal', href: '/#product' },
-				{ label: 'Access Control', href: '/#product' },
-				{ label: 'Pricing', href: '/' }
-			]
-		},
-		{
-			heading: 'Coming Soon',
-			links: [
-				{ label: 'Finance & Billing', href: '/' },
-				{ label: 'Communication', href: '/' },
-				{ label: 'Scheduling', href: '/' },
-				{ label: 'Roadmap', href: '/' }
+				{ label: 'Finance', href: '/#product', soon: true },
+				{ label: 'Human Resources', href: '/#product', soon: true },
+				{ label: 'Facilities', href: '/#product', soon: true }
 			]
 		},
 		{
 			heading: 'Company',
 			links: [
-				{ label: 'About', href: '/' },
-				{ label: 'Blog', href: '/' },
-				{ label: 'Careers', href: '/' },
-				{ label: 'Contact', href: '/' }
+				{ label: 'About', href: '/about' },
+				{ label: 'Contact', href: '/contact' }
 			]
 		},
 		{
 			heading: 'Legal',
 			links: [
-				{ label: 'Privacy Policy', href: '/' },
-				{ label: 'Terms of Service', href: '/' },
-				{ label: 'Security', href: '/' }
+				{ label: 'Privacy Policy', href: '/legal/privacy' },
+				{ label: 'Security', href: '/legal/security' },
+				{ label: 'Terms of Service', href: '/legal/terms' }
 			]
 		}
 	];
@@ -47,7 +35,7 @@
 	<div class="mx-auto max-w-6xl">
 
 		<!-- Top: brand + nav columns -->
-		<div class="grid gap-12 md:grid-cols-[1.5fr_repeat(4,1fr)]">
+		<div class="grid gap-12 md:grid-cols-[1.5fr_repeat(3,1fr)]">
 
 			<!-- Brand -->
 			<div>
@@ -92,6 +80,9 @@
 									class="text-[13px] text-slate/40 transition-colors duration-200 hover:text-ink"
 								>
 									{link.label}
+									{#if link.soon}
+										<span class="ml-1.5 rounded-full bg-stone/10 px-2 py-0.5 text-[9px] font-medium text-slate/35">Soon</span>
+									{/if}
 								</a>
 							</li>
 						{/each}

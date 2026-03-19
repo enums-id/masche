@@ -164,7 +164,7 @@
 						y1={fromNode.y}
 						x2={toNode.x}
 						y2={toNode.y}
-						stroke={active ? activeColor : '#4a4f57'}
+						stroke={active ? activeColor : '#8faf9a'}
 						stroke-width={active ? '0.7' : '0.25'}
 						stroke-dasharray={active ? undefined : '1.5 2.5'}
 						opacity={active ? 0.7 : hoveredNode ? 0.05 : 0.14}
