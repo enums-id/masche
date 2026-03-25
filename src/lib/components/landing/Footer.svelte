@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import logo from '$lib/assets/masche-logo-primary-02.png';
 
 	let currentYear = new Date().getFullYear();
@@ -7,25 +8,25 @@
 		{
 			heading: 'Product',
 			links: [
-				{ label: 'Academic Core', href: '/#product' },
-				{ label: 'Finance', href: '/#product', soon: true },
-				{ label: 'Human Resources', href: '/#product', soon: true },
-				{ label: 'Facilities', href: '/#product', soon: true }
+				{ label: 'Academic Core', href: `${base}/#product` },
+				{ label: 'Finance', href: `${base}/#product`, soon: true },
+				{ label: 'Human Resources', href: `${base}/#product`, soon: true },
+				{ label: 'Facilities', href: `${base}/#product`, soon: true }
 			]
 		},
 		{
 			heading: 'Company',
 			links: [
-				{ label: 'About', href: '/about' },
-				{ label: 'Contact', href: '/contact' }
+				{ label: 'About', href: `${base}/about` },
+				{ label: 'Contact', href: `${base}/contact` }
 			]
 		},
 		{
 			heading: 'Legal',
 			links: [
-				{ label: 'Privacy Policy', href: '/legal/privacy' },
-				{ label: 'Security', href: '/legal/security' },
-				{ label: 'Terms of Service', href: '/legal/terms' }
+				{ label: 'Privacy Policy', href: `${base}/legal/privacy` },
+				{ label: 'Security', href: `${base}/legal/security` },
+				{ label: 'Terms of Service', href: `${base}/legal/terms` }
 			]
 		}
 	];
@@ -46,7 +47,7 @@
 				<!-- Social icons -->
 				<div class="mt-6 flex items-center gap-3">
 					<a
-						href="/"
+						href="{base}/"
 						class="flex size-8 cursor-pointer items-center justify-center rounded-full border border-stone/20 text-slate/35 transition-colors duration-200 hover:border-ink/20 hover:text-ink"
 						aria-label="LinkedIn"
 					>
@@ -55,7 +56,7 @@
 						</svg>
 					</a>
 					<a
-						href="/"
+						href="{base}/"
 						class="flex size-8 cursor-pointer items-center justify-center rounded-full border border-stone/20 text-slate/35 transition-colors duration-200 hover:border-ink/20 hover:text-ink"
 						aria-label="X (Twitter)"
 					>

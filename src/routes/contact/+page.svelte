@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import PageShell from '$lib/components/PageShell.svelte';
 	import { reveal } from '$lib/actions/reveal';
 
@@ -164,7 +165,7 @@
 				</div>
 				<div class="flex items-center gap-3">
 					<a
-						href="/"
+						href="{base}/"
 						class="flex size-9 cursor-pointer items-center justify-center rounded-full border border-stone/20 text-slate/35 transition-colors duration-200 hover:border-ink/20 hover:text-ink"
 						aria-label="LinkedIn"
 					>
@@ -180,7 +181,7 @@
 						</svg>
 					</a>
 					<a
-						href="/"
+						href="{base}/"
 						class="flex size-9 cursor-pointer items-center justify-center rounded-full border border-stone/20 text-slate/35 transition-colors duration-200 hover:border-ink/20 hover:text-ink"
 						aria-label="X (Twitter)"
 					>

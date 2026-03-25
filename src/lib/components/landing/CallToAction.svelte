@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
 
 	let visible = $state(false);
@@ -28,7 +29,7 @@
 				: 'translate-y-6 opacity-0'}"
 		>
 			<a
-				href="/"
+				href="{base}/contact"
 				class="group relative inline-flex cursor-pointer items-center gap-3 overflow-hidden rounded-full bg-plum px-10 py-5 text-lg font-semibold text-white transition-all duration-300 hover:shadow-2xl hover:shadow-plum/20"
 			>
 				<span class="relative z-10">Request Demo</span>
