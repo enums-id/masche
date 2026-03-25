@@ -133,7 +133,7 @@
 				Book a personalized demo and see how Masche can transform your school's operations.
 			</p>
 			<a
-				href="/#cta"
+				href="/contact"
 				class="mt-8 inline-block cursor-pointer rounded-full bg-plum px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-plum/20"
 			>
 				Request Demo

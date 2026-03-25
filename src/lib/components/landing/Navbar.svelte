@@ -36,7 +36,7 @@
 		</nav> -->
 
 		<a
-			href="#cta"
+			href="/#cta"
 			class="cursor-pointer rounded-full bg-white px-5 py-2 text-[13px] font-medium text-black transition-all duration-200 hover:bg-plum-light hover:shadow-lg hover:shadow-plum/15"
 		>
 			Request Demo
