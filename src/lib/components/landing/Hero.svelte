@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	let mounted = $state(false);
@@ -12,7 +13,7 @@
 	const characters = [
 		{
 			id: 'management',
-			label: 'Management',
+			label: 'Manajemen',
 			color: '#1b1b1d',
 			iconStroke: 'white',
 			x: 10,
@@ -32,7 +33,7 @@
 		},
 		{
 			id: 'teachers',
-			label: 'Teachers',
+			label: 'Guru',
 			color: '#ffffff',
 			iconStroke: '#4b2e83',
 			x: 90,
@@ -42,7 +43,7 @@
 		},
 		{
 			id: 'students',
-			label: 'Students',
+			label: 'Siswa',
 			color: '#e6a23c',
 			iconStroke: 'white',
 			x: 74,
@@ -52,7 +53,7 @@
 		},
 		{
 			id: 'parents',
-			label: 'Parents',
+			label: 'Orang Tua',
 			color: '#edb85e',
 			iconStroke: '#1b1b1d',
 			x: 12,
@@ -178,44 +179,30 @@
 	{/each}
 
 	<!-- ─── Center content ─── -->
-	<div class="relative z-10 mx-auto max-w-3xl px-6 text-center">
-		<!-- Early access badge -->
-		<div
-			class="mb-8 inline-flex items-center gap-2 rounded-full bg-white/8 px-4 py-1.5 ring-1 ring-white/10 backdrop-blur-sm transition-all duration-700 ease-out {mounted
-				? 'translate-y-0 opacity-100'
-				: 'translate-y-4 opacity-0'}"
-		>
-			<span class="relative flex size-2">
-				<span class="absolute inline-flex size-full animate-ping rounded-full bg-sage opacity-60"
-				></span>
-				<span class="relative inline-flex size-2 rounded-full bg-sage"></span>
-			</span>
-			<span class="text-[13px] font-medium text-white/60">Now in early access</span>
-		</div>
-
-		<!-- Big motto -->
+	<div class="relative z-10 mx-auto w-full px-6 text-center bg-plum-light">
+		<!-- Big headline -->
 		<h1
-			class="text-[clamp(2.8rem,8vw,6rem)] leading-[1.02] font-bold tracking-tight transition-all delay-200 duration-700 ease-out {mounted
+			class="text-[clamp(2.4rem,7vw,5rem)] leading-[1.06] font-bold tracking-tight transition-all duration-700 ease-out {mounted
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<span class="text-white">Education,</span><br />
-			<span class="text-amber-light">orchestrated.</span>
+			<span class="text-white">Sistem Operasi untuk</span><br />
+			<span class="text-amber-light">Institusi Pendidikan Modern</span>
 		</h1>
 
 		<!-- Subtitle -->
 		<p
-			class="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-white/40 transition-all delay-400 duration-700 ease-out md:text-xl {mounted
+			class="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/50 transition-all delay-200 duration-700 ease-out md:text-lg {mounted
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-6 opacity-0'}"
 		>
-			One platform connecting management, teachers, staff, students, and parents
-			&mdash; so your institution runs in harmony.
+			Platform terpadu untuk mengelola akademik, keuangan, dan operasional sekolah.
+			Dirancang khusus untuk ekosistem pendidikan Indonesia.
 		</p>
 
 		<!-- Mobile: role color chips -->
 		<div
-			class="mt-8 flex flex-wrap items-center justify-center gap-2 transition-all delay-500 duration-700 ease-out md:hidden {mounted
+			class="mt-8 flex flex-wrap items-center justify-center gap-2 transition-all delay-300 duration-700 ease-out md:hidden {mounted
 				? 'opacity-100'
 				: 'opacity-0'}"
 		>
@@ -229,31 +216,23 @@
 			{/each}
 		</div>
 
-		<!-- CTA -->
+		<!-- CTAs -->
 		<div
-			class="mt-12 transition-all delay-600 duration-700 ease-out {mounted
+			class="mt-10 flex flex-col items-center justify-center gap-3 transition-all delay-400 duration-700 ease-out sm:flex-row {mounted
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-6 opacity-0'}"
 		>
 			<a
-				href="#ecosystem"
-				class="group inline-flex cursor-pointer items-center gap-3 rounded-full bg-white px-8 py-4 text-[15px] font-semibold text-plum shadow-lg shadow-black/10 transition-all duration-200 hover:bg-amber-light hover:text-ink hover:shadow-xl"
+				href="{base}/contact"
+				class="cursor-pointer rounded-full border border-white/30 px-7 py-3.5 text-[14px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10"
 			>
-				Start exploring
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="2"
-					stroke="currentColor"
-					class="size-4 transition-transform duration-200 group-hover:translate-y-0.5"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-					/>
-				</svg>
+				Konsultasi Kebutuhan
+			</a>
+			<a
+				href="{base}/contact"
+				class="cursor-pointer rounded-full border border-white/30 px-7 py-3.5 text-[14px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10"
+			>
+				Request Demo
 			</a>
 		</div>
 	</div>

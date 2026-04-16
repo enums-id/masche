@@ -1,72 +1,68 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
 
 	let visible = $state(false);
 
-	const academicPrograms = [
-		{ name: 'Elementary', classes: '12 classes', students: '324', color: 'bg-amber' },
-		{ name: 'Middle School', classes: '9 classes', students: '247', color: 'bg-plum' },
-		{ name: 'High School', classes: '9 classes', students: '276', color: 'bg-ink' }
-	];
-
-	const rolePermissions = [
-		{ role: 'Tenant Admin', color: 'bg-ink', perms: ['Full'] },
-		{ role: 'Teacher', color: 'bg-plum', perms: ['R/W Own'] },
-		{ role: 'Academic Staff', color: 'bg-sage', perms: ['R/W All'] },
-		{ role: 'Student', color: 'bg-amber', perms: ['Read'] },
-		{ role: 'Parent', color: 'bg-amber-light', perms: ['Read'] },
-		{ role: 'Non-Academic', color: 'bg-sage', perms: ['Limited'] }
-	];
-
-	const portalRows = [
-		{ label: 'Grades & Assessments', value: 'Updated', accent: 'text-success' },
-		{ label: 'Attendance — Term 2', value: '89.3%', accent: 'text-ink' },
-		{ label: 'Graduation Status', value: 'Passed', accent: 'text-success' },
-		{ label: 'Documents', value: 'IJAZAH ready', accent: 'text-plum' }
-	];
-
-	const lifecycleItems = [
-		{ label: 'Basketball Club', status: 'Active', accent: 'text-success', type: 'Extracurricular' },
+	const modules = [
 		{
-			label: 'Remedial — Math Grade 9',
-			status: '12 sessions',
-			accent: 'text-plum',
-			type: 'Learning Support'
+			label: 'Pendaftaran',
+			color: 'amber',
+			soon: true,
+			desc: ''
 		},
 		{
-			label: 'Graduation 2025',
-			status: 'Passed',
-			accent: 'text-success',
-			type: 'Graduation'
+			label: 'Manajemen Akademik',
+			color: 'plum',
+			soon: false,
+			desc: 'Pengelolaan kurikulum, jadwal, dan data akademik dalam satu sistem'
 		},
 		{
-			label: 'IJAZAH & Transcript',
-			status: 'Uploaded',
-			accent: 'text-ink',
-			type: 'Documents'
+			label: 'Operasional Akademik',
+			color: 'plum',
+			soon: false,
+			desc: 'Mendukung aktivitas harian sekolah secara efisien'
+		},
+		{
+			label: 'Keuangan',
+			color: 'amber',
+			soon: true,
+			desc: ''
+		},
+		{
+			label: 'Perkembangan Siswa',
+			color: 'plum',
+			soon: false,
+			desc: 'Monitoring perkembangan siswa secara menyeluruh dan berkelanjutan'
+		},
+		{
+			label: 'Kelulusan & Tracking',
+			color: 'plum',
+			soon: false,
+			desc: 'Dokumentasi perjalanan siswa hingga setelah lulus'
 		}
 	];
 
-	const comingSoon = [
+	const benefits = [
 		{
-			label: 'Finance & Billing',
-			desc: 'Tuition, fees, and reconciliation — automated end to end.',
-			icon: 'M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z'
+			title: 'Kurangi Proses Manual yang Memakan Waktu',
+			desc: 'Otomatisasi alur kerja untuk mempercepat proses dan mengurangi kesalahan.',
+			icon: 'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
 		},
 		{
-			label: 'Staff & HR',
-			desc: 'Attendance, payroll, career paths, and placements — all in one hub.',
-			icon: 'M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z'
+			title: 'Sistem yang Menyesuaikan Kebutuhan Anda',
+			desc: 'Dirancang mengikuti alur kerja institusi tanpa menambah kompleksitas.',
+			icon: 'M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
 		},
 		{
-			label: 'Facilities',
-			desc: 'Room bookings, asset tracking, and warehouse ops — managed centrally.',
-			icon: 'M2.25 21h19.5M3.75 21V3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75V21m8.25 0V6.75a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21m0-18v2.25M12.75 3v2.25'
+			title: 'Satu Platform, Tanpa Tools Terpisah',
+			desc: 'Seluruh operasional terpusat untuk efisiensi dan keputusan yang lebih cepat.',
+			icon: 'M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z'
 		}
 	];
 </script>
 
-<section id="product" class="scroll-mt-24 px-6 py-24 md:py-36" use:reveal={() => (visible = true)}>
+<section id="produk" class="px-6 py-20 md:py-28" use:reveal={() => (visible = true)}>
 	<div class="mx-auto max-w-6xl">
 		<!-- Header -->
 		<div
@@ -74,324 +70,144 @@
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<p class="text-[13px] font-medium tracking-widest text-plum/50 uppercase">The product</p>
-			<h2 class="mt-2 text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold tracking-tight text-ink">
-				One platform. Every layer.
+			<h2 class="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight text-ink">
+				Satu platform untuk seluruh<br />siklus siswa. Tanpa kerumitan.
 			</h2>
-			<p class="mt-4 max-w-lg text-base text-slate/50">
-				Everything your institution runs on — academics, people, records, and operations — built as
-				one coherent system.
+			<p class="mt-3 text-[15px] font-medium text-slate/60">
+				Mengurangi Beban Operasional. Menghemat Waktu yang Terbuang.
 			</p>
 		</div>
 
-		<!-- Bento grid -->
+		<!-- Main 2-col layout -->
 		<div
-			class="space-y-3 transition-all delay-100 duration-700 ease-out {visible
+			class="grid items-start gap-5 lg:grid-cols-[1fr_1.2fr] transition-all delay-100 duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
-				: 'translate-y-10 opacity-0'}"
+				: 'translate-y-8 opacity-0'}"
 		>
-			<!-- ═══ Hero card: Academic Core (full width) ═══ -->
-			<div class="overflow-hidden rounded-3xl border border-stone/15 bg-white">
-				<div class="flex flex-col md:min-h-72 md:flex-row">
-					<!-- Text side -->
-					<div class="flex flex-col justify-between p-8 md:w-80 md:shrink-0 md:py-10">
-						<div>
-							<p class="text-[11px] font-medium tracking-widest text-slate/40 uppercase">
-								Academic Core
-							</p>
-							<h3 class="mt-3 text-2xl leading-snug font-bold tracking-tight text-ink">
-								Build your school's structure, not spreadsheets.
-							</h3>
-						</div>
-						<!-- <a
-							href="#cta"
-							class="mt-8 flex size-10 cursor-pointer items-center justify-center rounded-full bg-ink text-white transition-transform duration-200 hover:scale-105"
-							aria-label="Explore Academic Core"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="2"
-								stroke="currentColor"
-								class="size-4"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-								/>
-							</svg>
-						</a> -->
-					</div>
-
-					<!-- Mockup side -->
-					<div
-						class="relative flex-1 overflow-hidden bg-plum/6 p-6 md:flex md:items-center md:justify-end"
+			<!-- Left: dark card -->
+			<div class="flex flex-col overflow-hidden rounded-3xl bg-ink">
+				<!-- Gradient placeholder -->
+				<div
+					class="h-52 w-full"
+					style="background: linear-gradient(135deg, #4b2e83 0%, #3a2368 40%, #e6a23c 100%);"
+				></div>
+				<!-- Text content -->
+				<div class="p-8">
+					<h3 class="text-xl font-bold leading-snug text-white">
+						MASCHE Academics<br />Menyesuaikan Kebutuhan<br />Institusi Anda
+					</h3>
+					<p class="mt-3 text-[13px] leading-relaxed text-white/45">
+						Kami bantu memetakan sistem yang tepat untuk operasional institusi Anda.
+					</p>
+					<a
+						href="{base}/contact"
+						class="mt-6 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-[13px] font-medium text-white transition-all duration-200 hover:border-white/50 hover:bg-white/10"
 					>
-						<div class="w-full max-w-sm rounded-2xl bg-white shadow-lg ring-1 ring-stone/10">
-							<div class="border-b border-stone/10 px-5 py-4">
-								<div class="flex items-center justify-between">
-									<div>
-										<p class="text-[13px] font-semibold text-ink">Academic Year 2025/2026</p>
-										<p class="text-[11px] text-slate/40">3 terms · 4 programs · 30 classes</p>
-									</div>
-									<span
-										class="rounded-full bg-success/10 px-2.5 py-0.5 text-[10px] font-medium text-success"
-										>Active</span
-									>
-								</div>
-							</div>
-							<div class="space-y-1.5 p-4">
-								{#each academicPrograms as program}
-									<div class="flex items-center gap-3 rounded-xl bg-stone/5 px-3.5 py-2.5">
-										<div class="size-1.5 rounded-full {program.color}"></div>
-										<span class="flex-1 text-[12px] font-medium text-ink">{program.name}</span>
-										<span class="text-[11px] text-slate/40">{program.classes}</span>
-										<span class="text-[11px] text-slate/35">{program.students}</span>
-									</div>
-								{/each}
-							</div>
-							<p class="px-5 pb-4 text-[11px] text-slate/35">
-								186 teaching assignments · 847 students auto-enrolled
-							</p>
-						</div>
-					</div>
+						Konsultasikan Kebutuhan Anda
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="currentColor"
+							class="size-3.5"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+							/>
+						</svg>
+					</a>
 				</div>
 			</div>
 
-			<!-- ═══ Row 2: Student Intelligence + Access Control ═══ -->
-			<div class="grid gap-3 md:grid-cols-2">
-				<!-- Student Intelligence -->
-				<div class="overflow-hidden rounded-3xl border border-stone/15 bg-white">
-					<div class="flex flex-col justify-between p-8 pb-5">
-						<div>
-							<p class="text-[11px] font-medium tracking-widest text-slate/40 uppercase">
-								Student Intelligence
-							</p>
-							<h3 class="mt-3 text-xl leading-snug font-bold tracking-tight text-ink">
-								Every grade. Every note. Every student.
-							</h3>
-						</div>
-						<!-- <a
-							href="#cta"
-							class="mt-6 flex size-9 cursor-pointer items-center justify-center rounded-full bg-ink text-white transition-transform duration-200 hover:scale-105"
-							aria-label="Explore Student Intelligence"
-						>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-3.5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-							</svg>
-						</a> -->
-					</div>
-
-					<div class="mx-4 mb-4 overflow-hidden rounded-2xl bg-amber/6 p-5">
-						<div class="rounded-xl bg-white p-4 shadow-sm ring-1 ring-stone/10">
-							<div class="mb-3 flex items-center gap-2.5">
-								<div class="flex size-7 items-center justify-center rounded-full bg-plum/10">
-									<span class="text-[10px] font-bold text-plum">AR</span>
-								</div>
-								<div>
-									<p class="text-[12px] font-semibold text-ink">Ahmad Rasyid</p>
-									<p class="text-[10px] text-slate/40">Grade 9B · NISN 0058291</p>
-								</div>
-							</div>
-							<div class="space-y-2">
-								{#each [['Mathematics', 87.5], ['Natural Science', 92.0], ['English', 78.3]] as [subj, score]}
-									<div class="flex items-center gap-2">
-										<span class="w-28 shrink-0 truncate text-[10px] text-slate/45">{subj}</span>
-										<div class="h-1 flex-1 overflow-hidden rounded-full bg-stone/15">
-											<div class="h-full rounded-full bg-plum/35" style="width: {score}%;"></div>
-										</div>
-										<span class="w-8 text-right text-[10px] font-medium text-ink">{score}</span>
-									</div>
-								{/each}
-							</div>
-							<div class="mt-3 flex flex-wrap gap-1.5">
-								<span class="rounded-full bg-warning/10 px-2 py-0.5 text-[10px] text-warning"
-									>2 behavior notes</span
-								>
-								<span class="rounded-full bg-success/10 px-2 py-0.5 text-[10px] text-success"
-									>1 achievement</span
-								>
-								<span class="rounded-full bg-info/10 px-2 py-0.5 text-[10px] text-info"
-									>Medical record</span
-								>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Access Control -->
-				<div class="overflow-hidden rounded-3xl border border-stone/15 bg-white">
-					<div class="flex flex-col justify-between p-8 pb-5">
-						<div>
-							<p class="text-[11px] font-medium tracking-widest text-slate/40 uppercase">
-								Access Control
-							</p>
-							<h3 class="mt-3 text-xl leading-snug font-bold tracking-tight text-ink">
-								Six roles. Zero data leaks.
-							</h3>
-						</div>
-						<!-- <a
-							href="#cta"
-							class="mt-6 flex size-9 cursor-pointer items-center justify-center rounded-full bg-ink text-white transition-transform duration-200 hover:scale-105"
-							aria-label="Explore Access Control"
-						>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-3.5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-							</svg>
-						</a> -->
-					</div>
-
-					<div class="mx-4 mb-4 overflow-hidden rounded-2xl bg-ink/4 p-5">
-						<div class="rounded-xl bg-white p-4 shadow-sm ring-1 ring-stone/10">
-							<p class="mb-3 text-[11px] font-medium text-slate/40">Permission Rulesets</p>
-							<div class="space-y-1.5">
-								{#each rolePermissions as rp}
-									<div class="flex items-center gap-2.5 rounded-lg bg-stone/5 px-3 py-2">
-										<div class="size-1.5 rounded-full {rp.color}"></div>
-										<span class="flex-1 text-[11px] font-medium text-ink">{rp.role}</span>
-										<span class="text-[10px] text-slate/40">{rp.perms[0]}</span>
-									</div>
-								{/each}
-							</div>
-							<div class="mt-3 flex items-center gap-1.5">
+			<!-- Right: 2×3 module grid -->
+			<div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+				{#each modules as mod, i}
+					<div
+						class="rounded-2xl bg-white p-5 transition-all duration-700 ease-out {visible
+							? 'translate-y-0 opacity-100'
+							: 'translate-y-8 opacity-0'}"
+						style="transition-delay: {150 + i * 60}ms;"
+					>
+						{#if mod.soon}
+							<!-- Dimmed / soon state -->
+							<div
+								class="mb-3 flex size-10 items-center justify-center rounded-xl"
+								style="background: {mod.color === 'amber' ? '#e6a23c20' : '#4b2e8320'};"
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
-									stroke="currentColor"
-									class="size-3 text-success"
+									stroke={mod.color === 'amber' ? '#e6a23c' : '#4b2e83'}
+									class="size-5"
 								>
 									<path
 										stroke-linecap="round"
 										stroke-linejoin="round"
-										d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+										d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
 									/>
 								</svg>
-								<span class="text-[10px] text-slate/35"
-									>JWT auth · Rate-limited login · Audit trail</span
-								>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- ═══ Row 3: Student Portal + Student Lifecycle ═══ -->
-			<div class="grid gap-3 md:grid-cols-2">
-				<!-- Student Portal -->
-				<div class="overflow-hidden rounded-3xl border border-stone/15 bg-white">
-					<div class="flex flex-col justify-between p-8 pb-5">
-						<div>
-							<p class="text-[11px] font-medium tracking-widest text-slate/40 uppercase">
-								Student Portal
+							<p
+								class="text-[13px] font-semibold"
+								style="color: {mod.color === 'amber' ? '#e6a23c' : '#4b2e83'};"
+							>
+								{mod.label}
 							</p>
-							<h3 class="mt-3 text-xl leading-snug font-bold tracking-tight text-ink">
-								Students see everything. Staff handle nothing.
-							</h3>
-						</div>
-						<!-- <a
-							href="#cta"
-							class="mt-6 flex size-9 cursor-pointer items-center justify-center rounded-full bg-ink text-white transition-transform duration-200 hover:scale-105"
-							aria-label="Explore Student Portal"
-						>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-3.5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-							</svg>
-						</a> -->
-					</div>
-
-					<div class="mx-4 mb-4 overflow-hidden rounded-2xl bg-amber/6 p-5">
-						<div class="rounded-xl bg-white p-4 shadow-sm ring-1 ring-stone/10">
-							<p class="mb-3 text-[11px] font-medium text-slate/40">
-								Ahmad Rasyid — Self-Service Portal
-							</p>
-							<div class="space-y-1.5">
-								{#each portalRows as row}
-									<div class="flex items-center justify-between rounded-lg bg-stone/5 px-3 py-2">
-										<span class="text-[11px] text-slate/55">{row.label}</span>
-										<span class="text-[11px] font-medium {row.accent}">{row.value}</span>
-									</div>
-								{/each}
-							</div>
-							<p class="mt-3 text-[10px] text-slate/30">
-								Attendance, notes, extracurriculars, and graduation docs — all available 24/7
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Student Lifecycle -->
-				<div class="overflow-hidden rounded-3xl border border-stone/15 bg-white">
-					<div class="flex flex-col justify-between p-8 pb-5">
-						<div>
-							<p class="text-[11px] font-medium tracking-widest text-slate/40 uppercase">
-								Student Lifecycle
-							</p>
-							<h3 class="mt-3 text-xl leading-snug font-bold tracking-tight text-ink">
-								From enrollment to graduation. One thread.
-							</h3>
-						</div>
-						<!-- <a
-							href="#cta"
-							class="mt-6 flex size-9 cursor-pointer items-center justify-center rounded-full bg-ink text-white transition-transform duration-200 hover:scale-105"
-							aria-label="Explore Student Lifecycle"
-						>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-3.5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-							</svg>
-						</a> -->
-					</div>
-
-					<div class="mx-4 mb-4 overflow-hidden rounded-2xl bg-sage/8 p-5">
-						<div class="rounded-xl bg-white p-4 shadow-sm ring-1 ring-stone/10">
-							<p class="mb-3 text-[11px] font-medium text-slate/40">Ahmad Rasyid — Timeline</p>
-							<div class="space-y-1.5">
-								{#each lifecycleItems as item}
-									<div class="flex items-center gap-2.5 rounded-lg bg-stone/5 px-3 py-2">
-										<div class="flex-1">
-											<p class="text-[11px] font-medium text-ink">{item.label}</p>
-											<p class="text-[9px] text-slate/35">{item.type}</p>
-										</div>
-										<span class="text-[10px] font-medium {item.accent}">{item.status}</span>
-									</div>
-								{/each}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- ═══ Row 4: Coming Soon ═══ -->
-			<div class="grid gap-3 md:grid-cols-3">
-				{#each comingSoon as item}
-					<div class="rounded-3xl border border-stone/10 bg-stone/3 p-7">
-						<div class="mb-5 flex items-start justify-between">
-							<div class="flex size-10 items-center justify-center rounded-xl bg-stone/10">
+							<p class="mt-1 text-[11px] text-slate/40">*Dalam Pengembangan.<br />Akan Segera Tersedia.</p>
+						{:else}
+							<div class="mb-3 flex size-10 items-center justify-center rounded-xl bg-plum/10">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
-									stroke="currentColor"
-									class="size-5 text-slate/30"
+									stroke="#4b2e83"
+									class="size-5"
 								>
-									<path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+									/>
 								</svg>
 							</div>
-							<span
-								class="rounded-full border border-stone/20 px-2.5 py-0.5 text-[10px] font-medium text-slate/35"
-							>
-								Coming soon
-							</span>
-						</div>
-						<h3 class="text-base font-semibold text-ink/40">{item.label}</h3>
-						<p class="mt-1.5 text-[12px] leading-relaxed text-slate/30">{item.desc}</p>
+							<p class="text-[13px] font-semibold text-ink">{mod.label}</p>
+							<p class="mt-1 text-[11px] leading-relaxed text-slate/50">{mod.desc}</p>
+						{/if}
 					</div>
 				{/each}
 			</div>
+		</div>
+
+		<!-- Benefits row -->
+		<div
+			class="mt-14 grid gap-8 md:grid-cols-3 transition-all delay-300 duration-700 ease-out {visible
+				? 'translate-y-0 opacity-100'
+				: 'translate-y-8 opacity-0'}"
+		>
+			{#each benefits as benefit}
+				<div class="flex flex-col items-center text-center">
+					<div class="mb-4 flex size-12 items-center justify-center rounded-2xl bg-plum/10">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="#4b2e83"
+							class="size-5"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" d={benefit.icon} />
+						</svg>
+					</div>
+					<h4 class="text-[14px] font-bold text-ink">{benefit.title}</h4>
+					<p class="mt-2 text-[13px] leading-relaxed text-slate/55">{benefit.desc}</p>
+				</div>
+			{/each}
 		</div>
 	</div>
 </section>

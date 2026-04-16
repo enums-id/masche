@@ -7,8 +7,8 @@
 	const nodes = [
 		{
 			id: 'management',
-			label: 'Management',
-			sublabel: 'Leadership',
+			label: 'Manajemen',
+			sublabel: 'Kontrol penuh atas seluruh unit sekolah dalam satu dashboard terpusat.',
 			desc: 'Sets strategy, allocates resources, and maintains institutional accountability across every department.',
 			x: 50,
 			y: 10,
@@ -21,8 +21,8 @@
 		},
 		{
 			id: 'staff',
-			label: 'Staff',
-			sublabel: 'Operations',
+			label: 'Staf',
+			sublabel: 'Proses laporan dan operasional jadi lebih cepat & minim kesalahan.',
 			desc: 'Handles daily administration, supports teachers, and ensures operational processes never break down.',
 			x: 12,
 			y: 52,
@@ -35,8 +35,8 @@
 		},
 		{
 			id: 'teachers',
-			label: 'Teachers',
-			sublabel: 'Education',
+			label: 'Guru',
+			sublabel: 'Kurangi beban administratif & fokus pada kualitas pengajaran',
 			desc: 'Delivers curriculum, tracks student progress, and bridges the gap between institution and family.',
 			x: 88,
 			y: 52,
@@ -49,8 +49,8 @@
 		},
 		{
 			id: 'students',
-			label: 'Students',
-			sublabel: 'Learning',
+			label: 'Siswa',
+			sublabel: 'Dukungan pembelajaran yang lebih terstruktur dan personal.',
 			desc: 'Access grades, schedules, and assignments. The center of every decision the institution makes.',
 			x: 28,
 			y: 88,
@@ -63,8 +63,8 @@
 		},
 		{
 			id: 'parents',
-			label: 'Parents',
-			sublabel: 'Family',
+			label: 'Orang Tua',
+			sublabel: 'Transparansi penuh terhadap perkembangan dan aktivitas anak.',
 			desc: 'Monitor performance, attendance, and payments. Always in the loop, never left guessing.',
 			x: 72,
 			y: 88,
@@ -122,21 +122,14 @@
 	<div class="mx-auto max-w-6xl">
 		<!-- Header -->
 		<div
-			class="mb-16 max-w-2xl transition-all duration-700 ease-out {visible
+			class="mb-16 max-w-2xl transition-all duration-700 ease-out mx-auto {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<p class="text-[13px] font-medium tracking-widest text-plum/50 uppercase">
-				The education ecosystem
-			</p>
 			<h2 class="mt-2 text-3xl font-bold tracking-tight text-ink md:text-4xl">
-				A school is a living network.
+				Nilai untuk Setiap
+Peran dalam Institusi
 			</h2>
-			<p class="mt-4 text-base leading-relaxed text-slate/50">
-				Five roles. Dozens of daily interactions. Masche makes every connection visible, instant,
-				and frictionless.
-				<span class="font-medium text-slate/70">Hover any role to explore.</span>
-			</p>
 		</div>
 
 		<!-- Interactive web diagram — desktop only -->
@@ -239,40 +232,16 @@
 						{/if}
 
 						<!-- Node shape -->
-						<div
-							class="{node.size} {node.shape} {node.bg} flex items-center justify-center transition-all duration-300"
-							style="
-								{isHovered
-								? `transform: scale(1.2); box-shadow: 0 20px 60px -10px ${node.glowColor}60;`
-								: connected && !isHovered
-									? `transform: scale(1.08); box-shadow: 0 8px 24px -4px ${node.glowColor}45;`
-									: dimmed
-										? 'transform: scale(0.88); opacity: 0.18;'
-										: 'transform: scale(1);'}
-							"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="{node.id === 'management'
-									? 'size-7'
-									: 'size-5'} {node.iconColor} transition-all duration-300"
-							>
-								<path stroke-linecap="round" stroke-linejoin="round" d={node.icon} />
-							</svg>
-						</div>
+					<img src={`/icons/${node.id}.svg`} class="w-fit h-16 bg-white rounded-md" alt=""/>
 					</div>
 
 					<!-- Label -->
 					<div
-						class="text-center transition-all duration-300"
+						class="text-center transition-all duration-300 bg-white"
 						style={dimmed ? 'opacity: 0.18;' : 'opacity: 1;'}
 					>
-						<p class="text-xs font-semibold whitespace-nowrap text-ink/80">{node.label}</p>
-						<p class="text-[10px] whitespace-nowrap text-slate/35">{node.sublabel}</p>
+						<p class="text-xs font-semibold whitespace-nowrap text-ink/80 p-2 bg-white rounded-sm">{node.label}</p>
+						<p class="text-[10px] whitespace-nowrap text-black p-2 bg-white rounded-sm">{node.sublabel}</p>
 					</div>
 				</div>
 			{/each}

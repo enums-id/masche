@@ -18,6 +18,7 @@
 	--color-slate: #4a4f57;
 	--color-stone: #d7d9dd;
 	--color-ivory: #f5f6f7;
+	--color-lavender: #EDE9F8;
 
 	/* Semantic */
 	--color-success: #59b88a;
@@ -32,5 +33,6 @@
 @layer base {
 	html {
 		scroll-behavior: smooth;
+		background-color: var(--color-lavender);
 	}
 }

@@ -1,349 +1,233 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
-	import { fade } from 'svelte/transition';
 
 	let visible = $state(false);
-	let currentSlide = $state(0);
+	let current = $state(0);
 	let paused = $state(false);
 
 	const slides = [
 		{
-			roles: ['Tenant Admin', 'Academic Staff'],
-			roleBgs: ['bg-ink', 'bg-sage'],
-			accentColor: '#1b1b1d',
-			pain: 'Every semester, the team spends 3 weeks manually recreating class sections, assigning courses, and linking every teacher by hand.',
-			feature: 'Academic Structure Setup',
-			desc: 'Define Academic Years, Programs, Levels, Terms, and Classes once. Masche connects courses, teachers, and students automatically.',
-			stat: { before: '3 weeks', after: '2 hours' },
-			url: 'masche-academic.com/academic',
-			activity: [
-				{ status: 'ok', text: 'Academic Year 2025/2026 initialized — 3 active Terms configured' },
-				{ status: 'ok', text: '12 Programs set up across Elementary, Middle, and High School' },
-				{ status: 'ok', text: '48 class sections created — Grade 7A through Grade 12F' },
-				{ status: 'ok', text: '186 teaching assignments linked to courses and classes' },
-				{ status: 'done', text: 'Full academic structure ready — 847 students auto-enrolled' }
-			]
+			category: 'MANAJEMEN',
+			categoryColor: '#4b2e83',
+			categoryBg: '#4b2e8318',
+			title: 'Visibilitas real-time lintas unit dalam satu sistem terpusat',
+			desc: 'Sentralisasi operasional seluruh unit sekolah tanpa mengorbankan struktur masing-masing.',
+			bullets: [
+				'Dashboard terpusat untuk seluruh unit',
+				'Struktur data tetap terpisah per sekolah',
+				'Kontrol penuh di level yayasan'
+			],
+			stat: 'Kelola 2\u201310+ unit sekolah\ndalam satu sistem terpusat',
+			gradientFrom: '#4b2e83',
+			gradientTo: '#5e3da0'
 		},
 		{
-			roles: ['Teachers', 'Academic Staff'],
-			roleBgs: ['bg-plum', 'bg-sage'],
-			accentColor: '#4b2e83',
-			pain: 'Teachers grade on paper. Staff re-enter scores into spreadsheets. By the time reports are ready, at-risk students are already two weeks behind.',
-			feature: 'Real-Time Performance Tracking',
-			desc: 'Assessments, attendance, and learning objective scores — recorded once, visible instantly. Score corrections with a full approval workflow.',
-			stat: { before: '5–7 day lag', after: 'Real-time' },
-			url: 'masche-academic.com/assessments',
-			activity: [
-				{ status: 'ok', text: 'Class 9B — 28 scores recorded with learning objective breakdown' },
-				{ status: 'warn', text: '4 students below threshold — flagged for follow-up' },
-				{ status: 'ok', text: 'Score correction by Mr. Santos — approved by Academic Staff' },
-				{ status: 'ok', text: 'Bulk attendance recorded for 6 classes — 142 entries in 90s' },
-				{ status: 'done', text: 'Term report published — 0 manual data entry required' }
-			]
+			category: 'AKADEMIK',
+			categoryColor: '#4b2e83',
+			categoryBg: '#4b2e8318',
+			title: 'Penilaian Otomatis & Presisi Tinggi',
+			desc: 'Kurangi beban administratif guru dengan sistem penilaian yang terotomatisasi dan akurat.',
+			bullets: [
+				'Perhitungan nilai otomatis tanpa error',
+				'Sinkronisasi data akademik real-time',
+				'Siap untuk laporan & rapor'
+			],
+			stat: '+5 jam efisiensi kerja\nper guru / minggu',
+			gradientFrom: '#5e3da0',
+			gradientTo: '#8faf9a'
 		},
 		{
-			roles: ['Students', 'Parents'],
-			roleBgs: ['bg-amber', 'bg-amber-light'],
-			accentColor: '#e6a23c',
-			pain: 'Students call the office to ask about grades. Parents email to check attendance. Staff spend half their day pulling records from 4 different systems.',
-			feature: 'Student Self-Service Portal',
-			desc: 'Every student and parent gets a portal. Assessments, attendance, notes, extracurriculars, and graduation documents — available 24/7 without a single staff query.',
-			stat: { before: '45 min/query', after: 'Self-serve' },
-			url: 'masche-academic.com/portal',
-			activity: [
-				{ status: 'ok', text: 'Student ID 4821 — assessments and learning objectives loaded' },
-				{ status: 'ok', text: 'Attendance record for Term 2: 89.3% presence rate displayed' },
-				{ status: 'ok', text: 'Achievement note published: 1st Place, Regional Science Olympiad' },
-				{ status: 'ok', text: 'Graduation status: Passed — IJAZAH available for download' },
-				{ status: 'done', text: '0 staff queries. All information accessed directly by student.' }
-			]
+			category: 'PENGEMBANGAN SISWA',
+			categoryColor: '#769885',
+			categoryBg: '#8faf9a18',
+			title: 'Pantau Perkembangan Siswa Secara Menyeluruh',
+			desc: 'Lebih dari sekadar nilai \u2014 pantau perilaku, kesehatan, dan milestone siswa dalam satu sistem.',
+			bullets: [
+				'Catatan kualitatif (behavior & aktivitas)',
+				'Tracking kesehatan & perkembangan fisik',
+				'Riwayat siswa dari awal hingga kelulusan'
+			],
+			stat: 'Insight 360\u00b0 untuk peningkatan\nkualitas sekolah secara terukur',
+			gradientFrom: '#8faf9a',
+			gradientTo: '#e6a23c'
 		},
 		{
-			roles: ['Tenant Admin'],
-			roleBgs: ['bg-ink'],
-			accentColor: '#1b1b1d',
-			pain: "The school has 6 different user types and no way to control who sees what. A teacher accidentally views payroll. A parent edits a student's grade.",
-			feature: 'Role-Based Access Control',
-			desc: '6 roles with granular permission rulesets. READ/WRITE control per resource, per tenant. JWT auth with rate-limited login and a full audit trail.',
-			stat: { before: 'Open access', after: 'Zero leaks' },
-			url: 'masche-academic.com/access',
-			activity: [
-				{
-					status: 'ok',
-					text: '6 roles provisioned: Admin, Teacher, Student, Parent, Academic Staff, Non-Academic Staff'
-				},
-				{
-					status: 'ok',
-					text: 'Ruleset applied: Teachers — READ grades, WRITE own assessments only'
-				},
-				{
-					status: 'warn',
-					text: 'Login attempt 5/5 for user@school.id — rate limit triggered, 60s lockout'
-				},
-				{ status: 'ok', text: 'Account suspended: user_291 — audit trail logged with timestamp' },
-				{ status: 'done', text: 'All 312 accounts provisioned with correct roles and permissions' }
-			]
+			category: 'OPERASIONAL',
+			categoryColor: '#4a4f57',
+			categoryBg: '#4a4f5718',
+			title: 'Otomatisasi Sistem Administratif',
+			desc: 'Hilangkan proses manual dalam pengelolaan administrasi sekolah dengan sistem yang terintegrasi.',
+			bullets: [
+				'Otomatisasi perhitungan nilai',
+				'Tanpa rekap laporan akademik berulang',
+				'Absensi dan data siswa tercatat otomatis secara real-time'
+			],
+			stat: '\u2193 90% pekerjaan administratif\nmelalui otomatisasi sistem',
+			gradientFrom: '#59b88a',
+			gradientTo: '#4b2e83'
+		},
+		{
+			category: 'PEMENUHAN KEBIJAKAN',
+			categoryColor: '#c88a2a',
+			categoryBg: '#e6a23c18',
+			title: 'Pelaporan Tanpa Double Entry',
+			desc: 'Sinkronisasi data dan laporan ke sistem pemerintah tanpa proses input ulang.',
+			bullets: [
+				'Export data siap Dapodik',
+				'Integrasi sistem pelaporan',
+				'Mengurangi risiko kesalahan data'
+			],
+			stat: 'Pelaporan otomatis dengan\nkepatuhan regulasi 100%',
+			gradientFrom: '#e6a23c',
+			gradientTo: '#4b2e83'
+		},
+		{
+			category: 'DUKUNGAN AKADEMIK',
+			categoryColor: '#c88a2a',
+			categoryBg: '#e6a23c18',
+			title: 'Intervensi Dini untuk Keberhasilan Siswa',
+			desc: 'Identifikasi siswa yang membutuhkan bantuan dan lakukan intervensi sebelum terlambat.',
+			bullets: [
+				'Deteksi siswa "at-risk" lebih awal',
+				'Program remedial & enrichment terstruktur',
+				'Monitoring progres intervensi'
+			],
+			stat: '\u2191 Retensi siswa & peningkatan\nperforma akademik hingga 10\u201320%',
+			gradientFrom: '#edb85e',
+			gradientTo: '#8faf9a'
+		},
+		{
+			category: 'AKSES & SEKURITAS',
+			categoryColor: '#4a4f57',
+			categoryBg: '#4a4f5718',
+			title: 'Kontrol Akses Berbasis Peran',
+			desc: 'Memastikan setiap pengguna mengakses data yang relevan dengan tanggung jawabnya.',
+			bullets: [
+				'Sistem 5 role',
+				'Audit trail untuk setiap aktivitas',
+				'Pencegahan akses tidak sah'
+			],
+			stat: '5 peran, 100% kontrol akses\n& pelacakan aktivitas',
+			gradientFrom: '#d7d9dd',
+			gradientTo: '#4b2e83'
 		}
 	];
 
-	// Auto-advance
 	$effect(() => {
-		if (!visible || paused) return;
+		if (paused) return;
 		const id = setInterval(() => {
-			currentSlide = (currentSlide + 1) % slides.length;
-		}, 4500);
+			current = (current + 1) % slides.length;
+		}, 5000);
 		return () => clearInterval(id);
 	});
-
-	function goTo(i: number) {
-		currentSlide = i;
-		paused = true;
-	}
-
-	function prev() {
-		currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-		paused = true;
-	}
-
-	function next() {
-		currentSlide = (currentSlide + 1) % slides.length;
-		paused = true;
-	}
-
-	const slide = $derived(slides[currentSlide]);
 </script>
 
-<section class="px-6 py-24 md:py-36" use:reveal={() => (visible = true)}>
+<section
+	id="benefit"
+	class="px-6 py-20 md:py-28"
+	use:reveal={() => (visible = true)}
+	onmouseenter={() => (paused = true)}
+	onmouseleave={() => (paused = false)}
+>
 	<div class="mx-auto max-w-6xl">
-		<!-- Two-column layout: left = copy, right = mockup -->
-		<div class="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-			<!-- LEFT: Question + slide narrative -->
-			<div
-				class="transition-all duration-700 ease-out {visible
-					? 'translate-y-0 opacity-100'
-					: 'translate-y-8 opacity-0'}"
-			>
-				<!-- Static headline — the big question -->
-				<h2
-					class="text-[clamp(1.6rem,3.5vw,2.75rem)] leading-tight font-light tracking-tight text-ink/80"
-				>
-					What if every person, every process, and every piece of data were part of
-					<span class="font-normal text-plum">one connected system?</span>
-				</h2>
+		<!-- Header -->
+		<div
+			class="mb-12 text-center transition-all duration-700 ease-out {visible
+				? 'translate-y-0 opacity-100'
+				: 'translate-y-8 opacity-0'}"
+		>
+			<p class="mb-3 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
+				FITUR UTAMA
+			</p>
+			<h2 class="text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold tracking-tight text-ink">
+				Dirancang untuk Cara Kerja Institusi Modern
+			</h2>
+			<p class="mt-2 text-[15px] font-medium text-plum">
+				Setiap fitur dibangun untuk memberikan dampak nyata.
+			</p>
+		</div>
 
-				<!-- Divider pill -->
-				<div class="my-10 flex items-center gap-3">
-					<div class="h-px flex-1 bg-stone/30"></div>
-					<span class="rounded-full bg-ink px-3 py-1 text-[11px] font-medium text-white/50">
-						Masche in action
-					</span>
-					<div class="h-px flex-1 bg-stone/30"></div>
-				</div>
-
-				<!-- Slide content — fades between slides -->
-				{#key currentSlide}
-					<div in:fade={{ duration: 200 }}>
-						<!-- Role badges -->
-						<div class="mb-5 flex flex-wrap gap-1.5">
-							{#each slide.roles as role, i}
-								<span
-									class="rounded-lg px-2.5 py-1 text-[11px] font-medium text-white/70 {slide
-										.roleBgs[i]}"
-								>
-									{role}
-								</span>
-							{/each}
-						</div>
-
-						<!-- Before -->
-						<p class="mb-1 text-[11px] font-medium tracking-widest text-error/50 uppercase">
-							Before
-						</p>
-						<p class="mb-5 text-sm leading-relaxed text-slate/40 italic">
-							"{slide.pain}"
-						</p>
-
-						<!-- Arrow transition -->
-						<div class="mb-5 flex items-center gap-2">
-							<div class="h-px w-8 bg-stone/40"></div>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="2"
-								stroke="currentColor"
-								class="size-3.5 text-slate/30"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-								/>
-							</svg>
-						</div>
-
-						<!-- After -->
-						<p class="text-lg font-semibold text-ink">{slide.feature}</p>
-						<p class="mt-2 text-sm leading-relaxed text-slate/50">{slide.desc}</p>
-					</div>
-				{/key}
-
-				<!-- Navigation -->
-				<div class="mt-10 flex items-center gap-4">
-					<!-- Prev -->
-					<button
-						class="flex size-8 cursor-pointer items-center justify-center rounded-full border border-stone/30 text-slate/40 transition-all duration-200 hover:border-ink/20 hover:text-ink"
-						onclick={prev}
-						aria-label="Previous"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="2"
-							stroke="currentColor"
-							class="size-3.5"
+		<!-- Carousel card -->
+		<div
+			class="overflow-hidden rounded-3xl bg-white shadow-xl shadow-ink/6 transition-all delay-100 duration-700 ease-out {visible
+				? 'translate-y-0 opacity-100'
+				: 'translate-y-8 opacity-0'}"
+		>
+			<div class="grid md:grid-cols-[2fr_3fr]">
+				<!-- Left panel -->
+				<div class="flex flex-col justify-between p-8 md:p-10">
+					<div>
+						<span
+							class="inline-block rounded-full px-3 py-1 text-[10px] font-bold tracking-widest uppercase"
+							style="background-color: {slides[current].categoryBg}; color: {slides[current].categoryColor};"
 						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-							/>
-						</svg>
-					</button>
+							{slides[current].category}
+						</span>
 
-					<!-- Dots -->
-					<div class="flex items-center gap-2">
+						<h3
+							class="mt-4 text-[clamp(1.1rem,2vw,1.45rem)] font-bold leading-snug tracking-tight text-ink"
+						>
+							{slides[current].title}
+						</h3>
+
+						<div class="my-5 h-px w-full bg-stone/30"></div>
+
+						<p class="text-[13px] font-medium leading-relaxed text-slate/65">
+							{slides[current].desc}
+						</p>
+
+						<ul class="mt-5 space-y-2.5">
+							{#each slides[current].bullets as bullet}
+								<li class="flex items-start gap-2.5">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										class="mt-0.5 size-4 shrink-0 text-plum"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+											clip-rule="evenodd"
+										/>
+									</svg>
+									<span class="text-[13px] text-slate/60">{bullet}</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+
+					<!-- Dot pagination -->
+					<div class="mt-8 flex items-center gap-2">
 						{#each slides as _, i}
 							<button
-								class="cursor-pointer rounded-full transition-all duration-300 {i === currentSlide
-									? 'h-2 w-5 bg-ink'
-									: 'size-2 bg-stone/50 hover:bg-stone'}"
-								onclick={() => goTo(i)}
-								aria-label="Go to slide {i + 1}"
+								onclick={() => { current = i; paused = true; }}
+								class="h-2 rounded-full transition-all duration-300 {i === current
+									? 'w-6 bg-plum'
+									: 'w-2 bg-stone hover:bg-slate/30'}"
+								aria-label="Slide {i + 1}"
 							></button>
 						{/each}
 					</div>
+				</div>
 
-					<!-- Next -->
-					<button
-						class="flex size-8 cursor-pointer items-center justify-center rounded-full border border-stone/30 text-slate/40 transition-all duration-200 hover:border-ink/20 hover:text-ink"
-						onclick={next}
-						aria-label="Next"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="2"
-							stroke="currentColor"
-							class="size-3.5"
+				<!-- Right panel: gradient placeholder with stat -->
+				<div class="relative min-h-72 overflow-hidden md:min-h-0">
+					<div
+						class="absolute inset-0 transition-all duration-700"
+						style="background: linear-gradient(135deg, {slides[current].gradientFrom} 0%, {slides[current].gradientTo} 100%);"
+					></div>
+					<div class="absolute bottom-8 left-8 right-8">
+						<p
+							class="text-[clamp(1.1rem,2.5vw,1.8rem)] font-bold leading-snug text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.3)]"
 						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-							/>
-						</svg>
-					</button>
-				</div>
-			</div>
-
-			<!-- RIGHT: Live activity mockup -->
-			<div
-				class="overflow-hidden rounded-2xl border border-stone/20 shadow-xl transition-all delay-150 duration-700 ease-out {visible
-					? 'translate-y-0 opacity-100'
-					: 'translate-y-10 opacity-0'}"
-				style="background-color: {slide.accentColor}07;"
-				onmouseenter={() => (paused = true)}
-				onmouseleave={() => (paused = false)}
-				role="region"
-				aria-label="Feature demonstration"
-			>
-				<!-- Browser chrome -->
-				<div class="flex items-center gap-2 border-b border-stone/20 bg-white/60 px-4 py-3">
-					<span class="size-2.5 rounded-full bg-stone/50"></span>
-					<span class="size-2.5 rounded-full bg-stone/50"></span>
-					<span class="size-2.5 rounded-full bg-stone/50"></span>
-					<div class="ml-3 flex-1 rounded-full bg-white/80 px-3 py-1">
-						<span class="text-[10px] text-slate/30">{slide.url}</span>
-					</div>
-				</div>
-
-				<!-- Mockup body -->
-				{#key currentSlide}
-					<div class="p-5" in:fade={{ duration: 200 }}>
-						<!-- Header row -->
-						<div class="mb-4 flex items-start justify-between">
-							<div>
-								<p class="text-sm font-semibold text-ink">{slide.feature}</p>
-								<p class="text-[11px] text-slate/40">Live activity log</p>
-							</div>
-							<!-- Before → After stat -->
-							<div class="rounded-xl bg-white px-3 py-2 text-center ring-1 ring-stone/15">
-								<p class="text-[9px] text-slate/35 line-through">{slide.stat.before}</p>
-								<p class="text-xs font-semibold" style="color: {slide.accentColor};">
-									{slide.stat.after}
-								</p>
-							</div>
-						</div>
-
-						<!-- Activity feed -->
-						<div class="space-y-2">
-							{#each slide.activity as item, i}
-								<div
-									class="flex items-start gap-2.5 rounded-xl bg-white px-3.5 py-2.5 ring-1 transition-all duration-300 {item.status ===
-									'done'
-										? 'ring-success/25'
-										: 'ring-stone/10'}"
-									style="transition-delay: {i * 70}ms;"
-								>
-									<div
-										class="mt-1.5 size-1.5 shrink-0 rounded-full {item.status === 'warn'
-											? 'bg-warning'
-											: item.status === 'done'
-												? 'bg-success'
-												: 'bg-success/50'}"
-									></div>
-									<p
-										class="text-[12px] leading-relaxed {item.status === 'done'
-											? 'font-medium text-ink'
-											: 'text-slate/60'}"
-									>
-										{item.text}
-									</p>
-									{#if item.status === 'done'}
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="2.5"
-											stroke="currentColor"
-											class="mt-0.5 ml-auto size-3 shrink-0 text-success"
-										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												d="m4.5 12.75 6 6 9-13.5"
-											/>
-										</svg>
-									{/if}
-								</div>
+							{#each slides[current].stat.split('\n') as line, i}
+								{#if i > 0}<br />{/if}{line}
 							{/each}
-						</div>
+						</p>
 					</div>
-				{/key}
+				</div>
 			</div>
 		</div>
-
-		<!-- Bottom bridge text -->
-		<!-- <p
-			class="mx-auto mt-20 max-w-xl text-center text-base leading-relaxed text-slate/40 transition-all delay-300 duration-700 ease-out {visible
-				? 'translate-y-0 opacity-100'
-				: 'translate-y-6 opacity-0'}"
-		>
-			Masche doesn't replace your tools. It becomes the invisible architecture underneath —
-			connecting academics, operations, finance, and communication into one coherent system.
-		</p> -->
 	</div>
 </section>

@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import logo from '$lib/assets/masche-logo-primary-03.png';
+	import logoDark from '$lib/assets/masche-logo-primary-02.png';
 
 	let scrollY = $state(0);
 	let heroHeight = $state(0);
@@ -19,28 +20,46 @@
 	});
 
 	let pastHero = $derived(scrollY >= heroHeight && heroHeight > 0);
+
+	const navLinks = [
+		{ label: 'Produk & Fitur', href: `${base}/#produk` },
+		{ label: 'Benefit', href: `${base}/#benefit` },
+		{ label: 'Artikel', href: `${base}/#artikel` },
+		{ label: 'Tentang Kami', href: `${base}/about` },
+		{ label: 'Kontak', href: `${base}/contact` }
+	];
 </script>
 
 <svelte:window bind:scrollY />
 
-<header class="fixed top-0 z-50 w-full backdrop-blur-sm transition-colors duration-300 {pastHero ? 'bg-plum' : 'bg-plum/80'}">
+<header
+	class="fixed top-0 z-50 w-full transition-all duration-300 bg-white"
+>
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
 		<a href="{base}/" class="transition-opacity duration-200 hover:opacity-70">
-			<img src={logo} alt="Masche Academics" class="h-7 w-auto" />
+			<img
+				src={logoDark}
+				alt="Masche Academics"
+				class="h-7 w-auto transition-all duration-300"
+			/>
 		</a>
 
-		<!-- <nav class="hidden items-center gap-8 md:flex">
-			<a href="#ecosystem" class="cursor-pointer text-[13px] text-slate/60 transition-colors duration-200 hover:text-ink">How it works</a>
-			<a href="#product" class="cursor-pointer text-[13px] text-slate/60 transition-colors duration-200 hover:text-ink">Product</a>
-			<a href="#impact" class="cursor-pointer text-[13px] text-slate/60 transition-colors duration-200 hover:text-ink">Impact</a>
-			<a href="#testimonials" class="cursor-pointer text-[13px] text-slate/60 transition-colors duration-200 hover:text-ink">Proof</a>
-		</nav> -->
+		<nav class="hidden items-center gap-7 md:flex">
+			{#each navLinks as link}
+				<a
+					href={link.href}
+					class="text-[13px] font-medium transition-colors duration-200 text-black"
+				>
+					{link.label}
+				</a>
+			{/each}
+		</nav>
 
 		<a
-			href="{base}/#cta"
-			class="cursor-pointer rounded-full bg-white px-5 py-2 text-[13px] font-medium text-black transition-all duration-200 hover:bg-plum-light hover:shadow-lg hover:shadow-plum/15"
+			href="{base}/contact"
+			class="cursor-pointer rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all duration-200 bg-plum text-white hover:bg-plum-light hover:shadow-md hover:shadow-plum/20"
 		>
-			Request Demo
+			Hubungi Kami
 		</a>
 	</div>
 </header>

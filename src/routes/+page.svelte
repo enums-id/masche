@@ -10,6 +10,7 @@
 	import Testimonials from '$lib/components/landing/Testimonials.svelte';
 	import CallToAction from '$lib/components/landing/CallToAction.svelte';
 	import Footer from '$lib/components/landing/Footer.svelte';
+	import NewHero from '$lib/components/landing/NewHero.svelte';
 </script>
 
 <svelte:head>
@@ -22,12 +23,13 @@
 
 <div class="min-h-screen bg-white font-sans text-ink antialiased selection:bg-plum/10">
 	<Navbar />
-	<Hero />
-	<Ecosystem />
-	<PainPoints />
-	<TheShift />
+	<NewHero />
+	<!-- <Ecosystem /> -->
+	<!-- <PainPoints /> -->
 	<Product />
-	<Impact />
+	<TheShift />
+	<!-- <Impact /> -->
+	<Ecosystem />
 	<!-- <ProductPreview /> -->
 	<Testimonials />
 	<CallToAction />
