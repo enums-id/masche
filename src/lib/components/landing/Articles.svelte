@@ -1,51 +1,44 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
+	import { articles } from '$lib/data/articles';
 
 	let visible = $state(false);
 
-	const articles = [
-		{
-			title: 'Mengurangi Beban Administratif Guru Tanpa Mengorbankan Kualitas Pembelajaran',
-			desc: 'Guru menghabiskan rata-rata 30% waktunya untuk urusan administratif. Temukan bagaimana otomatisasi sistem dapat mengembalikan fokus ke hal yang paling penting: mengajar.',
-			gradient: 'linear-gradient(135deg, #4b2e83 0%, #7c5cbf 100%)',
-			tag: 'Produktivitas'
-		},
-		{
-			title: 'Mengelola Multi-Unit Sekolah dengan Sistem Terpusat',
-			desc: 'Yayasan dengan banyak unit sekolah sering menghadapi tantangan koordinasi dan visibilitas data. Pelajari pendekatan terpadu untuk mengelola seluruh ekosistem dari satu dashboard.',
-			gradient: 'linear-gradient(135deg, #8faf9a 0%, #5a8a6a 100%)',
-			tag: 'Manajemen'
-		},
-		{
-			title: 'Pentingnya Data Terintegrasi untuk Pemantauan Perkembangan Siswa',
-			desc: 'Data yang tersebar di berbagai sistem membuat pengambilan keputusan menjadi lambat dan tidak akurat. Simak bagaimana integrasi data mengubah cara institusi memantau performa siswa.',
-			gradient: 'linear-gradient(135deg, #e6a23c 0%, #edb85e 100%)',
-			tag: 'Data & Insight'
-		}
-	];
+	// Show first 3 on landing
+	const preview = articles.slice(0, 3);
 </script>
 
 <section id="artikel" class="scroll-mt-24 px-6 py-20 md:py-28" use:reveal={() => (visible = true)}>
 	<div class="mx-auto max-w-6xl">
 		<!-- Header -->
 		<div
-			class="mb-12 text-center transition-all duration-700 ease-out {visible
+			class="mb-12 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end transition-all duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum uppercase">
-				ARTIKEL MASCHE
-			</p>
-			<h2 class="text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold tracking-tight text-ink">
-				Wawasan untuk Institusi yang Terus Berkembang
-			</h2>
+			<div>
+				<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum uppercase">
+					ARTIKEL MASCHE
+				</p>
+				<h2 class="text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold tracking-tight text-ink">
+					Wawasan untuk Institusi<br class="hidden sm:block" /> yang Terus Berkembang
+				</h2>
+			</div>
+			<a
+				href="{base}/articles"
+				class="shrink-0 cursor-pointer rounded-full border border-plum/25 px-5 py-2.5 text-[13px] font-semibold text-plum transition-all duration-200 hover:bg-plum hover:text-white"
+			>
+				Lihat Semua Artikel
+			</a>
 		</div>
 
 		<!-- Article cards -->
 		<div class="grid gap-6 md:grid-cols-3">
-			{#each articles as article, i}
-				<div
-					class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-stone/10 transition-all duration-700 ease-out hover:shadow-md hover:ring-plum/15 {visible
+			{#each preview as article, i}
+				<a
+					href="{base}/articles/{article.slug}"
+					class="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-stone/10 transition-all duration-700 ease-out hover:shadow-md hover:ring-plum/15 hover:-translate-y-0.5 {visible
 						? 'translate-y-0 opacity-100'
 						: 'translate-y-8 opacity-0'}"
 					style="transition-delay: {100 + i * 100}ms;"
@@ -64,22 +57,29 @@
 
 					<!-- Content -->
 					<div class="flex flex-1 flex-col p-6">
-						<h3 class="text-[15px] font-bold leading-snug text-plum">
+						<div class="flex items-center gap-2 text-[11px] text-slate/40">
+							<span>{article.date}</span>
+							<span>&middot;</span>
+							<span>{article.readTime}</span>
+						</div>
+						<h3 class="mt-2 flex-1 text-[15px] font-bold leading-snug text-ink group-hover:text-plum transition-colors duration-200">
 							{article.title}
 						</h3>
-						<p class="mt-3 flex-1 text-[13px] leading-relaxed text-slate/55">
-							{article.desc}
-						</p>
-						<div class="mt-5">
-							<button
-								type="button"
-								class="cursor-pointer rounded-full border border-plum/25 px-4 py-2 text-[12px] font-semibold text-plum transition-all duration-200 hover:bg-plum hover:text-white"
+						<div class="mt-4 flex items-center gap-1.5 text-[12px] font-semibold text-plum">
+							Baca selengkapnya
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								class="size-3.5 transition-transform duration-200 group-hover:translate-x-1"
 							>
-								Baca selengkapnya
-							</button>
+								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+							</svg>
 						</div>
 					</div>
-				</div>
+				</a>
 			{/each}
 		</div>
 	</div>
