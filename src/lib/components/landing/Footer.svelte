@@ -6,27 +6,29 @@
 
 	const nav = [
 		{
-			heading: 'Product',
+			heading: 'Produk',
 			links: [
-				{ label: 'Academic Core', href: `${base}/#product` },
-				{ label: 'Finance', href: `${base}/#product`, soon: true },
-				{ label: 'Human Resources', href: `${base}/#product`, soon: true },
-				{ label: 'Facilities', href: `${base}/#product`, soon: true }
+				{ label: 'Manajemen Akademik', href: `${base}/#produk` },
+				{ label: 'Operasional Akademik', href: `${base}/#produk` },
+				{ label: 'Perkembangan Siswa', href: `${base}/#produk` },
+				{ label: 'Keuangan', href: `${base}/#produk`, soon: true },
+				{ label: 'HR & Staff', href: `${base}/#produk`, soon: true },
+				{ label: 'Artikel', href: `${base}/#artikel` }
 			]
 		},
 		{
-			heading: 'Company',
+			heading: 'Perusahaan',
 			links: [
-				{ label: 'About', href: `${base}/about` },
-				{ label: 'Contact', href: `${base}/contact` }
+				{ label: 'Tentang Kami', href: `${base}/about` },
+				{ label: 'Kontak', href: `${base}/contact` }
 			]
 		},
 		{
 			heading: 'Legal',
 			links: [
-				{ label: 'Privacy Policy', href: `${base}/legal/privacy` },
-				{ label: 'Security', href: `${base}/legal/security` },
-				{ label: 'Terms of Service', href: `${base}/legal/terms` }
+				{ label: 'Kebijakan Privasi', href: `${base}/legal/privacy` },
+				{ label: 'Keamanan', href: `${base}/legal/security` },
+				{ label: 'Syarat & Ketentuan', href: `${base}/legal/terms` }
 			]
 		}
 	];
@@ -41,8 +43,8 @@
 			<!-- Brand -->
 			<div>
 				<img src={logo} alt="Masche Academics" class="h-7 w-auto" />
-				<p class="mt-4 max-w-50 text-[13px] leading-relaxed text-slate/40">
-					The system behind every well-run school.
+				<p class="mt-4 max-w-52 text-[13px] leading-relaxed text-slate/40">
+					Sistem operasi untuk institusi pendidikan modern.
 				</p>
 				<!-- Social icons -->
 				<div class="mt-6 flex items-center gap-3">
@@ -82,7 +84,7 @@
 								>
 									{link.label}
 									{#if link.soon}
-										<span class="ml-1.5 rounded-full bg-stone/10 px-2 py-0.5 text-[9px] font-medium text-slate/35">Soon</span>
+										<span class="ml-1.5 rounded-full bg-stone/10 px-2 py-0.5 text-[9px] font-medium text-slate/35">Segera</span>
 									{/if}
 								</a>
 							</li>
@@ -96,10 +98,10 @@
 		<!-- Bottom bar -->
 		<div class="mt-16 flex flex-col items-center justify-between gap-4 border-t border-stone/10 pt-8 md:flex-row">
 			<p class="text-[12px] text-slate/30">
-				&copy; {currentYear} Masche Academics. All rights reserved.
+				&copy; {currentYear} Masche Academics. Semua hak dilindungi.
 			</p>
 			<p class="text-[12px] text-slate/25">
-				Built by <span class="text-slate/40">Enums</span>
+				Dibuat oleh <span class="text-slate/40">Enums</span>
 			</p>
 		</div>
 

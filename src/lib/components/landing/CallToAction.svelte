@@ -1,63 +1,73 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
+	import logo from '$lib/assets/masche-logo-primary-02.png';
 
 	let visible = $state(false);
 </script>
 
-<section id="cta" class="scroll-mt-24 px-6 py-32 md:py-48" use:reveal={() => (visible = true)}>
-	<div class="mx-auto max-w-4xl text-center">
+<!-- Top gradient section -->
+<div
+	class="relative overflow-hidden px-6 py-28 text-center"
+	style="background: linear-gradient(135deg, #4b2e83 0%, #7c5cbf 50%, #2d1a5e 100%);"
+	use:reveal={() => (visible = true)}
+>
+	<!-- Ambient color blobs -->
+	<div
+		class="pointer-events-none absolute top-0 left-0 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-[80px]"
+		style="background: #e6a23c;"
+	></div>
+	<div
+		class="pointer-events-none absolute right-0 bottom-0 h-96 w-96 translate-x-1/3 translate-y-1/3 rounded-full opacity-20 blur-[100px]"
+		style="background: #8faf9a;"
+	></div>
+
+	<div class="relative z-10">
 		<h2
-			class="text-[clamp(2rem,6vw,4.5rem)] leading-[1.08] font-bold tracking-tight text-ink transition-all duration-1000 ease-out {visible
+			class="text-[clamp(1.8rem,5vw,3.5rem)] font-bold leading-tight tracking-tight text-white transition-all duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
-				: 'translate-y-10 opacity-0'}"
+				: 'translate-y-8 opacity-0'}"
 		>
-			Your institution<br />deserves a backbone.
+			Dibangun untuk lebih dari<br />sekadar efisiensi.
 		</h2>
 		<p
-			class="mx-auto mt-6 max-w-lg text-lg text-slate/40 transition-all delay-150 duration-700 ease-out {visible
+			class="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/60 transition-all delay-150 duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-6 opacity-0'}"
 		>
-			Not another dashboard. Not another app.<br />
-			The invisible architecture that holds everything together.
-		</p>
-
-		<div
-			class="mt-14 flex flex-col items-center gap-4 transition-all delay-300 duration-700 ease-out sm:flex-row sm:justify-center {visible
-				? 'translate-y-0 opacity-100'
-				: 'translate-y-6 opacity-0'}"
-		>
-			<a
-				href="{base}/contact"
-				class="group relative inline-flex cursor-pointer items-center gap-3 overflow-hidden rounded-full bg-plum px-10 py-5 text-lg font-semibold text-white transition-all duration-300 hover:shadow-2xl hover:shadow-plum/20"
-			>
-				<span class="relative z-10">Request Demo</span>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="2"
-					stroke="currentColor"
-					class="relative z-10 size-5 transition-transform duration-300 group-hover:translate-x-1"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-					/></svg
-				>
-				<div
-					class="absolute inset-0 -translate-x-full bg-plum-light transition-transform duration-500 ease-out group-hover:translate-x-0"
-				></div>
-			</a>
-		</div>
-
-		<p
-			class="mt-8 text-[13px] text-slate/25 transition-all delay-500 duration-700 ease-out {visible
-				? 'opacity-100'
-				: 'opacity-0'}"
-		>
-			Free for 30 days &middot; No credit card required &middot; Setup in 5 minutes
+			MASCHE hadir sebagai fondasi bagi institusi yang ingin bertumbuh.
 		</p>
 	</div>
-</section>
+
+	<!-- Overlapping card — pulled up with negative margin on the card itself -->
+	<div
+		class="relative z-10 mx-auto mt-16 max-w-2xl transition-all delay-300 duration-700 ease-out {visible
+			? 'translate-y-0 opacity-100'
+			: 'translate-y-10 opacity-0'}"
+	>
+		<div class="rounded-3xl bg-white px-8 py-10 shadow-2xl shadow-plum/20 ring-1 ring-stone/10">
+			<img src={logo} alt="Masche Academics" class="mx-auto mb-6 h-7 w-auto" />
+			<h3 class="text-[1.4rem] font-bold tracking-tight text-ink">
+				Mari mulai dari kebutuhan Anda.
+			</h3>
+			<p class="mx-auto mt-3 max-w-md text-[14px] leading-relaxed text-slate/50">
+				Setiap institusi memiliki kebutuhan yang berbeda. Kami siap membantu Anda menemukan
+				konfigurasi yang paling tepat untuk sekolah Anda.
+			</p>
+			<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+				<a
+					href="{base}/contact"
+					class="w-full cursor-pointer rounded-full border border-stone/30 px-7 py-3.5 text-[14px] font-semibold text-slate/70 transition-all duration-200 hover:border-ink/30 hover:text-ink sm:w-auto"
+				>
+					Konsultasi Kebutuhan
+				</a>
+				<a
+					href="{base}/contact"
+					class="w-full cursor-pointer rounded-full bg-amber px-7 py-3.5 text-[14px] font-semibold text-white transition-all duration-200 hover:bg-amber-dark hover:shadow-lg hover:shadow-amber/25 sm:w-auto"
+				>
+					Request Demo
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

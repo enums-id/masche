@@ -3,58 +3,91 @@
 
 	let visible = $state(false);
 
+	const logos = Array.from({ length: 6 }, (_, i) => i);
+
 	const testimonials = [
 		{
-			quote: 'Masche transformed how we operate. What used to take weeks of coordination now happens seamlessly in the background.',
-			name: 'Dr. Sarah Okonkwo',
-			role: 'Vice Chancellor, Westfield University',
+			quote:
+				'Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.',
+			name: 'Kepala Sekolah',
+			role: 'Sekolah Swasta, Jakarta',
+			initials: 'KS',
 			color: 'bg-plum'
 		},
 		{
-			quote: 'Every department, every schedule, every record — it all just works together. Our staff finally has time to focus on teaching.',
-			name: 'James Hartley',
-			role: 'Head of Administration, Brighton Academy',
-			color: 'bg-sage'
+			quote:
+				'Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.',
+			name: 'Guru',
+			role: 'SMP, Bandung',
+			initials: 'GR',
+			color: 'bg-sage-dark'
 		},
 		{
-			quote: "We evaluated six platforms before choosing Masche. Nothing came close to the level of thoughtful design we found here.",
-			name: 'Prof. Amina Diallo',
-			role: 'Dean of Sciences, Maputo Institute',
-			color: 'bg-amber'
+			quote:
+				'Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.',
+			name: 'Staff Administrasi',
+			role: 'SMA, Surabaya',
+			initials: 'SA',
+			color: 'bg-amber-dark'
 		}
 	];
 </script>
 
-<section id="testimonials" class="scroll-mt-24 px-6 py-24 md:py-36" use:reveal={() => (visible = true)}>
+<section class="px-6 py-20 md:py-28" use:reveal={() => (visible = true)}>
 	<div class="mx-auto max-w-6xl">
+
+		<!-- School logo row -->
 		<div
-			class="mb-16 text-center transition-all duration-700 ease-out {visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}"
+			class="mb-14 transition-all duration-700 ease-out {visible
+				? 'translate-y-0 opacity-100'
+				: 'translate-y-8 opacity-0'}"
 		>
-			<p class="text-[13px] font-medium tracking-widest text-plum/50 uppercase">What they say</p>
-			<h2 class="mt-2 text-3xl font-bold tracking-tight text-ink md:text-4xl">
-				Trusted by institutions worldwide.
-			</h2>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				{#each logos as _, i}
+					<div
+						class="flex h-16 w-32 items-center justify-center rounded-2xl bg-white shadow-sm"
+						style="transition-delay: {i * 60}ms;"
+					>
+						<div class="h-8 w-20 rounded-lg bg-stone/40"></div>
+					</div>
+				{/each}
+			</div>
 		</div>
 
-		<div
-			class="grid gap-6 transition-all delay-150 duration-700 ease-out md:grid-cols-3 {visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}"
-		>
+		<!-- Testimonial cards -->
+		<div class="grid gap-5 md:grid-cols-3">
 			{#each testimonials as t, i}
 				<div
-					class="flex flex-col rounded-2xl border border-stone/15 bg-white p-8 transition-all duration-300 hover:border-plum/10 hover:shadow-lg hover:shadow-plum/3"
-					style="transition-delay: {i * 100}ms"
+					class="rounded-3xl bg-lavender p-7 transition-all duration-700 ease-out {visible
+						? 'translate-y-0 opacity-100'
+						: 'translate-y-8 opacity-0'}"
+					style="transition-delay: {100 + i * 100}ms;"
 				>
-					<svg class="mb-5 size-8 text-plum/15" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path d="M10.7 22.7c-1.3 0-2.4-.4-3.3-1.3-.9-.9-1.3-2-1.3-3.3 0-.5.1-1.1.2-1.7.2-.6.4-1.3.8-2L11.4 6h4.1l-3.2 7.6c.6-.1 1.1-.1 1.6 0 .5.1 1 .3 1.4.6.6.4 1.1 1 1.4 1.7.3.7.5 1.4.5 2.2 0 1.3-.5 2.4-1.4 3.3-.9.9-2 1.3-3.2 1.3h-.1Zm12 0c-1.3 0-2.4-.4-3.3-1.3-.9-.9-1.3-2-1.3-3.3 0-.5.1-1.1.2-1.7.2-.6.4-1.3.8-2L23.4 6h4.1l-3.2 7.6c.6-.1 1.1-.1 1.6 0 .5.1 1 .3 1.4.6.6.4 1.1 1 1.4 1.7.3.7.5 1.4.5 2.2 0 1.3-.5 2.4-1.4 3.3-.9.9-2 1.3-3.2 1.3h-.1Z" />
+					<!-- Quote mark -->
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="mb-4 size-6 text-plum/30"
+					>
+						<path
+							d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+						/>
 					</svg>
-					<p class="flex-1 text-[15px] leading-relaxed text-slate/60 italic">"{t.quote}"</p>
-					<div class="mt-6 flex items-center gap-3 border-t border-stone/10 pt-5">
-						<div class="flex size-10 items-center justify-center rounded-full {t.color} text-xs font-bold text-white">
-							{t.name.split(' ').map((n) => n[0]).slice(0, 2).join('')}
+
+					<p class="text-[14px] italic leading-relaxed text-slate/70">
+						"{t.quote}"
+					</p>
+
+					<div class="mt-6 flex items-center gap-3">
+						<div
+							class="flex size-9 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white {t.color}"
+						>
+							{t.initials}
 						</div>
 						<div>
-							<p class="text-sm font-semibold text-ink">{t.name}</p>
-							<p class="text-[12px] text-slate/40">{t.role}</p>
+							<p class="text-[13px] font-semibold text-ink">{t.name}</p>
+							<p class="text-[11px] text-slate/45">{t.role}</p>
 						</div>
 					</div>
 				</div>

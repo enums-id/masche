@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
 
 	let visible = $state(false);
@@ -122,13 +123,15 @@
 	<div class="mx-auto max-w-6xl">
 		<!-- Header -->
 		<div
-			class="mb-16 max-w-2xl transition-all duration-700 ease-out mx-auto {visible
+			class="mb-16 max-w-2xl transition-all duration-700 ease-out mx-auto text-center {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<h2 class="mt-2 text-3xl font-bold tracking-tight text-ink md:text-4xl">
-				Nilai untuk Setiap
-Peran dalam Institusi
+			<p class="mb-3 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
+				NILAI UNTUK SETIAP PERAN
+			</p>
+			<h2 class="text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold tracking-tight text-ink">
+				Nilai untuk Setiap Peran dalam Institusi
 			</h2>
 		</div>
 
@@ -232,7 +235,7 @@ Peran dalam Institusi
 						{/if}
 
 						<!-- Node shape -->
-					<img src={`/icons/${node.id}.svg`} class="w-fit h-16 bg-white rounded-md" alt=""/>
+					<img src={`${base}/icons/${node.id}.svg`} class="w-fit h-16 bg-white rounded-md" alt=""/>
 					</div>
 
 					<!-- Label -->
@@ -258,15 +261,14 @@ Peran dalam Institusi
 					<p class="text-sm text-slate/60">
 						<span class="font-semibold text-ink">{activeNode.label}</span>
 						&nbsp;&mdash;&nbsp;
-						{activeNode.desc}
+						{activeNode.sublabel}
 					</p>
 					<p class="mt-1 text-[11px] text-plum/50">
-						{activeConnectionCount} direct connection{activeConnectionCount !== 1 ? 's' : ''} within the
-						ecosystem
+						{activeConnectionCount} koneksi langsung dalam ekosistem
 					</p>
 				</div>
 			{:else}
-				<p class="text-sm text-slate/30">Hover any role above to explore how they're connected</p>
+				<p class="text-sm text-slate/30">Arahkan kursor ke peran mana pun untuk melihat koneksinya</p>
 			{/if}
 		</div>
 
@@ -295,7 +297,7 @@ Peran dalam Institusi
 					</div>
 					<div>
 						<p class="text-sm font-semibold text-ink">{node.label}</p>
-						<p class="mt-0.5 text-[12px] leading-relaxed text-slate/50">{node.desc}</p>
+						<p class="mt-0.5 text-[12px] leading-relaxed text-slate/50">{node.sublabel}</p>
 					</div>
 				</div>
 			{/each}
