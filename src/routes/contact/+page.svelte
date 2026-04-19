@@ -2,33 +2,15 @@
 	import { base } from '$app/paths';
 	import PageShell from '$lib/components/PageShell.svelte';
 	import { reveal } from '$lib/actions/reveal';
+	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
 	let submitted = $state(false);
 
-	const roles = [
-		'Pemilik Yayasan / Sekolah',
-		'Kepala Sekolah',
-		'Wakil Kepala Sekolah',
-		'Staf IT',
-		'Guru',
-		'Lainnya'
-	];
-
-	const faqs = [
-		{
-			q: 'Bagaimana cara mendapatkan demo?',
-			a: 'Isi formulir di atas atau hubungi kami langsung via email. Kami akan menjadwalkan sesi walkthrough personal dalam waktu 48 jam.'
-		},
-		{
-			q: 'Apakah ada masa percobaan gratis?',
-			a: 'Ya — 30 hari gratis tanpa kartu kredit. Anda akan mendapatkan akses penuh untuk mengeksplorasi platform dengan data Anda sendiri.'
-		},
-		{
-			q: 'Sekolah seperti apa yang didukung?',
-			a: 'Masche dibangun untuk institusi pendidikan K-12 di seluruh Indonesia, dari sekolah satu kampus hingga jaringan multi-unit.'
-		}
-	];
+	const c = $derived((content as any)[langStore.value].contact);
+	const roles = $derived(c.formRoles);
+	const faqs = $derived(c.faqs);
 
 	function handleSubmit(e: Event) {
 		e.preventDefault();
@@ -36,7 +18,7 @@
 	}
 </script>
 
-<PageShell title="Hubungi Kami" subtitle="Kami senang mendengar dari Anda.">
+<PageShell title={c.pageTitle} subtitle={c.pageSubtitle}>
 	<div use:reveal={() => (visible = true)}>
 		<div
 			class="grid gap-12 transition-all duration-700 ease-out md:grid-cols-[1.5fr_1fr] {visible
@@ -61,56 +43,57 @@
 								<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
 							</svg>
 						</div>
-						<h3 class="text-lg font-bold text-ink">Pesan terkirim!</h3>
+						<h3 class="text-lg font-bold text-ink">{c.successTitle}</h3>
 						<p class="mt-2 text-[14px] text-slate/50">
-							Kami akan menghubungi Anda dalam 1 hari kerja.
+							{c.successMessage}
 						</p>
 					</div>
 				{:else}
 					<form class="space-y-5" onsubmit={handleSubmit}>
 						<div>
 							<label for="name" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Nama Lengkap</label
+								>{c.formName}</label
 							>
 							<input
 								id="name"
 								type="text"
 								required
 								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="Nama lengkap Anda"
+								placeholder={c.formNamePlaceholder}
 							/>
 						</div>
 						<div>
 							<label for="email" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Alamat Email</label
+								>{c.formEmail}</label
 							>
 							<input
 								id="email"
 								type="email"
 								required
 								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="anda@sekolah.sch.id"
+								placeholder={c.formEmailPlaceholder}
 							/>
 						</div>
 						<div>
 							<label for="institution" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Nama Institusi</label
+								>{c.formInstitution}</label
 							>
 							<input
 								id="institution"
 								type="text"
 								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="Nama sekolah atau organisasi Anda"
+								placeholder={c.formInstitutionPlaceholder}
 							/>
 						</div>
 						<div>
-							<label for="role" class="mb-1.5 block text-[13px] font-medium text-ink">Jabatan</label
+							<label for="role" class="mb-1.5 block text-[13px] font-medium text-ink"
+								>{c.formRole}</label
 							>
 							<select
 								id="role"
 								class="w-full rounded-xl border border-stone/20 bg-white px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
 							>
-								<option value="" disabled selected>Pilih jabatan Anda</option>
+								<option value="" disabled selected>Select your role</option>
 								{#each roles as role}
 									<option value={role}>{role}</option>
 								{/each}
@@ -118,21 +101,21 @@
 						</div>
 						<div>
 							<label for="message" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Pesan</label
+								>{c.formMessage}</label
 							>
 							<textarea
 								id="message"
 								rows="4"
 								required
 								class="w-full resize-none rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="Ceritakan tentang sekolah Anda dan apa yang Anda butuhkan..."
+								placeholder={c.formMessagePlaceholder}
 							></textarea>
 						</div>
 						<button
 							type="submit"
 							class="w-full cursor-pointer rounded-full bg-plum px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-plum/20"
 						>
-							Kirim Pesan
+							{c.formSubmit}
 						</button>
 					</form>
 				{/if}
@@ -202,7 +185,7 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-6 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				Pertanyaan Umum
+				{c.faqTitle}
 			</p>
 			<div class="grid gap-4 md:grid-cols-3">
 				{#each faqs as faq}

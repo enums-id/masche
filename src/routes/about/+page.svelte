@@ -2,34 +2,17 @@
 	import { base } from '$app/paths';
 	import PageShell from '$lib/components/PageShell.svelte';
 	import { reveal } from '$lib/actions/reveal';
+	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
 
-	const values = [
-		{
-			title: 'Sekolah adalah ekosistem',
-			desc: 'Setiap peran — manajemen, guru, staf, siswa, dan orang tua — saling terhubung. Platform kami mencerminkan realita tersebut.',
-			color: 'bg-plum/10 text-plum'
-		},
-		{
-			title: 'Data harus melayani manusia',
-			desc: 'Bukan sebaliknya. Kami mengubah data mentah menjadi insight yang jelas dan dapat ditindaklanjuti oleh setiap pemangku kepentingan.',
-			color: 'bg-sage/15 text-sage-dark'
-		},
-		{
-			title: 'Kesederhanaan adalah fitur',
-			desc: 'Sistem yang powerful tidak harus rumit. Kami terus berupaya membuat alur kerja yang kompleks terasa mudah dan alami.',
-			color: 'bg-amber/10 text-amber-dark'
-		},
-		{
-			title: 'Dibangun untuk Indonesia',
-			desc: 'Dilokalisasi sejak awal — NISN, IJAZAH, antarmuka dwibahasa, dan kepatuhan terhadap standar pendidikan nasional.',
-			color: 'bg-ink/8 text-ink'
-		}
-	];
+	const c = $derived((content as any)[langStore.value].about);
+	const colorMap = ['bg-plum/10 text-plum', 'bg-sage/15 text-sage-dark', 'bg-amber/10 text-amber-dark', 'bg-ink/8 text-ink'];
+	const values = $derived(c.values.map((v: any, i: number) => ({ ...v, color: colorMap[i] })));
 </script>
 
-<PageShell title="Tentang Masche Academics" subtitle="Sistem di balik setiap sekolah yang berjalan dengan baik.">
+<PageShell title={c.pageTitle} subtitle={c.pageSubtitle}>
 	<div class="space-y-20" use:reveal={() => (visible = true)}>
 		<!-- Misi -->
 		<section
@@ -38,23 +21,15 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				Misi Kami
+				{c.missionLabel}
 			</p>
 			<h2 class="text-2xl font-bold tracking-tight text-ink">
-				Membawa kejelasan dalam pengelolaan pendidikan.
+				{c.missionTitle}
 			</h2>
 			<div class="mt-6 max-w-2xl space-y-4 text-[15px] leading-relaxed text-slate/60">
-				<p>
-					Di seluruh Indonesia, ribuan sekolah masih beroperasi dengan tambal sulam spreadsheet, grup
-					WhatsApp, formulir kertas, dan perangkat lunak yang tidak terhubung satu sama lain. Data
-					akademik ada di satu sistem, absensi di sistem lain, keuangan di sistem ketiga — dan
-					semuanya tidak bisa saling berbicara.
-				</p>
-				<p>
-					Masche Academics hadir untuk menggantikan fragmentasi itu dengan satu platform yang
-					koheren. Kami memberikan infrastruktur yang layak bagi sekolah — agar administrator bisa
-					fokus memimpin, guru bisa fokus mengajar, dan siswa bisa fokus belajar.
-				</p>
+				{#each c.missionContent as paragraph}
+					<p>{paragraph}</p>
+				{/each}
 			</div>
 		</section>
 
@@ -65,21 +40,13 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				Cerita Kami
+				{c.storyLabel}
 			</p>
-			<h2 class="text-2xl font-bold tracking-tight text-ink">Lahir dari masalah nyata.</h2>
+			<h2 class="text-2xl font-bold tracking-tight text-ink">{c.storyTitle}</h2>
 			<div class="mt-6 max-w-2xl space-y-4 text-[15px] leading-relaxed text-slate/60">
-				<p>
-					Masche dibangun oleh <span class="font-medium text-ink">Enums</span>, sebuah studio
-					teknologi yang berbasis di Indonesia. Setelah bekerja erat dengan berbagai sekolah dan
-					menyaksikan langsung betapa banyak waktu dan energi yang terbuang akibat alur kerja
-					administratif yang rusak, kami tahu pasti ada cara yang lebih baik.
-				</p>
-				<p>
-					Kami memulai dengan satu keyakinan sederhana: sekolah layak mendapatkan infrastruktur
-					sebaik kualitas pengajaran mereka. Keyakinan itulah yang menjadi Masche — platform yang
-					dirancang dari dasar untuk cara kerja sekolah Indonesia yang sebenarnya.
-				</p>
+				{#each c.storyContent as paragraph}
+					<p>{paragraph}</p>
+				{/each}
 			</div>
 		</section>
 
@@ -90,10 +57,10 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				Yang Kami Yakini
+				{c.valuesLabel}
 			</p>
 			<h2 class="text-2xl font-bold tracking-tight text-ink">
-				Prinsip yang membentuk setiap keputusan.
+				{c.valuesTitle}
 			</h2>
 			<div class="mt-8 grid gap-4 md:grid-cols-2">
 				{#each values as value}
@@ -130,16 +97,16 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<h2 class="text-2xl font-bold tracking-tight text-ink">
-				Siap melihat Masche beraksi?
+				{c.ctaHeading}
 			</h2>
 			<p class="mt-3 text-[15px] text-slate/50">
-				Jadwalkan demo personal dan lihat bagaimana Masche dapat mengubah operasional sekolah Anda.
+				{c.ctaDesc}
 			</p>
 			<a
 				href="{base}/contact"
 				class="mt-8 inline-block cursor-pointer rounded-full bg-plum px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-plum/20"
 			>
-				Request Demo
+				{c.ctaButton}
 			</a>
 		</section>
 	</div>
