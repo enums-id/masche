@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
-	import logo from '$lib/assets/masche-logo-primary-03.png';
-	import logoDark from '$lib/assets/masche-logo-primary-02.png';
+	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
 
 	let scrollY = $state(0);
 	let heroHeight = $state(0);
@@ -38,7 +37,7 @@
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
 		<a href="{base}/" class="transition-opacity duration-200 hover:opacity-70">
 			<img
-				src={logoDark}
+				src={logo}
 				alt="Masche Academics"
 				class="h-7 w-auto transition-all duration-300"
 			/>

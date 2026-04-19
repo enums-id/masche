@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
-	import logo from '$lib/assets/masche-logo-primary-02.png';
+	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
 
 	let visible = $state(false);
 </script>

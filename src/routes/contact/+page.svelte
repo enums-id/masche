@@ -7,26 +7,26 @@
 	let submitted = $state(false);
 
 	const roles = [
-		'School Owner',
-		'Principal',
-		'Vice Principal',
-		'IT Staff',
-		'Teacher',
-		'Other'
+		'Pemilik Yayasan / Sekolah',
+		'Kepala Sekolah',
+		'Wakil Kepala Sekolah',
+		'Staf IT',
+		'Guru',
+		'Lainnya'
 	];
 
 	const faqs = [
 		{
-			q: 'How do I get a demo?',
-			a: 'Fill out the form above or email us directly. We\u2019ll schedule a personalized walkthrough within 48 hours.'
+			q: 'Bagaimana cara mendapatkan demo?',
+			a: 'Isi formulir di atas atau hubungi kami langsung via email. Kami akan menjadwalkan sesi walkthrough personal dalam waktu 48 jam.'
 		},
 		{
-			q: 'Is there a free trial?',
-			a: 'Yes — 30 days free, no credit card required. You\u2019ll get full access to explore the platform with your own data.'
+			q: 'Apakah ada masa percobaan gratis?',
+			a: 'Ya — 30 hari gratis tanpa kartu kredit. Anda akan mendapatkan akses penuh untuk mengeksplorasi platform dengan data Anda sendiri.'
 		},
 		{
-			q: 'What schools do you support?',
-			a: 'Masche is built for K-12 institutions across Indonesia, from single-campus schools to multi-branch networks.'
+			q: 'Sekolah seperti apa yang didukung?',
+			a: 'Masche dibangun untuk institusi pendidikan K-12 di seluruh Indonesia, dari sekolah satu kampus hingga jaringan multi-unit.'
 		}
 	];
 
@@ -36,14 +36,14 @@
 	}
 </script>
 
-<PageShell title="Get in Touch" subtitle="We'd love to hear from you.">
+<PageShell title="Hubungi Kami" subtitle="Kami senang mendengar dari Anda.">
 	<div use:reveal={() => (visible = true)}>
 		<div
 			class="grid gap-12 transition-all duration-700 ease-out md:grid-cols-[1.5fr_1fr] {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<!-- Form -->
+			<!-- Formulir -->
 			<div>
 				{#if submitted}
 					<div class="rounded-3xl border border-success/20 bg-success/5 p-10 text-center">
@@ -58,64 +58,59 @@
 								stroke="currentColor"
 								class="size-6 text-success"
 							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="m4.5 12.75 6 6 9-13.5"
-								/>
+								<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
 							</svg>
 						</div>
-						<h3 class="text-lg font-bold text-ink">Message sent!</h3>
+						<h3 class="text-lg font-bold text-ink">Pesan terkirim!</h3>
 						<p class="mt-2 text-[14px] text-slate/50">
-							We'll get back to you within 1 business day.
+							Kami akan menghubungi Anda dalam 1 hari kerja.
 						</p>
 					</div>
 				{:else}
 					<form class="space-y-5" onsubmit={handleSubmit}>
 						<div>
 							<label for="name" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Name</label
+								>Nama Lengkap</label
 							>
 							<input
 								id="name"
 								type="text"
 								required
-								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink outline-none transition-colors duration-200 placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="Your full name"
+								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
+								placeholder="Nama lengkap Anda"
 							/>
 						</div>
 						<div>
 							<label for="email" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Email</label
+								>Alamat Email</label
 							>
 							<input
 								id="email"
 								type="email"
 								required
-								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink outline-none transition-colors duration-200 placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="you@school.sch.id"
+								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
+								placeholder="anda@sekolah.sch.id"
 							/>
 						</div>
 						<div>
 							<label for="institution" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Institution</label
+								>Nama Institusi</label
 							>
 							<input
 								id="institution"
 								type="text"
-								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink outline-none transition-colors duration-200 placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="School or organization name"
+								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
+								placeholder="Nama sekolah atau organisasi Anda"
 							/>
 						</div>
 						<div>
-							<label for="role" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Role</label
+							<label for="role" class="mb-1.5 block text-[13px] font-medium text-ink">Jabatan</label
 							>
 							<select
 								id="role"
-								class="w-full rounded-xl border border-stone/20 bg-white px-4 py-3 text-[14px] text-ink outline-none transition-colors duration-200 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
+								class="w-full rounded-xl border border-stone/20 bg-white px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
 							>
-								<option value="" disabled selected>Select your role</option>
+								<option value="" disabled selected>Pilih jabatan Anda</option>
 								{#each roles as role}
 									<option value={role}>{role}</option>
 								{/each}
@@ -123,27 +118,27 @@
 						</div>
 						<div>
 							<label for="message" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>Message</label
+								>Pesan</label
 							>
 							<textarea
 								id="message"
 								rows="4"
 								required
-								class="w-full resize-none rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink outline-none transition-colors duration-200 placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder="Tell us about your school and what you're looking for..."
+								class="w-full resize-none rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
+								placeholder="Ceritakan tentang sekolah Anda dan apa yang Anda butuhkan..."
 							></textarea>
 						</div>
 						<button
 							type="submit"
 							class="w-full cursor-pointer rounded-full bg-plum px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-plum/20"
 						>
-							Send Message
+							Kirim Pesan
 						</button>
 					</form>
 				{/if}
 			</div>
 
-			<!-- Contact info -->
+			<!-- Info kontak -->
 			<div class="space-y-8">
 				<div>
 					<p class="mb-1 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
@@ -153,15 +148,15 @@
 				</div>
 				<div>
 					<p class="mb-1 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
-						Location
+						Lokasi
 					</p>
-					<p class="text-[15px] font-medium text-ink">Jakarta, Indonesia</p>
+					<p class="text-[15px] font-medium text-ink">Kota Bandung, Indonesia</p>
 				</div>
 				<div>
 					<p class="mb-1 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
-						Response Time
+						Waktu Respons
 					</p>
-					<p class="text-[15px] text-slate/60">We typically respond within 1 business day.</p>
+					<p class="text-[15px] text-slate/60">Kami biasanya merespons dalam 1 hari kerja.</p>
 				</div>
 				<div class="flex items-center gap-3">
 					<a
@@ -207,7 +202,7 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-6 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				Common Questions
+				Pertanyaan Umum
 			</p>
 			<div class="grid gap-4 md:grid-cols-3">
 				{#each faqs as faq}

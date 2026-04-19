@@ -25,7 +25,7 @@
 		<aside class="hidden w-52 shrink-0 md:block">
 			<div class="sticky top-28">
 				<p class="mb-4 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
-					On this page
+					Di halaman ini
 				</p>
 				<nav class="space-y-2.5">
 					{#each sections as section}
@@ -43,7 +43,7 @@
 		<!-- Prose content -->
 		<div class="min-w-0 flex-1">
 			<p class="mb-8 text-[13px] text-slate/40">
-				Effective: {effectiveDate} &middot; Last updated: {lastUpdated}
+				Berlaku: {effectiveDate} &middot; Terakhir diperbarui: {lastUpdated}
 			</p>
 			<div
 				class="prose prose-slate max-w-none prose-headings:text-ink prose-h2:text-xl prose-h2:font-bold prose-h2:tracking-tight prose-h3:text-base prose-h3:font-semibold prose-p:text-[15px] prose-p:leading-relaxed prose-p:text-slate/60 prose-a:text-plum prose-li:text-[15px] prose-li:text-slate/60"

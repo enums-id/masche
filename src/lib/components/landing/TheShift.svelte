@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fade, fly } from 'svelte/transition';
 	import { reveal } from '$lib/actions/reveal';
 
 	let visible = $state(false);
@@ -160,31 +159,32 @@
 
 		<!-- Carousel card -->
 		<div
-			class="overflow-hidden rounded-3xl bg-white shadow-xl shadow-ink/6 transition-all delay-100 duration-700 ease-out {visible
+			class="overflow-hidden rounded-3xl bg-white shadow-xl shadow-ink/6 transition-all duration-500 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
 			<div class="grid md:grid-cols-[2fr_3fr]">
 				<!-- Left panel -->
-				<div class="flex flex-col justify-between p-8 md:p-10">
+				<div class="flex flex-col justify-between p-8 md:p-10 transition-all duration-500 ease-out">
 					{#key current}
-						<div in:fly={{ x: 24, duration: 320, delay: 60 }} out:fly={{ x: -16, duration: 200 }}>
+						<div class="transition-all duration-500">
 							<span
 								class="inline-block rounded-full px-3 py-1 text-[10px] font-bold tracking-widest uppercase"
-								style="background-color: {slides[current].categoryBg}; color: {slides[current].categoryColor};"
+								style="background-color: {slides[current].categoryBg}; color: {slides[current]
+									.categoryColor};"
 							>
 								{slides[current].category}
 							</span>
 
 							<h3
-								class="mt-4 text-[clamp(1.1rem,2vw,1.45rem)] font-bold leading-snug tracking-tight text-ink"
+								class="mt-4 text-[clamp(1.1rem,2vw,1.45rem)] leading-snug font-bold tracking-tight text-ink"
 							>
 								{slides[current].title}
 							</h3>
 
 							<div class="my-5 h-px w-full bg-stone/30"></div>
 
-							<p class="text-[13px] font-medium leading-relaxed text-slate/65">
+							<p class="text-[13px] leading-relaxed font-medium text-slate/65">
 								{slides[current].desc}
 							</p>
 
@@ -225,16 +225,20 @@
 				</div>
 
 				<!-- Right panel: gradient placeholder with stat -->
-				<div class="relative min-h-72 overflow-hidden md:min-h-0">
+				<div class="relative min-h-72 overflow-hidden md:min-h-0 transition-all duration-500 ease-out">
 					{#key current}
 						<div
 							class="absolute inset-0"
-							style="background: linear-gradient(135deg, {slides[current].gradientFrom} 0%, {slides[current].gradientTo} 100%);"
-							in:fade={{ duration: 500 }}
+							style="background: linear-gradient(135deg, {slides[current].gradientFrom} 0%, {slides[
+								current
+							].gradientTo} 100%);"
 						></div>
-						<div class="absolute bottom-8 left-8 right-8" in:fly={{ y: 12, duration: 400, delay: 150 }}>
+						<div
+							class="absolute right-8 bottom-8 left-8"
+							in:fly={{ y: 12, duration: 400, delay: 150 }}
+						>
 							<p
-								class="text-[clamp(1.1rem,2.5vw,1.8rem)] font-bold leading-snug text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.3)]"
+								class="text-[clamp(1.1rem,2.5vw,1.8rem)] leading-snug font-bold text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.3)]"
 							>
 								{#each slides[current].stat.split('\n') as line, i}
 									{#if i > 0}<br />{/if}{line}

@@ -17,14 +17,14 @@
 	<!-- ─── Center content ─── -->
 	<div class="z-10  w-full px-6 text-center bg-plum py-16 sm:py-32 mx-8 sm:mx-16 rounded-2xl">
 		<!-- Big headline -->
-		<h1
-			class="text-[clamp(2.4rem,7vw,5rem)] leading-[1.06] font-bold tracking-tight transition-all duration-700 ease-out {mounted
+		<div
+			class="text-[clamp(1.2rem,7vw,3rem)] leading-[1.06] font-bold tracking-tight transition-all duration-700 ease-out {mounted
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
 			<span class="text-white">Sistem Operasi untuk</span><br />
 			<span class="text-white">Institusi Pendidikan Modern</span>
-		</h1>
+	</div>
 
 		<!-- Subtitle -->
 		<p

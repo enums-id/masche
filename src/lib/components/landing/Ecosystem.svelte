@@ -23,7 +23,7 @@
 		{
 			id: 'staff',
 			label: 'Staf',
-			sublabel: 'Proses laporan dan operasional jadi lebih cepat & minim kesalahan.',
+			sublabel: `Proses laporan dan operasional jadi lebih cepat & minim kesalahan.`,
 			desc: 'Handles daily administration, supports teachers, and ensures operational processes never break down.',
 			x: 12,
 			y: 52,
@@ -79,13 +79,20 @@
 	];
 
 	const connections = [
-		{ from: 'management', to: 'staff', label: 'Directs operations' },
-		{ from: 'management', to: 'teachers', label: 'Oversees curriculum' },
-		{ from: 'management', to: 'parents', label: 'Reports & updates' },
-		{ from: 'teachers', to: 'staff', label: 'Daily collaboration' },
-		{ from: 'teachers', to: 'students', label: 'Teaches & guides' },
-		{ from: 'teachers', to: 'parents', label: 'Progress updates' },
-		{ from: 'students', to: 'parents', label: 'Family bond' }
+		{ from: 'management', to: 'staff', label: 'Mengarahkan, kontrol dan monitor operasional' },
+		{
+			from: 'management',
+			to: 'teachers',
+			label: 'Mengawasi dan mengevaluasi ketersampaian kurikulum'
+		},
+		{
+			from: 'teachers',
+			to: 'staff',
+			label: 'Kolaborasi memastikan keberjalanan kegiatan belajar dan mengajar'
+		},
+		{ from: 'teachers', to: 'students', label: 'Mengajar, membimbing dan memonitor' },
+		{ from: 'teachers', to: 'parents', label: 'Laporan Perkembangan' },
+		{ from: 'parents', to: 'students', label: 'Monitor perkembangan siswa' }
 	];
 
 	function isConnected(nodeId: string): boolean {
@@ -123,7 +130,7 @@
 	<div class="mx-auto max-w-6xl">
 		<!-- Header -->
 		<div
-			class="mb-16 max-w-2xl transition-all duration-700 ease-out mx-auto text-center {visible
+			class="mx-auto mb-16 max-w-2xl text-center transition-all duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
@@ -235,16 +242,24 @@
 						{/if}
 
 						<!-- Node shape -->
-					<img src={`${base}/icons/${node.id}.svg`} class="w-fit h-16 bg-white rounded-md" alt=""/>
+						<img
+							src={`${base}/icons/${node.id}.svg`}
+							class="h-16 w-fit rounded-md bg-white"
+							alt=""
+						/>
 					</div>
 
 					<!-- Label -->
 					<div
-						class="text-center transition-all duration-300 bg-white"
+						class="bg-white text-center transition-all duration-300"
 						style={dimmed ? 'opacity: 0.18;' : 'opacity: 1;'}
 					>
-						<p class="text-xs font-semibold whitespace-nowrap text-ink/80 p-2 bg-white rounded-sm">{node.label}</p>
-						<p class="text-[10px] whitespace-nowrap text-black p-2 bg-white rounded-sm">{node.sublabel}</p>
+						<p class="rounded-sm bg-white p-2 text-xs font-semibold whitespace-nowrap text-ink/80">
+							{node.label}
+						</p>
+						<p class="rounded-sm bg-white p-2 text-[10px] whitespace-nowrap text-black">
+							{node.sublabel}
+						</p>
 					</div>
 				</div>
 			{/each}
@@ -268,7 +283,9 @@
 					</p>
 				</div>
 			{:else}
-				<p class="text-sm text-slate/30">Arahkan kursor ke peran mana pun untuk melihat koneksinya</p>
+				<p class="text-sm text-slate/30">
+					Arahkan kursor ke peran mana pun untuk melihat koneksinya
+				</p>
 			{/if}
 		</div>
 

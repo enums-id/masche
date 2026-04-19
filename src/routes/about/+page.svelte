@@ -7,91 +7,93 @@
 
 	const values = [
 		{
-			title: 'Schools are ecosystems',
-			desc: 'Every role — management, teachers, staff, students, and parents — is connected. Our platform reflects that reality.',
+			title: 'Sekolah adalah ekosistem',
+			desc: 'Setiap peran — manajemen, guru, staf, siswa, dan orang tua — saling terhubung. Platform kami mencerminkan realita tersebut.',
 			color: 'bg-plum/10 text-plum'
 		},
 		{
-			title: 'Data should serve people',
-			desc: 'Not the other way around. We turn raw records into clear, actionable insights for every stakeholder.',
+			title: 'Data harus melayani manusia',
+			desc: 'Bukan sebaliknya. Kami mengubah data mentah menjadi insight yang jelas dan dapat ditindaklanjuti oleh setiap pemangku kepentingan.',
 			color: 'bg-sage/15 text-sage-dark'
 		},
 		{
-			title: 'Simplicity is a feature',
-			desc: 'Powerful systems don\u2019t have to be complicated. We obsess over making complex workflows feel effortless.',
+			title: 'Kesederhanaan adalah fitur',
+			desc: 'Sistem yang powerful tidak harus rumit. Kami terus berupaya membuat alur kerja yang kompleks terasa mudah dan alami.',
 			color: 'bg-amber/10 text-amber-dark'
 		},
 		{
-			title: 'Built for Indonesia',
-			desc: 'Localized from day one — NISN, IJAZAH, bilingual interfaces, and compliance with national education standards.',
+			title: 'Dibangun untuk Indonesia',
+			desc: 'Dilokalisasi sejak awal — NISN, IJAZAH, antarmuka dwibahasa, dan kepatuhan terhadap standar pendidikan nasional.',
 			color: 'bg-ink/8 text-ink'
 		}
 	];
 </script>
 
-<PageShell title="About Masche Academics" subtitle="The system behind every well-run school.">
+<PageShell title="Tentang Masche Academics" subtitle="Sistem di balik setiap sekolah yang berjalan dengan baik.">
 	<div class="space-y-20" use:reveal={() => (visible = true)}>
-		<!-- Mission -->
+		<!-- Misi -->
 		<section
 			class="transition-all duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				Our Mission
+				Misi Kami
 			</p>
 			<h2 class="text-2xl font-bold tracking-tight text-ink">
-				Bringing clarity to education management.
+				Membawa kejelasan dalam pengelolaan pendidikan.
 			</h2>
 			<div class="mt-6 max-w-2xl space-y-4 text-[15px] leading-relaxed text-slate/60">
 				<p>
-					Across Indonesia, thousands of schools still run on a patchwork of spreadsheets, WhatsApp
-					groups, paper forms, and disconnected software. Academic records live in one system,
-					attendance in another, finances in a third — and none of them talk to each other.
+					Di seluruh Indonesia, ribuan sekolah masih beroperasi dengan tambal sulam spreadsheet, grup
+					WhatsApp, formulir kertas, dan perangkat lunak yang tidak terhubung satu sama lain. Data
+					akademik ada di satu sistem, absensi di sistem lain, keuangan di sistem ketiga — dan
+					semuanya tidak bisa saling berbicara.
 				</p>
 				<p>
-					Masche Academics exists to replace that fragmentation with one coherent platform. We give
-					schools the infrastructure they deserve — so administrators can focus on leading, teachers
-					can focus on teaching, and students can focus on learning.
+					Masche Academics hadir untuk menggantikan fragmentasi itu dengan satu platform yang
+					koheren. Kami memberikan infrastruktur yang layak bagi sekolah — agar administrator bisa
+					fokus memimpin, guru bisa fokus mengajar, dan siswa bisa fokus belajar.
 				</p>
 			</div>
 		</section>
 
-		<!-- Story -->
+		<!-- Cerita -->
 		<section
 			class="transition-all delay-100 duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				Our Story
+				Cerita Kami
 			</p>
-			<h2 class="text-2xl font-bold tracking-tight text-ink">Born from a real problem.</h2>
+			<h2 class="text-2xl font-bold tracking-tight text-ink">Lahir dari masalah nyata.</h2>
 			<div class="mt-6 max-w-2xl space-y-4 text-[15px] leading-relaxed text-slate/60">
 				<p>
-					Masche was built by <span class="font-medium text-ink">Enums</span>, a technology studio
-					based in Indonesia. After working closely with schools and seeing firsthand how much time
-					and energy is lost to broken administrative workflows, we knew there had to be a better way.
+					Masche dibangun oleh <span class="font-medium text-ink">Enums</span>, sebuah studio
+					teknologi yang berbasis di Indonesia. Setelah bekerja erat dengan berbagai sekolah dan
+					menyaksikan langsung betapa banyak waktu dan energi yang terbuang akibat alur kerja
+					administratif yang rusak, kami tahu pasti ada cara yang lebih baik.
 				</p>
 				<p>
-					We started with a simple belief: schools deserve infrastructure as good as their teaching.
-					That belief became Masche — a platform designed from the ground up for the way Indonesian
-					schools actually work.
+					Kami memulai dengan satu keyakinan sederhana: sekolah layak mendapatkan infrastruktur
+					sebaik kualitas pengajaran mereka. Keyakinan itulah yang menjadi Masche — platform yang
+					dirancang dari dasar untuk cara kerja sekolah Indonesia yang sebenarnya.
 				</p>
 			</div>
 		</section>
 
-		<!-- Values -->
+		<!-- Nilai -->
 		<section
 			class="transition-all delay-200 duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum/50 uppercase">
-				What We Believe
+				Yang Kami Yakini
 			</p>
 			<h2 class="text-2xl font-bold tracking-tight text-ink">
-				Principles that shape every decision.
+				Prinsip yang membentuk setiap keputusan.
 			</h2>
 			<div class="mt-8 grid gap-4 md:grid-cols-2">
 				{#each values as value}
@@ -128,10 +130,10 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<h2 class="text-2xl font-bold tracking-tight text-ink">
-				Ready to see Masche in action?
+				Siap melihat Masche beraksi?
 			</h2>
 			<p class="mt-3 text-[15px] text-slate/50">
-				Book a personalized demo and see how Masche can transform your school's operations.
+				Jadwalkan demo personal dan lihat bagaimana Masche dapat mengubah operasional sekolah Anda.
 			</p>
 			<a
 				href="{base}/contact"
