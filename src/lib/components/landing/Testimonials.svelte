@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
 	let logosPage = $state(0);
 	let testimonialsPage = $state(0);
 
-	const c = content.testimonials;
+	const c = $derived((content as any)[langStore.value].testimonials);
 	const logos = Array.from({ length: 20 }, (_, i) => i);
 	const itemsPerPageLogos = 10;
 	const itemsPerPageTestimonials = 6;
@@ -16,7 +17,7 @@
 		return logos.slice(0, end);
 	});
 
-	const testimonials = c.items;
+	const testimonials = $derived(c.items);
 
 	const paginatedTestimonials = $derived.by(() => {
 		const end = (testimonialsPage + 1) * itemsPerPageTestimonials;

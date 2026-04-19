@@ -1,385 +1,250 @@
 {
-	"navbar": {
-		"links": [
-			{ "label": "Produk & Fitur", "href": "/#produk" },
-			{ "label": "Benefit", "href": "/#benefit" },
-			{ "label": "Artikel", "href": "/#artikel" },
-			{ "label": "Tentang Kami", "href": "/about" },
-			{ "label": "Kontak", "href": "/contact" }
-		],
-		"cta": "Hubungi Kami"
-	},
-	"hero": {
-		"headline1": "Sistem Operasi untuk",
-		"headline2": "Institusi Pendidikan Modern",
-		"subtitle": "Platform terpadu untuk mengelola akademik, keuangan, dan operasional sekolah. Dirancang khusus untuk ekosistem pendidikan Indonesia.",
-		"cta1": "Konsultasi Kebutuhan",
-		"cta2": "Request Demo"
-	},
-	"product": {
-		"heading": "Satu platform untuk seluruh\nsiklus siswa. Tanpa kerumitan.",
-		"subheading": "Mengurangi Beban Operasional. Menghemat Waktu yang Terbuang.",
-		"cardHeading": ["MASCHE Academics", "Menyesuaikan Kebutuhan", "Institusi Anda"],
-		"cardDesc": "Kami bantu memetakan sistem yang tepat untuk operasional institusi Anda.",
-		"cardCta": "Konsultasikan Kebutuhan Anda",
-		"soonLabel": "*Dalam Pengembangan.\nAkan Segera Tersedia.",
-		"modules": [
-			{
-				"id": "manajemen-akademik",
-				"label": "Manajemen Akademik",
-				"desc": "Pengelolaan kurikulum, jadwal, dan data akademik dalam satu sistem"
-			},
-			{
-				"id": "operasional-akademik",
-				"label": "Operasional Akademik",
-				"desc": "Mendukung aktivitas harian sekolah secara efisien"
-			},
-			{
-				"id": "perkembangan-siswa",
-				"label": "Perkembangan Siswa",
-				"desc": "Monitoring perkembangan siswa secara menyeluruh dan berkelanjutan"
-			},
-			{
-				"id": "kelulusan-tracking",
-				"label": "Kelulusan & Tracking",
-				"desc": "Dokumentasi perjalanan siswa hingga setelah lulus"
-			},
-			{ "id": "pembayaran-tagihan", "label": "Pembayaran dan Tagihan Sekolah", "desc": "" },
-			{ "id": "pendaftaran-sekolah", "label": "Pendaftaran Sekolah", "desc": "" }
-		],
-		"benefits": [
-			{
-				"id": "usp-01",
-				"title": "Kurangi Proses Manual yang Memakan Waktu",
-				"desc": "Otomatisasi alur kerja untuk mempercepat proses dan mengurangi kesalahan."
-			},
-			{
-				"id": "usp-02",
-				"title": "Sistem yang Menyesuaikan Kebutuhan Anda",
-				"desc": "Dirancang mengikuti alur kerja institusi tanpa menambah kompleksitas."
-			},
-			{
-				"id": "usp-03",
-				"title": "Satu Platform, Tanpa Tools Terpisah",
-				"desc": "Seluruh operasional terpusat untuk efisiensi dan keputusan yang lebih cepat."
-			}
-		]
-	},
-	"theShift": {
-		"label": "FITUR UTAMA",
-		"heading": "Dirancang untuk Cara Kerja Institusi Modern",
-		"subtitle": "Setiap fitur dibangun untuk memberikan dampak nyata.",
-		"slides": [
-			{
-				"category": "MANAJEMEN",
-				"categoryColor": "#4b2e83",
-				"categoryBg": "#4b2e8318",
-				"title": "Visibilitas real-time lintas unit dalam satu sistem terpusat",
-				"desc": "Sentralisasi operasional seluruh unit sekolah tanpa mengorbankan struktur masing-masing.",
-				"bullets": [
-					"Dashboard terpusat untuk seluruh unit",
-					"Struktur data tetap terpisah per sekolah",
-					"Kontrol penuh di level yayasan"
-				],
-				"stat": "Kelola 2–10+ unit sekolah\ndalam satu sistem terpusat",
-				"gradientFrom": "#4b2e83",
-				"gradientTo": "#5e3da0"
-			},
-			{
-				"category": "AKADEMIK",
-				"categoryColor": "#4b2e83",
-				"categoryBg": "#4b2e8318",
-				"title": "Penilaian Otomatis & Presisi Tinggi",
-				"desc": "Kurangi beban administratif guru dengan sistem penilaian yang terotomatisasi dan akurat.",
-				"bullets": [
-					"Perhitungan nilai otomatis tanpa error",
-					"Sinkronisasi data akademik real-time",
-					"Siap untuk laporan & rapor"
-				],
-				"stat": "+5 jam efisiensi kerja\nper guru / minggu",
-				"gradientFrom": "#5e3da0",
-				"gradientTo": "#8faf9a"
-			},
-			{
-				"category": "PENGEMBANGAN SISWA",
-				"categoryColor": "#769885",
-				"categoryBg": "#8faf9a18",
-				"title": "Pantau Perkembangan Siswa Secara Menyeluruh",
-				"desc": "Lebih dari sekadar nilai — pantau perilaku, kesehatan, dan milestone siswa dalam satu sistem.",
-				"bullets": [
-					"Catatan kualitatif (behavior & aktivitas)",
-					"Tracking kesehatan & perkembangan fisik",
-					"Riwayat siswa dari awal hingga kelulusan"
-				],
-				"stat": "Insight 360° untuk peningkatan\nkualitas sekolah secara terukur",
-				"gradientFrom": "#8faf9a",
-				"gradientTo": "#e6a23c"
-			},
-			{
-				"category": "OPERASIONAL",
-				"categoryColor": "#4a4f57",
-				"categoryBg": "#4a4f5718",
-				"title": "Otomatisasi Sistem Administratif",
-				"desc": "Hilangkan proses manual dalam pengelolaan administrasi sekolah dengan sistem yang terintegrasi.",
-				"bullets": [
-					"Otomatisasi perhitungan nilai",
-					"Tanpa rekap laporan akademik berulang",
-					"Absensi dan data siswa tercatat otomatis secara real-time"
-				],
-				"stat": "↓ 90% pekerjaan administratif\nmelalui otomatisasi sistem",
-				"gradientFrom": "#59b88a",
-				"gradientTo": "#4b2e83"
-			},
-			{
-				"category": "PEMENUHAN KEBIJAKAN",
-				"categoryColor": "#c88a2a",
-				"categoryBg": "#e6a23c18",
-				"title": "Pelaporan Tanpa Double Entry",
-				"desc": "Sinkronisasi data dan laporan ke sistem pemerintah tanpa proses input ulang.",
-				"bullets": [
-					"Export data siap Dapodik",
-					"Integrasi sistem pelaporan",
-					"Mengurangi risiko kesalahan data"
-				],
-				"stat": "Pelaporan otomatis dengan\nkepatuhan regulasi 100%",
-				"gradientFrom": "#e6a23c",
-				"gradientTo": "#4b2e83"
-			},
-			{
-				"category": "DUKUNGAN AKADEMIK",
-				"categoryColor": "#c88a2a",
-				"categoryBg": "#e6a23c18",
-				"title": "Intervensi Dini untuk Keberhasilan Siswa",
-				"desc": "Identifikasi siswa yang membutuhkan bantuan dan lakukan intervensi sebelum terlambat.",
-				"bullets": [
-					"Deteksi siswa \"at-risk\" lebih awal",
-					"Program remedial & enrichment terstruktur",
-					"Monitoring progres intervensi"
-				],
-				"stat": "↑ Retensi siswa & peningkatan\nperforma akademik hingga 10–20%",
-				"gradientFrom": "#edb85e",
-				"gradientTo": "#8faf9a"
-			},
-			{
-				"category": "AKSES & SEKURITAS",
-				"categoryColor": "#4a4f57",
-				"categoryBg": "#4a4f5718",
-				"title": "Kontrol Akses Berbasis Peran",
-				"desc": "Memastikan setiap pengguna mengakses data yang relevan dengan tanggung jawabnya.",
-				"bullets": [
-					"Sistem 5 role",
-					"Audit trail untuk setiap aktivitas",
-					"Pencegahan akses tidak sah"
-				],
-				"stat": "5 peran, 100% kontrol akses\n& pelacakan aktivitas",
-				"gradientFrom": "#d7d9dd",
-				"gradientTo": "#4b2e83"
-			}
-		]
-	},
-	"ecosystem": {
-		"label": "NILAI UNTUK SETIAP PERAN",
-		"heading": "Nilai untuk Setiap Peran dalam Institusi",
-		"nodes": [
-			{
-				"id": "management",
-				"label": "Manajemen",
-				"sublabel": "Kontrol penuh atas seluruh unit sekolah dalam satu dashboard terpusat.",
-				"desc": "Menetapkan strategi, mengalokasikan sumber daya, dan mempertahankan akuntabilitas institusional di setiap departemen."
-			},
-			{
-				"id": "staff",
-				"label": "Staf",
-				"sublabel": "Proses laporan dan operasional jadi lebih cepat & minim kesalahan.",
-				"desc": "Menangani administrasi harian, mendukung guru, dan memastikan proses operasional berjalan lancar."
-			},
-			{
-				"id": "teachers",
-				"label": "Guru",
-				"sublabel": "Kurangi beban administratif & fokus pada kualitas pengajaran",
-				"desc": "Menyampaikan kurikulum, memantau perkembangan siswa, dan menjembatani antara institusi dan keluarga."
-			},
-			{
-				"id": "students",
-				"label": "Siswa",
-				"sublabel": "Dukungan pembelajaran yang lebih terstruktur dan personal.",
-				"desc": "Mengakses nilai, jadwal, dan tugas. Pusat dari setiap keputusan yang dibuat institusi."
-			},
-			{
-				"id": "parents",
-				"label": "Orang Tua",
-				"sublabel": "Transparansi penuh terhadap perkembangan dan aktivitas anak.",
-				"desc": "Memantau performa, kehadiran, dan pembayaran. Selalu terinformasi dan tidak pernah kehilangan informasi."
-			}
-		],
-		"connections": [
-			{ "from": "management", "to": "staff", "label": "Mengarahkan operasional" },
-			{ "from": "management", "to": "teachers", "label": "Mengawasi kurikulum" },
-			{ "from": "management", "to": "parents", "label": "Laporan & informasi" },
-			{ "from": "teachers", "to": "staff", "label": "Kolaborasi harian" },
-			{ "from": "teachers", "to": "students", "label": "Mengajar & membimbing" },
-			{ "from": "teachers", "to": "parents", "label": "Update perkembangan" },
-			{ "from": "students", "to": "parents", "label": "Hubungan keluarga" }
-		],
-		"infoPlaceholder": "Arahkan kursor ke peran mana pun untuk melihat koneksinya",
-		"connectionSuffix": "koneksi langsung dalam ekosistem"
-	},
-	"impact": {
-		"banner": "Semua sistem terhubung dalam satu ekosistem terpadu.",
-		"statsLabel": "TELAH DIPILIH OLEH",
-		"stats": [
-			{ "value": "50+", "label": "Sekolah & institusi\npendidikan di Indonesia" },
-			{ "value": "250+", "label": "Total guru\ndi Indonesia" },
-			{ "value": "1000+", "label": "Total siswa\ndi Indonesia" }
-		]
-	},
-	"testimonials": {
-		"showMoreSchools": "Lihat Lebih Banyak Sekolah",
-		"showMoreTestimonials": "Lihat Lebih Banyak Testimoni",
-		"items": [
-			{
-				"quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.",
-				"name": "Kepala Sekolah",
-				"role": "Sekolah Swasta, Kota Bandung",
-				"initials": "KS",
-				"color": "bg-plum"
-			},
-			{
-				"quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.",
-				"name": "Guru",
-				"role": "SMP, Bandung",
-				"initials": "GR",
-				"color": "bg-sage-dark"
-			},
-			{
-				"quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.",
-				"name": "Staff Administrasi",
-				"role": "SMA, Surabaya",
-				"initials": "SA",
-				"color": "bg-amber-dark"
-			},
-			{
-				"quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.",
-				"name": "Kepala Sekolah",
-				"role": "Sekolah Swasta, Kota Bandung",
-				"initials": "KS",
-				"color": "bg-plum"
-			},
-			{
-				"quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.",
-				"name": "Guru",
-				"role": "SMP, Bandung",
-				"initials": "GR",
-				"color": "bg-sage-dark"
-			},
-			{
-				"quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.",
-				"name": "Staff Administrasi",
-				"role": "SMA, Surabaya",
-				"initials": "SA",
-				"color": "bg-amber-dark"
-			},
-			{
-				"quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.",
-				"name": "Kepala Sekolah",
-				"role": "Sekolah Swasta, Kota Bandung",
-				"initials": "KS",
-				"color": "bg-plum"
-			},
-			{
-				"quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.",
-				"name": "Guru",
-				"role": "SMP, Bandung",
-				"initials": "GR",
-				"color": "bg-sage-dark"
-			},
-			{
-				"quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.",
-				"name": "Staff Administrasi",
-				"role": "SMA, Surabaya",
-				"initials": "SA",
-				"color": "bg-amber-dark"
-			},
-			{
-				"quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.",
-				"name": "Kepala Sekolah",
-				"role": "Sekolah Swasta, Kota Bandung",
-				"initials": "KS",
-				"color": "bg-plum"
-			},
-			{
-				"quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.",
-				"name": "Guru",
-				"role": "SMP, Bandung",
-				"initials": "GR",
-				"color": "bg-sage-dark"
-			},
-			{
-				"quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.",
-				"name": "Staff Administrasi",
-				"role": "SMA, Surabaya",
-				"initials": "SA",
-				"color": "bg-amber-dark"
-			},
-			{
-				"quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.",
-				"name": "Kepala Sekolah",
-				"role": "Sekolah Swasta, Kota Bandung",
-				"initials": "KS",
-				"color": "bg-plum"
-			},
-			{
-				"quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.",
-				"name": "Guru",
-				"role": "SMP, Bandung",
-				"initials": "GR",
-				"color": "bg-sage-dark"
-			},
-			{
-				"quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.",
-				"name": "Staff Administrasi",
-				"role": "SMA, Surabaya",
-				"initials": "SA",
-				"color": "bg-amber-dark"
-			}
-		]
-	},
-	"callToAction": {
-		"heading": "Dibangun untuk lebih dari\nsekadar efisiensi.",
-		"subtitle": "MASCHE hadir sebagai fondasi bagi institusi yang ingin bertumbuh.",
-		"cardHeading": "Mari mulai dari kebutuhan Anda.",
-		"cardDesc": "Setiap institusi memiliki kebutuhan yang berbeda. Kami siap membantu Anda menemukan konfigurasi yang paling tepat untuk sekolah Anda.",
-		"cta1": "Konsultasi Kebutuhan",
-		"cta2": "Request Demo"
-	},
-	"footer": {
-		"tagline": "Sistem operasi untuk institusi pendidikan modern.",
-		"nav": [
-			{
-				"heading": "Produk dan Layanan",
-				"links": [
-					{ "label": "Sistem Manajemen Sekolah Terpadu", "href": "/#produk" },
-					{ "label": "Konsultasi dan Pengembangan Solusi", "href": "/contact" },
-					{ "label": "Artikel", "href": "/articles" }
-				]
-			},
-			{
-				"heading": "Perusahaan",
-				"links": [
-					{ "label": "Tentang Kami", "href": "/about" },
-					{ "label": "Kontak", "href": "/contact" }
-				]
-			},
-			{
-				"heading": "Legal",
-				"links": [
-					{ "label": "Kebijakan Privasi", "href": "/legal/privacy" },
-					{ "label": "Keamanan", "href": "/legal/security" },
-					{ "label": "Syarat & Ketentuan", "href": "/legal/terms" }
-				]
-			}
-		],
-		"copyright": "Masche Academics. Semua hak dilindungi.",
-		"credit": "Dikembangan oleh"
-	}
+  "id": {
+    "navbar": {
+      "links": [
+        { "label": "Produk & Fitur", "href": "/#produk" },
+        { "label": "Benefit", "href": "/#benefit" },
+        { "label": "Artikel", "href": "/#artikel" },
+        { "label": "Tentang Kami", "href": "/about" },
+        { "label": "Kontak", "href": "/contact" }
+      ],
+      "cta": "Hubungi Kami"
+    },
+    "hero": {
+      "headline1": "Sistem Operasi untuk",
+      "headline2": "Institusi Pendidikan Modern",
+      "subtitle": "Platform terpadu untuk mengelola akademik, keuangan, dan operasional sekolah. Dirancang khusus untuk ekosistem pendidikan Indonesia.",
+      "cta1": "Konsultasi Kebutuhan",
+      "cta2": "Request Demo"
+    },
+    "product": {
+      "heading": "Satu platform untuk seluruh\nsiklus siswa. Tanpa kerumitan.",
+      "subheading": "Mengurangi Beban Operasional. Menghemat Waktu yang Terbuang.",
+      "cardHeading": ["MASCHE Academics", "Menyesuaikan Kebutuhan", "Institusi Anda"],
+      "cardDesc": "Kami bantu memetakan sistem yang tepat untuk operasional institusi Anda.",
+      "cardCta": "Konsultasikan Kebutuhan Anda",
+      "soonLabel": "*Dalam Pengembangan.\nAkan Segera Tersedia.",
+      "modules": [
+        { "id": "manajemen-akademik", "label": "Manajemen Akademik", "desc": "Pengelolaan kurikulum, jadwal, dan data akademik dalam satu sistem" },
+        { "id": "operasional-akademik", "label": "Operasional Akademik", "desc": "Mendukung aktivitas harian sekolah secara efisien" },
+        { "id": "perkembangan-siswa", "label": "Perkembangan Siswa", "desc": "Monitoring perkembangan siswa secara menyeluruh dan berkelanjutan" },
+        { "id": "kelulusan-tracking", "label": "Kelulusan & Tracking", "desc": "Dokumentasi perjalanan siswa hingga setelah lulus" },
+        { "id": "pembayaran-tagihan", "label": "Pembayaran dan Tagihan Sekolah", "desc": "" },
+        { "id": "pendaftaran-sekolah", "label": "Pendaftaran Sekolah", "desc": "" }
+      ],
+      "benefits": [
+        { "id": "usp-01", "title": "Kurangi Proses Manual yang Memakan Waktu", "desc": "Otomatisasi alur kerja untuk mempercepat proses dan mengurangi kesalahan." },
+        { "id": "usp-02", "title": "Sistem yang Menyesuaikan Kebutuhan Anda", "desc": "Dirancang mengikuti alur kerja institusi tanpa menambah kompleksitas." },
+        { "id": "usp-03", "title": "Satu Platform, Tanpa Tools Terpisah", "desc": "Seluruh operasional terpusat untuk efisiensi dan keputusan yang lebih cepat." }
+      ]
+    },
+    "theShift": {
+      "label": "FITUR UTAMA",
+      "heading": "Dirancang untuk Cara Kerja Institusi Modern",
+      "subtitle": "Setiap fitur dibangun untuk memberikan dampak nyata.",
+      "slides": [
+        { "category": "MANAJEMEN", "categoryColor": "#4b2e83", "categoryBg": "#4b2e8318", "title": "Visibilitas real-time lintas unit dalam satu sistem terpusat", "desc": "Sentralisasi operasional seluruh unit sekolah tanpa mengorbankan struktur masing-masing.", "bullets": ["Dashboard terpusat untuk seluruh unit", "Struktur data tetap terpisah per sekolah", "Kontrol penuh di level yayasan"], "stat": "Kelola 2–10+ unit sekolah\ndalam satu sistem terpusat", "gradientFrom": "#4b2e83", "gradientTo": "#5e3da0" },
+        { "category": "AKADEMIK", "categoryColor": "#4b2e83", "categoryBg": "#4b2e8318", "title": "Penilaian Otomatis & Presisi Tinggi", "desc": "Kurangi beban administratif guru dengan sistem penilaian yang terotomatisasi dan akurat.", "bullets": ["Perhitungan nilai otomatis tanpa error", "Sinkronisasi data akademik real-time", "Siap untuk laporan & rapor"], "stat": "+5 jam efisiensi kerja\nper guru / minggu", "gradientFrom": "#5e3da0", "gradientTo": "#8faf9a" },
+        { "category": "PENGEMBANGAN SISWA", "categoryColor": "#769885", "categoryBg": "#8faf9a18", "title": "Pantau Perkembangan Siswa Secara Menyeluruh", "desc": "Lebih dari sekadar nilai — pantau perilaku, kesehatan, dan milestone siswa dalam satu sistem.", "bullets": ["Catatan kualitatif (behavior & aktivitas)", "Tracking kesehatan & perkembangan fisik", "Riwayat siswa dari awal hingga kelulusan"], "stat": "Insight 360° untuk peningkatan\nkualitas sekolah secara terukur", "gradientFrom": "#8faf9a", "gradientTo": "#e6a23c" },
+        { "category": "OPERASIONAL", "categoryColor": "#4a4f57", "categoryBg": "#4a4f5718", "title": "Otomatisasi Sistem Administratif", "desc": "Hilangkan proses manual dalam pengelolaan administrasi sekolah dengan sistem yang terintegrasi.", "bullets": ["Otomatisasi perhitungan nilai", "Tanpa rekap laporan akademik berulang", "Absensi dan data siswa tercatat otomatis secara real-time"], "stat": "↓ 90% pekerjaan administratif\nmelalui otomatisasi sistem", "gradientFrom": "#59b88a", "gradientTo": "#4b2e83" },
+        { "category": "PEMENUHAN KEBIJAKAN", "categoryColor": "#c88a2a", "categoryBg": "#e6a23c18", "title": "Pelaporan Tanpa Double Entry", "desc": "Sinkronisasi data dan laporan ke sistem pemerintah tanpa proses input ulang.", "bullets": ["Export data siap Dapodik", "Integrasi sistem pelaporan", "Mengurangi risiko kesalahan data"], "stat": "Pelaporan otomatis dengan\nkepatuhan regulasi 100%", "gradientFrom": "#e6a23c", "gradientTo": "#4b2e83" },
+        { "category": "DUKUNGAN AKADEMIK", "categoryColor": "#c88a2a", "categoryBg": "#e6a23c18", "title": "Intervensi Dini untuk Keberhasilan Siswa", "desc": "Identifikasi siswa yang membutuhkan bantuan dan lakukan intervensi sebelum terlambat.", "bullets": ["Deteksi siswa \"at-risk\" lebih awal", "Program remedial & enrichment terstruktur", "Monitoring progres intervensi"], "stat": "↑ Retensi siswa & peningkatan\nperforma akademik hingga 10–20%", "gradientFrom": "#edb85e", "gradientTo": "#8faf9a" },
+        { "category": "AKSES & SEKURITAS", "categoryColor": "#4a4f57", "categoryBg": "#4a4f5718", "title": "Kontrol Akses Berbasis Peran", "desc": "Memastikan setiap pengguna mengakses data yang relevan dengan tanggung jawabnya.", "bullets": ["Sistem 5 role", "Audit trail untuk setiap aktivitas", "Pencegahan akses tidak sah"], "stat": "5 peran, 100% kontrol akses\n& pelacakan aktivitas", "gradientFrom": "#d7d9dd", "gradientTo": "#4b2e83" }
+      ]
+    },
+    "ecosystem": {
+      "label": "NILAI UNTUK SETIAP PERAN",
+      "heading": "Nilai untuk Setiap Peran dalam Institusi",
+      "nodes": [
+        { "id": "management", "label": "Manajemen", "sublabel": "Kontrol penuh atas seluruh unit sekolah dalam satu dashboard terpusat.", "desc": "Menetapkan strategi, mengalokasikan sumber daya, dan mempertahankan akuntabilitas institusional di setiap departemen." },
+        { "id": "staff", "label": "Staf", "sublabel": "Proses laporan dan operasional jadi lebih cepat & minim kesalahan.", "desc": "Menangani administrasi harian, mendukung guru, dan memastikan proses operasional berjalan lancar." },
+        { "id": "teachers", "label": "Guru", "sublabel": "Kurangi beban administratif & fokus pada kualitas pengajaran", "desc": "Menyampaikan kurikulum, memantau perkembangan siswa, dan menjembatani antara institusi dan keluarga." },
+        { "id": "students", "label": "Siswa", "sublabel": "Dukungan pembelajaran yang lebih terstruktur dan personal.", "desc": "Mengakses nilai, jadwal, dan tugas. Pusat dari setiap keputusan yang dibuat institusi." },
+        { "id": "parents", "label": "Orang Tua", "sublabel": "Transparansi penuh terhadap perkembangan dan aktivitas anak.", "desc": "Memantau performa, kehadiran, dan pembayaran. Selalu terinformasi dan tidak pernah kehilangan informasi." }
+      ],
+      "connections": [
+        { "from": "management", "to": "staff", "label": "Mengarahkan operasional" },
+        { "from": "management", "to": "teachers", "label": "Mengawasi kurikulum" },
+        { "from": "management", "to": "parents", "label": "Laporan & informasi" },
+        { "from": "teachers", "to": "staff", "label": "Kolaborasi harian" },
+        { "from": "teachers", "to": "students", "label": "Mengajar & membimbing" },
+        { "from": "teachers", "to": "parents", "label": "Update perkembangan" },
+        { "from": "students", "to": "parents", "label": "Hubungan keluarga" }
+      ],
+      "infoPlaceholder": "Arahkan kursor ke peran mana pun untuk melihat koneksinya",
+      "connectionSuffix": "koneksi langsung dalam ekosistem"
+    },
+    "impact": {
+      "banner": "Semua sistem terhubung dalam satu ekosistem terpadu.",
+      "statsLabel": "TELAH DIPILIH OLEH",
+      "stats": [
+        { "value": "50+", "label": "Sekolah & institusi\npendidikan di Indonesia" },
+        { "value": "250+", "label": "Total guru\ndi Indonesia" },
+        { "value": "1000+", "label": "Total siswa\ndi Indonesia" }
+      ]
+    },
+    "testimonials": {
+      "showMoreSchools": "Lihat Lebih Banyak Sekolah",
+      "showMoreTestimonials": "Lihat Lebih Banyak Testimoni",
+      "items": [
+        { "quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.", "name": "Kepala Sekolah", "role": "Sekolah Swasta, Kota Bandung", "initials": "KS", "color": "bg-plum" },
+        { "quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.", "name": "Guru", "role": "SMP, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.", "name": "Staff Administrasi", "role": "SMA, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.", "name": "Kepala Sekolah", "role": "Sekolah Swasta, Kota Bandung", "initials": "KS", "color": "bg-plum" },
+        { "quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.", "name": "Guru", "role": "SMP, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.", "name": "Staff Administrasi", "role": "SMA, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.", "name": "Kepala Sekolah", "role": "Sekolah Swasta, Kota Bandung", "initials": "KS", "color": "bg-plum" },
+        { "quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.", "name": "Guru", "role": "SMP, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.", "name": "Staff Administrasi", "role": "SMA, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.", "name": "Kepala Sekolah", "role": "Sekolah Swasta, Kota Bandung", "initials": "KS", "color": "bg-plum" },
+        { "quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.", "name": "Guru", "role": "SMP, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.", "name": "Staff Administrasi", "role": "SMA, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.", "name": "Kepala Sekolah", "role": "Sekolah Swasta, Kota Bandung", "initials": "KS", "color": "bg-plum" },
+        { "quote": "Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.", "name": "Guru", "role": "SMP, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.", "name": "Staff Administrasi", "role": "SMA, Surabaya", "initials": "SA", "color": "bg-amber-dark" }
+      ]
+    },
+    "callToAction": {
+      "heading": "Dibangun untuk lebih dari\nsekadar efisiensi.",
+      "subtitle": "MASCHE hadir sebagai fondasi bagi institusi yang ingin bertumbuh.",
+      "cardHeading": "Mari mulai dari kebutuhan Anda.",
+      "cardDesc": "Setiap institusi memiliki kebutuhan yang berbeda. Kami siap membantu Anda menemukan konfigurasi yang paling tepat untuk sekolah Anda.",
+      "cta1": "Konsultasi Kebutuhan",
+      "cta2": "Request Demo"
+    },
+    "footer": {
+      "tagline": "Sistem operasi untuk institusi pendidikan modern.",
+      "nav": [
+        { "heading": "Produk dan Layanan", "links": [{ "label": "Sistem Manajemen Sekolah Terpadu", "href": "/#produk" }, { "label": "Konsultasi dan Pengembangan Solusi", "href": "/contact" }, { "label": "Artikel", "href": "/articles" }] },
+        { "heading": "Perusahaan", "links": [{ "label": "Tentang Kami", "href": "/about" }, { "label": "Kontak", "href": "/contact" }] },
+        { "heading": "Legal", "links": [{ "label": "Kebijakan Privasi", "href": "/legal/privacy" }, { "label": "Keamanan", "href": "/legal/security" }, { "label": "Syarat & Ketentuan", "href": "/legal/terms" }] }
+      ],
+      "copyright": "Masche Academics. Semua hak dilindungi.",
+      "credit": "Dikembangan oleh"
+    }
+  },
+  "en": {
+    "navbar": {
+      "links": [
+        { "label": "Products & Features", "href": "/#produk" },
+        { "label": "Benefits", "href": "/#benefit" },
+        { "label": "Articles", "href": "/#artikel" },
+        { "label": "About Us", "href": "/about" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "cta": "Contact Us"
+    },
+    "hero": {
+      "headline1": "Operating System for",
+      "headline2": "Modern Educational Institutions",
+      "subtitle": "Unified platform to manage academics, finances, and school operations. Designed specifically for the Indonesian education ecosystem.",
+      "cta1": "Consult Your Needs",
+      "cta2": "Request Demo"
+    },
+    "product": {
+      "heading": "One platform for the entire\nstudent lifecycle. Without complexity.",
+      "subheading": "Reduce Operational Burden. Save Wasted Time.",
+      "cardHeading": ["MASCHE Academics", "Tailored to Your", "Institution's Needs"],
+      "cardDesc": "We help map the right system for your institution's operations.",
+      "cardCta": "Consult Your Needs",
+      "soonLabel": "*In Development.\nComing Soon.",
+      "modules": [
+        { "id": "manajemen-akademik", "label": "Academic Management", "desc": "Manage curriculum, schedules, and academic data in one system" },
+        { "id": "operasional-akademik", "label": "Academic Operations", "desc": "Support daily school activities efficiently" },
+        { "id": "perkembangan-siswa", "label": "Student Development", "desc": "Monitor student progress comprehensively and continuously" },
+        { "id": "kelulusan-tracking", "label": "Graduation & Tracking", "desc": "Document student journey from enrollment to graduation" },
+        { "id": "pembayaran-tagihan", "label": "Payments & Billing", "desc": "" },
+        { "id": "pendaftaran-sekolah", "label": "School Enrollment", "desc": "" }
+      ],
+      "benefits": [
+        { "id": "usp-01", "title": "Reduce Time-Consuming Manual Processes", "desc": "Automate workflows to speed up processes and reduce errors." },
+        { "id": "usp-02", "title": "System That Adapts to Your Needs", "desc": "Designed to follow your institution's workflow without added complexity." },
+        { "id": "usp-03", "title": "One Platform, No Separate Tools", "desc": "Centralize all operations for efficiency and faster decision-making." }
+      ]
+    },
+    "theShift": {
+      "label": "KEY FEATURES",
+      "heading": "Designed for How Modern Institutions Work",
+      "subtitle": "Every feature built to make a real impact.",
+      "slides": [
+        { "category": "MANAGEMENT", "categoryColor": "#4b2e83", "categoryBg": "#4b2e8318", "title": "Real-time visibility across units in one centralized system", "desc": "Centralize operations for all school units without sacrificing individual structure.", "bullets": ["Centralized dashboard for all units", "Data structure remains separate per school", "Full control at the foundation level"], "stat": "Manage 2–10+ school units\nin one centralized system", "gradientFrom": "#4b2e83", "gradientTo": "#5e3da0" },
+        { "category": "ACADEMICS", "categoryColor": "#4b2e83", "categoryBg": "#4b2e8318", "title": "Automated & High-Precision Assessment", "desc": "Reduce teacher's administrative burden with an automated and accurate grading system.", "bullets": ["Automatic grade calculation without errors", "Real-time academic data synchronization", "Ready for reports & grade cards"], "stat": "+5 hours of work efficiency\nper teacher / week", "gradientFrom": "#5e3da0", "gradientTo": "#8faf9a" },
+        { "category": "STUDENT DEVELOPMENT", "categoryColor": "#769885", "categoryBg": "#8faf9a18", "title": "Monitor Student Progress Holistically", "desc": "More than just grades — monitor behavior, health, and student milestones in one system.", "bullets": ["Qualitative notes (behavior & activities)", "Health & physical development tracking", "Student history from enrollment to graduation"], "stat": "360° insight for measurable\nquality improvement", "gradientFrom": "#8faf9a", "gradientTo": "#e6a23c" },
+        { "category": "OPERATIONS", "categoryColor": "#4a4f57", "categoryBg": "#4a4f5718", "title": "Automate Administrative Systems", "desc": "Eliminate manual processes in school administration with an integrated system.", "bullets": ["Automate grade calculations", "No more repetitive academic report compilation", "Attendance and student data logged automatically in real-time"], "stat": "↓ 90% of administrative work\nthrough system automation", "gradientFrom": "#59b88a", "gradientTo": "#4b2e83" },
+        { "category": "POLICY COMPLIANCE", "categoryColor": "#c88a2a", "categoryBg": "#e6a23c18", "title": "Reporting Without Double Entry", "desc": "Sync data and reports to government systems without re-entering information.", "bullets": ["Export data ready for Dapodik", "Reporting system integration", "Reduce risk of data errors"], "stat": "Automated reporting with\n100% regulatory compliance", "gradientFrom": "#e6a23c", "gradientTo": "#4b2e83" },
+        { "category": "ACADEMIC SUPPORT", "categoryColor": "#c88a2a", "categoryBg": "#e6a23c18", "title": "Early Intervention for Student Success", "desc": "Identify students needing help and intervene before it's too late.", "bullets": ["Identify \"at-risk\" students early", "Structured remedial & enrichment programs", "Track intervention progress"], "stat": "↑ Student retention & academic\nperformance improvement up to 10–20%", "gradientFrom": "#edb85e", "gradientTo": "#8faf9a" },
+        { "category": "ACCESS & SECURITY", "categoryColor": "#4a4f57", "categoryBg": "#4a4f5718", "title": "Role-Based Access Control", "desc": "Ensure each user accesses data relevant to their responsibility.", "bullets": ["5-role system", "Audit trail for every activity", "Prevention of unauthorized access"], "stat": "5 roles, 100% access control\n& activity tracking", "gradientFrom": "#d7d9dd", "gradientTo": "#4b2e83" }
+      ]
+    },
+    "ecosystem": {
+      "label": "VALUE FOR EVERY ROLE",
+      "heading": "Value for Every Role in Your Institution",
+      "nodes": [
+        { "id": "management", "label": "Management", "sublabel": "Full control over all school units in one centralized dashboard.", "desc": "Set strategy, allocate resources, and maintain institutional accountability across every department." },
+        { "id": "staff", "label": "Staff", "sublabel": "Reporting and operations become faster & more accurate.", "desc": "Handle daily administration, support teachers, and ensure operations never break down." },
+        { "id": "teachers", "label": "Teachers", "sublabel": "Reduce administrative burden & focus on teaching quality", "desc": "Deliver curriculum, track student progress, and bridge institution and family." },
+        { "id": "students", "label": "Students", "sublabel": "More structured and personalized learning support.", "desc": "Access grades, schedules, and assignments. Center of every institutional decision." },
+        { "id": "parents", "label": "Parents", "sublabel": "Complete transparency on child's progress and activities.", "desc": "Monitor performance, attendance, and payments. Always informed, never left guessing." }
+      ],
+      "connections": [
+        { "from": "management", "to": "staff", "label": "Direct operations" },
+        { "from": "management", "to": "teachers", "label": "Oversee curriculum" },
+        { "from": "management", "to": "parents", "label": "Reports & updates" },
+        { "from": "teachers", "to": "staff", "label": "Daily collaboration" },
+        { "from": "teachers", "to": "students", "label": "Teach & guide" },
+        { "from": "teachers", "to": "parents", "label": "Progress updates" },
+        { "from": "students", "to": "parents", "label": "Family bond" }
+      ],
+      "infoPlaceholder": "Hover over any role to see its connections",
+      "connectionSuffix": "direct connections in the ecosystem"
+    },
+    "impact": {
+      "banner": "All systems connected in one unified ecosystem.",
+      "statsLabel": "TRUSTED BY",
+      "stats": [
+        { "value": "50+", "label": "Schools & educational\ninstitutions in Indonesia" },
+        { "value": "250+", "label": "Teachers\nin Indonesia" },
+        { "value": "1000+", "label": "Students\nin Indonesia" }
+      ]
+    },
+    "testimonials": {
+      "showMoreSchools": "View More Schools",
+      "showMoreTestimonials": "View More Testimonials",
+      "items": [
+        { "quote": "After using Masche, all data is centralized and accessible in real-time. Decision-making became much faster because we no longer wait for manual reports.", "name": "School Principal", "role": "Private School, Bandung City", "initials": "KS", "color": "bg-plum" },
+        { "quote": "The biggest difference is time. The grading and score compilation process that used to take hours is now much quicker. I can focus more on teaching than administration.", "name": "Teacher", "role": "Junior High School, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Before, there was lots of repetitive work, especially data entry and reports. Now most of it's automated, so administrative work is significantly reduced and more accurate.", "name": "Administrative Staff", "role": "High School, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "After using Masche, all data is centralized and accessible in real-time. Decision-making became much faster because we no longer wait for manual reports.", "name": "School Principal", "role": "Private School, Bandung City", "initials": "KS", "color": "bg-plum" },
+        { "quote": "The biggest difference is time. The grading and score compilation process that used to take hours is now much quicker. I can focus more on teaching than administration.", "name": "Teacher", "role": "Junior High School, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Before, there was lots of repetitive work, especially data entry and reports. Now most of it's automated, so administrative work is significantly reduced and more accurate.", "name": "Administrative Staff", "role": "High School, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "After using Masche, all data is centralized and accessible in real-time. Decision-making became much faster because we no longer wait for manual reports.", "name": "School Principal", "role": "Private School, Bandung City", "initials": "KS", "color": "bg-plum" },
+        { "quote": "The biggest difference is time. The grading and score compilation process that used to take hours is now much quicker. I can focus more on teaching than administration.", "name": "Teacher", "role": "Junior High School, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Before, there was lots of repetitive work, especially data entry and reports. Now most of it's automated, so administrative work is significantly reduced and more accurate.", "name": "Administrative Staff", "role": "High School, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "After using Masche, all data is centralized and accessible in real-time. Decision-making became much faster because we no longer wait for manual reports.", "name": "School Principal", "role": "Private School, Bandung City", "initials": "KS", "color": "bg-plum" },
+        { "quote": "The biggest difference is time. The grading and score compilation process that used to take hours is now much quicker. I can focus more on teaching than administration.", "name": "Teacher", "role": "Junior High School, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Before, there was lots of repetitive work, especially data entry and reports. Now most of it's automated, so administrative work is significantly reduced and more accurate.", "name": "Administrative Staff", "role": "High School, Surabaya", "initials": "SA", "color": "bg-amber-dark" },
+        { "quote": "After using Masche, all data is centralized and accessible in real-time. Decision-making became much faster because we no longer wait for manual reports.", "name": "School Principal", "role": "Private School, Bandung City", "initials": "KS", "color": "bg-plum" },
+        { "quote": "The biggest difference is time. The grading and score compilation process that used to take hours is now much quicker. I can focus more on teaching than administration.", "name": "Teacher", "role": "Junior High School, Bandung", "initials": "GR", "color": "bg-sage-dark" },
+        { "quote": "Before, there was lots of repetitive work, especially data entry and reports. Now most of it's automated, so administrative work is significantly reduced and more accurate.", "name": "Administrative Staff", "role": "High School, Surabaya", "initials": "SA", "color": "bg-amber-dark" }
+      ]
+    },
+    "callToAction": {
+      "heading": "Built for more than\njust efficiency.",
+      "subtitle": "MASCHE is the foundation for institutions that want to grow.",
+      "cardHeading": "Let's start with your needs.",
+      "cardDesc": "Every institution has different needs. We're ready to help you find the right configuration for your school.",
+      "cta1": "Consult Your Needs",
+      "cta2": "Request Demo"
+    },
+    "footer": {
+      "tagline": "Operating system for modern educational institutions.",
+      "nav": [
+        { "heading": "Products & Services", "links": [{ "label": "Integrated School Management System", "href": "/#produk" }, { "label": "Consulting & Solution Development", "href": "/contact" }, { "label": "Articles", "href": "/articles" }] },
+        { "heading": "Company", "links": [{ "label": "About Us", "href": "/about" }, { "label": "Contact", "href": "/contact" }] },
+        { "heading": "Legal", "links": [{ "label": "Privacy Policy", "href": "/legal/privacy" }, { "label": "Security", "href": "/legal/security" }, { "label": "Terms & Conditions", "href": "/legal/terms" }] }
+      ],
+      "copyright": "Masche Academics. All rights reserved.",
+      "credit": "Developed by"
+    }
+  }
 }

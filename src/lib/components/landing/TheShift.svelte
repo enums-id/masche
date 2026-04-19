@@ -2,14 +2,15 @@
 	import { reveal } from '$lib/actions/reveal';
 	import { fly } from 'svelte/transition';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
 	let current = $state(0);
 	let paused = $state(false);
 	let resumeTimer: ReturnType<typeof setTimeout> | null = null;
 
-	const c = content.theShift;
-	const slides = c.slides;
+	const c = $derived((content as any)[langStore.value].theShift);
+	const slides = $derived(c.slides);
 
 	$effect(() => {
 		if (paused) return;

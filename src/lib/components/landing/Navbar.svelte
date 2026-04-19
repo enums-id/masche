@@ -3,11 +3,13 @@
 	import { base } from '$app/paths';
 	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let scrollY = $state(0);
 	let heroHeight = $state(0);
 
 	onMount(() => {
+		langStore.init();
 		const hero = document.getElementById('hero');
 		if (hero) {
 			heroHeight = hero.offsetHeight;
@@ -21,8 +23,8 @@
 
 	let pastHero = $derived(scrollY >= heroHeight && heroHeight > 0);
 
-	const c = content.navbar;
-	const navLinks = c.links.map((l) => ({ ...l, href: `${base}${l.href}` }));
+	const c = $derived((content as any)[langStore.value].navbar);
+	const navLinks = $derived(c.links.map((l: any) => ({ ...l, href: `${base}${l.href}` })));
 </script>
 
 <svelte:window bind:scrollY />
@@ -50,11 +52,27 @@
 			{/each}
 		</nav>
 
-		<a
-			href="{base}/contact"
-			class="cursor-pointer rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all duration-200 bg-plum text-white hover:bg-plum-light hover:shadow-md hover:shadow-plum/20"
-		>
-			{c.cta}
-		</a>
+		<div class="flex items-center gap-4">
+			<button
+				onclick={() => langStore.toggle()}
+				class="hidden rounded-full bg-stone/10 px-3 py-1.5 text-[12px] font-semibold transition-all duration-200 md:flex gap-2 hover:bg-stone/15"
+				aria-label="Toggle language"
+			>
+				<span class="transition-colors {langStore.value === 'id' ? 'text-ink' : 'text-slate/40'}">
+					ID
+				</span>
+				<span class="text-stone/20">|</span>
+				<span class="transition-colors {langStore.value === 'en' ? 'text-ink' : 'text-slate/40'}">
+					EN
+				</span>
+			</button>
+
+			<a
+				href="{base}/contact"
+				class="cursor-pointer rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all duration-200 bg-plum text-white hover:bg-plum-light hover:shadow-md hover:shadow-plum/20"
+			>
+				{c.cta}
+			</a>
+		</div>
 	</div>
 </header>

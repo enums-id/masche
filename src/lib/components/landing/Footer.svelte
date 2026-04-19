@@ -3,14 +3,15 @@
 	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
 	import enumsLogo from '$lib/assets/logo/enums-black.svg';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let currentYear = new Date().getFullYear();
 
-	const c = content.footer;
-	const nav = c.nav.map((col) => ({
+	const c = $derived((content as any)[langStore.value].footer);
+	const nav = $derived(c.nav.map((col: any) => ({
 		...col,
-		links: col.links.map((l) => ({ ...l, href: `${base}${l.href}` }))
-	}));
+		links: col.links.map((l: any) => ({ ...l, href: `${base}${l.href}` }))
+	})));
 </script>
 
 <footer class="border-t border-stone/15 bg-white px-6 pt-16 pb-10">

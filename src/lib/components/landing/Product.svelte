@@ -11,10 +11,11 @@
 	import usp02 from '$lib/assets/icons/masche-usp-02.svg';
 	import usp03 from '$lib/assets/icons/masche-usp-03.svg';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
 
-	const c = content.product;
+	const c = $derived((content as any)[langStore.value].product);
 
 	const moduleMeta: Record<string, { color: string; soon: boolean; iconURL: string }> = {
 		'manajemen-akademik': { color: 'plum', soon: false, iconURL: feature02 },
@@ -31,8 +32,8 @@
 		'usp-03': usp03
 	};
 
-	const modules = c.modules.map((m) => ({ ...m, ...moduleMeta[m.id] }));
-	const benefits = c.benefits.map((b) => ({ ...b, icon: benefitIcons[b.id] }));
+	const modules = $derived(c.modules.map((m: any) => ({ ...m, ...moduleMeta[m.id] })));
+	const benefits = $derived(c.benefits.map((b: any) => ({ ...b, icon: benefitIcons[b.id] })));
 </script>
 
 <section id="produk" class="px-6 py-20 md:py-28" use:reveal={() => (visible = true)}>

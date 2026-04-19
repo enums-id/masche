@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
 
-	const c = content.impact;
-	const stats = c.stats;
+	const c = $derived((content as any)[langStore.value].impact);
+	const stats = $derived(c.stats);
 </script>
 
 <!-- Full-width plum banner -->

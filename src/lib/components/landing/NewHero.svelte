@@ -2,9 +2,10 @@
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let mounted = $state(false);
-	const c = content.hero;
+	const c = $derived((content as any)[langStore.value].hero);
 
 	onMount(() => {
 		requestAnimationFrame(() => {

@@ -3,9 +3,10 @@
 	import { reveal } from '$lib/actions/reveal';
 	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
 	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
-	const c = content.callToAction;
+	const c = $derived((content as any)[langStore.value].callToAction);
 </script>
 
 <!-- Top gradient section -->
