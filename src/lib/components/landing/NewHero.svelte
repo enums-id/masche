@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import content from '$lib/data/content.json';
 
 	let mounted = $state(false);
+	const c = content.hero;
 
 	onMount(() => {
 		requestAnimationFrame(() => {
 			mounted = true;
 		});
 	});
-
 </script>
 
 <section id="hero" class="relative flex min-h-svh items-center justify-center overflow-hidden bg-white">
@@ -22,8 +23,8 @@
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<span class="text-white">Sistem Operasi untuk</span><br />
-			<span class="text-white">Institusi Pendidikan Modern</span>
+			<span class="text-white">{c.headline1}</span><br />
+			<span class="text-white">{c.headline2}</span>
 	</div>
 
 		<!-- Subtitle -->
@@ -32,8 +33,7 @@
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-6 opacity-0'}"
 		>
-			Platform terpadu untuk mengelola akademik, keuangan, dan operasional sekolah.
-			Dirancang khusus untuk ekosistem pendidikan Indonesia.
+			{c.subtitle}
 		</p>
 
 		<!-- CTAs -->
@@ -46,13 +46,13 @@
 				href="{base}/contact"
 				class="cursor-pointer rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-plum backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10 hover:text-white"
 			>
-				Konsultasi Kebutuhan
+				{c.cta1}
 			</a>
 			<a
 				href="{base}/contact"
 				class="cursor-pointer rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-plum backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10  hover:text-white"
 			>
-				Request Demo
+				{c.cta2}
 			</a>
 		</div>
 	</div>

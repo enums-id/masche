@@ -10,71 +10,29 @@
 	import usp01 from '$lib/assets/icons/masche-usp-01.svg';
 	import usp02 from '$lib/assets/icons/masche-usp-02.svg';
 	import usp03 from '$lib/assets/icons/masche-usp-03.svg';
+	import content from '$lib/data/content.json';
 
 	let visible = $state(false);
 
-	const modules = [
-		{
-			label: 'Manajemen Akademik',
-			color: 'plum',
-			soon: false,
-			desc: 'Pengelolaan kurikulum, jadwal, dan data akademik dalam satu sistem',
-			iconURL: feature02
-		},
-		{
-			label: 'Operasional Akademik',
-			color: 'plum',
-			soon: false,
-			desc: 'Mendukung aktivitas harian sekolah secara efisien',
-			iconURL: feature03
-		},
-		{
-			label: 'Perkembangan Siswa',
-			color: 'plum',
-			soon: false,
-			desc: 'Monitoring perkembangan siswa secara menyeluruh dan berkelanjutan',
-			iconURL: feature05
-		},
-		{
-			label: 'Kelulusan & Tracking',
-			color: 'plum',
-			soon: false,
-			desc: 'Dokumentasi perjalanan siswa hingga setelah lulus',
-			iconURL: feature06
-		},
-		{
-			label: 'Pembayaran dan Tagihan Sekolah',
-			color: 'amber',
-			soon: true,
-			desc: '',
-			iconURL: feature04
-		},
-		{
-			label: 'Pendaftaran Sekolah',
-			color: 'amber',
-			soon: true,
-			desc: '',
-			iconURL: feature01
-		}
-	];
+	const c = content.product;
 
-	const benefits = [
-		{
-			title: 'Kurangi Proses Manual yang Memakan Waktu',
-			desc: 'Otomatisasi alur kerja untuk mempercepat proses dan mengurangi kesalahan.',
-			icon: usp01
-		},
-		{
-			title: 'Sistem yang Menyesuaikan Kebutuhan Anda',
-			desc: 'Dirancang mengikuti alur kerja institusi tanpa menambah kompleksitas.',
-			icon: usp02
-		},
-		{
-			title: 'Satu Platform, Tanpa Tools Terpisah',
-			desc: 'Seluruh operasional terpusat untuk efisiensi dan keputusan yang lebih cepat.',
-			icon: usp03
-		}
-	];
+	const moduleMeta: Record<string, { color: string; soon: boolean; iconURL: string }> = {
+		'manajemen-akademik': { color: 'plum', soon: false, iconURL: feature02 },
+		'operasional-akademik': { color: 'plum', soon: false, iconURL: feature03 },
+		'perkembangan-siswa': { color: 'plum', soon: false, iconURL: feature05 },
+		'kelulusan-tracking': { color: 'plum', soon: false, iconURL: feature06 },
+		'pembayaran-tagihan': { color: 'amber', soon: true, iconURL: feature04 },
+		'pendaftaran-sekolah': { color: 'amber', soon: true, iconURL: feature01 }
+	};
+
+	const benefitIcons: Record<string, string> = {
+		'usp-01': usp01,
+		'usp-02': usp02,
+		'usp-03': usp03
+	};
+
+	const modules = c.modules.map((m) => ({ ...m, ...moduleMeta[m.id] }));
+	const benefits = c.benefits.map((b) => ({ ...b, icon: benefitIcons[b.id] }));
 </script>
 
 <section id="produk" class="px-6 py-20 md:py-28" use:reveal={() => (visible = true)}>
@@ -86,10 +44,10 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<h2 class="text-[clamp(1.8rem,4vw,3rem)] leading-tight font-bold tracking-tight text-ink">
-				Satu platform untuk seluruh<br />siklus siswa. Tanpa kerumitan.
+				{#each c.heading.split('\n') as line, i}{#if i > 0}<br />{/if}{line}{/each}
 			</h2>
 			<p class="mt-3 text-[15px] font-medium text-slate/60">
-				Mengurangi Beban Operasional. Menghemat Waktu yang Terbuang.
+				{c.subheading}
 			</p>
 		</div>
 
@@ -109,16 +67,16 @@
 				<!-- Text content -->
 				<div class="p-8">
 					<h3 class="text-xl leading-snug font-bold text-white">
-						MASCHE Academics<br />Menyesuaikan Kebutuhan<br />Institusi Anda
+						{#each c.cardHeading as line, i}{#if i > 0}<br />{/if}{line}{/each}
 					</h3>
 					<p class="mt-3 text-[13px] leading-relaxed text-white/45">
-						Kami bantu memetakan sistem yang tepat untuk operasional institusi Anda.
+						{c.cardDesc}
 					</p>
 					<a
 						href="{base}/contact"
 						class="mt-6 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-[13px] font-medium text-white transition-all duration-200 hover:border-white/50 hover:bg-white/10"
 					>
-						Konsultasikan Kebutuhan Anda
+						{c.cardCta}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -161,7 +119,7 @@
 								{mod.label}
 							</p>
 							<p class="mt-1 text-[11px] text-slate/40">
-								*Dalam Pengembangan.<br />Akan Segera Tersedia.
+								{#each c.soonLabel.split('\n') as line, i}{#if i > 0}<br />{/if}{line}{/each}
 							</p>
 						{:else}
 							<div class="mb-3 flex size-10 items-center justify-center rounded-xl bg-plum/10">

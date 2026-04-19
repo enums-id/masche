@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
+	import content from '$lib/data/content.json';
 
 	let visible = $state(false);
 	let logosPage = $state(0);
 	let testimonialsPage = $state(0);
 
+	const c = content.testimonials;
 	const logos = Array.from({ length: 20 }, (_, i) => i);
 	const itemsPerPageLogos = 10;
 	const itemsPerPageTestimonials = 6;
@@ -14,128 +16,7 @@
 		return logos.slice(0, end);
 	});
 
-	const testimonials = [
-		{
-			quote:
-				'Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.',
-			name: 'Kepala Sekolah',
-			role: 'Sekolah Swasta, Kota Bandung',
-			initials: 'KS',
-			color: 'bg-plum'
-		},
-		{
-			quote:
-				'Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.',
-			name: 'Guru',
-			role: 'SMP, Bandung',
-			initials: 'GR',
-			color: 'bg-sage-dark'
-		},
-		{
-			quote:
-				'Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.',
-			name: 'Staff Administrasi',
-			role: 'SMA, Surabaya',
-			initials: 'SA',
-			color: 'bg-amber-dark'
-		},
-		{
-			quote:
-				'Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.',
-			name: 'Kepala Sekolah',
-			role: 'Sekolah Swasta, Kota Bandung',
-			initials: 'KS',
-			color: 'bg-plum'
-		},
-		{
-			quote:
-				'Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.',
-			name: 'Guru',
-			role: 'SMP, Bandung',
-			initials: 'GR',
-			color: 'bg-sage-dark'
-		},
-		{
-			quote:
-				'Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.',
-			name: 'Staff Administrasi',
-			role: 'SMA, Surabaya',
-			initials: 'SA',
-			color: 'bg-amber-dark'
-		},
-		{
-			quote:
-				'Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.',
-			name: 'Kepala Sekolah',
-			role: 'Sekolah Swasta, Kota Bandung',
-			initials: 'KS',
-			color: 'bg-plum'
-		},
-		{
-			quote:
-				'Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.',
-			name: 'Guru',
-			role: 'SMP, Bandung',
-			initials: 'GR',
-			color: 'bg-sage-dark'
-		},
-		{
-			quote:
-				'Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.',
-			name: 'Staff Administrasi',
-			role: 'SMA, Surabaya',
-			initials: 'SA',
-			color: 'bg-amber-dark'
-		},
-		{
-			quote:
-				'Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.',
-			name: 'Kepala Sekolah',
-			role: 'Sekolah Swasta, Kota Bandung',
-			initials: 'KS',
-			color: 'bg-plum'
-		},
-		{
-			quote:
-				'Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.',
-			name: 'Guru',
-			role: 'SMP, Bandung',
-			initials: 'GR',
-			color: 'bg-sage-dark'
-		},
-		{
-			quote:
-				'Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.',
-			name: 'Staff Administrasi',
-			role: 'SMA, Surabaya',
-			initials: 'SA',
-			color: 'bg-amber-dark'
-		},
-		{
-			quote:
-				'Setelah menggunakan Masche, semua data terpusat dan bisa diakses real-time. Pengambilan keputusan jadi jauh lebih cepat karena kami tidak lagi menunggu laporan manual.',
-			name: 'Kepala Sekolah',
-			role: 'Sekolah Swasta, Kota Bandung',
-			initials: 'KS',
-			color: 'bg-plum'
-		},
-		{
-			quote:
-				'Yang paling terasa adalah waktu. Proses penilaian dan rekap nilai yang biasanya memakan waktu sekarang jauh lebih ringkas. Saya bisa lebih fokus ke pengajaran dibanding administrasi.',
-			name: 'Guru',
-			role: 'SMP, Bandung',
-			initials: 'GR',
-			color: 'bg-sage-dark'
-		},
-		{
-			quote:
-				'Dulu banyak pekerjaan berulang, terutama untuk input data dan laporan. Sekarang sebagian besar sudah otomatis, jadi pekerjaan administratif berkurang cukup signifikan dan lebih minim kesalahan.',
-			name: 'Staff Administrasi',
-			role: 'SMA, Surabaya',
-			initials: 'SA',
-			color: 'bg-amber-dark'
-		}
-	];
+	const testimonials = c.items;
 
 	const paginatedTestimonials = $derived.by(() => {
 		const end = (testimonialsPage + 1) * itemsPerPageTestimonials;
@@ -173,7 +54,7 @@
 						onclick={() => (logosPage += 1)}
 						class="rounded-lg bg-plum/10 px-6 py-2 text-sm font-medium text-plum transition-all hover:bg-plum/15"
 					>
-						Show More Schools
+						{c.showMoreSchools}
 					</button>
 				</div>
 			{/if}
@@ -226,7 +107,7 @@
 						onclick={() => (testimonialsPage += 1)}
 						class="rounded-lg bg-plum/10 px-6 py-2 text-sm font-medium text-plum transition-all hover:bg-plum/15"
 					>
-						Show More Testimonials
+						{c.showMoreTestimonials}
 					</button>
 				</div>
 			{/if}

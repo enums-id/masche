@@ -1,119 +1,15 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
 	import { fly } from 'svelte/transition';
+	import content from '$lib/data/content.json';
 
 	let visible = $state(false);
 	let current = $state(0);
 	let paused = $state(false);
 	let resumeTimer: ReturnType<typeof setTimeout> | null = null;
 
-	const slides = [
-		{
-			category: 'MANAJEMEN',
-			categoryColor: '#4b2e83',
-			categoryBg: '#4b2e8318',
-			title: 'Visibilitas real-time lintas unit dalam satu sistem terpusat',
-			desc: 'Sentralisasi operasional seluruh unit sekolah tanpa mengorbankan struktur masing-masing.',
-			bullets: [
-				'Dashboard terpusat untuk seluruh unit',
-				'Struktur data tetap terpisah per sekolah',
-				'Kontrol penuh di level yayasan'
-			],
-			stat: 'Kelola 2\u201310+ unit sekolah\ndalam satu sistem terpusat',
-			gradientFrom: '#4b2e83',
-			gradientTo: '#5e3da0'
-		},
-		{
-			category: 'AKADEMIK',
-			categoryColor: '#4b2e83',
-			categoryBg: '#4b2e8318',
-			title: 'Penilaian Otomatis & Presisi Tinggi',
-			desc: 'Kurangi beban administratif guru dengan sistem penilaian yang terotomatisasi dan akurat.',
-			bullets: [
-				'Perhitungan nilai otomatis tanpa error',
-				'Sinkronisasi data akademik real-time',
-				'Siap untuk laporan & rapor'
-			],
-			stat: '+5 jam efisiensi kerja\nper guru / minggu',
-			gradientFrom: '#5e3da0',
-			gradientTo: '#8faf9a'
-		},
-		{
-			category: 'PENGEMBANGAN SISWA',
-			categoryColor: '#769885',
-			categoryBg: '#8faf9a18',
-			title: 'Pantau Perkembangan Siswa Secara Menyeluruh',
-			desc: 'Lebih dari sekadar nilai \u2014 pantau perilaku, kesehatan, dan milestone siswa dalam satu sistem.',
-			bullets: [
-				'Catatan kualitatif (behavior & aktivitas)',
-				'Tracking kesehatan & perkembangan fisik',
-				'Riwayat siswa dari awal hingga kelulusan'
-			],
-			stat: 'Insight 360\u00b0 untuk peningkatan\nkualitas sekolah secara terukur',
-			gradientFrom: '#8faf9a',
-			gradientTo: '#e6a23c'
-		},
-		{
-			category: 'OPERASIONAL',
-			categoryColor: '#4a4f57',
-			categoryBg: '#4a4f5718',
-			title: 'Otomatisasi Sistem Administratif',
-			desc: 'Hilangkan proses manual dalam pengelolaan administrasi sekolah dengan sistem yang terintegrasi.',
-			bullets: [
-				'Otomatisasi perhitungan nilai',
-				'Tanpa rekap laporan akademik berulang',
-				'Absensi dan data siswa tercatat otomatis secara real-time'
-			],
-			stat: '\u2193 90% pekerjaan administratif\nmelalui otomatisasi sistem',
-			gradientFrom: '#59b88a',
-			gradientTo: '#4b2e83'
-		},
-		{
-			category: 'PEMENUHAN KEBIJAKAN',
-			categoryColor: '#c88a2a',
-			categoryBg: '#e6a23c18',
-			title: 'Pelaporan Tanpa Double Entry',
-			desc: 'Sinkronisasi data dan laporan ke sistem pemerintah tanpa proses input ulang.',
-			bullets: [
-				'Export data siap Dapodik',
-				'Integrasi sistem pelaporan',
-				'Mengurangi risiko kesalahan data'
-			],
-			stat: 'Pelaporan otomatis dengan\nkepatuhan regulasi 100%',
-			gradientFrom: '#e6a23c',
-			gradientTo: '#4b2e83'
-		},
-		{
-			category: 'DUKUNGAN AKADEMIK',
-			categoryColor: '#c88a2a',
-			categoryBg: '#e6a23c18',
-			title: 'Intervensi Dini untuk Keberhasilan Siswa',
-			desc: 'Identifikasi siswa yang membutuhkan bantuan dan lakukan intervensi sebelum terlambat.',
-			bullets: [
-				'Deteksi siswa "at-risk" lebih awal',
-				'Program remedial & enrichment terstruktur',
-				'Monitoring progres intervensi'
-			],
-			stat: '\u2191 Retensi siswa & peningkatan\nperforma akademik hingga 10\u201320%',
-			gradientFrom: '#edb85e',
-			gradientTo: '#8faf9a'
-		},
-		{
-			category: 'AKSES & SEKURITAS',
-			categoryColor: '#4a4f57',
-			categoryBg: '#4a4f5718',
-			title: 'Kontrol Akses Berbasis Peran',
-			desc: 'Memastikan setiap pengguna mengakses data yang relevan dengan tanggung jawabnya.',
-			bullets: [
-				'Sistem 5 role',
-				'Audit trail untuk setiap aktivitas',
-				'Pencegahan akses tidak sah'
-			],
-			stat: '5 peran, 100% kontrol akses\n& pelacakan aktivitas',
-			gradientFrom: '#d7d9dd',
-			gradientTo: '#4b2e83'
-		}
-	];
+	const c = content.theShift;
+	const slides = c.slides;
 
 	$effect(() => {
 		if (paused) return;
@@ -148,13 +44,13 @@
 				: 'translate-y-8 opacity-0'}"
 		>
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
-				FITUR UTAMA
+				{c.label}
 			</p>
 			<h2 class="text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold tracking-tight text-ink">
-				Dirancang untuk Cara Kerja Institusi Modern
+				{c.heading}
 			</h2>
 			<p class="mt-2 text-[15px] font-medium text-plum">
-				Setiap fitur dibangun untuk memberikan dampak nyata.
+				{c.subtitle}
 			</p>
 		</div>
 

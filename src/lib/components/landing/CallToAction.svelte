@@ -2,8 +2,10 @@
 	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
 	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
+	import content from '$lib/data/content.json';
 
 	let visible = $state(false);
+	const c = content.callToAction;
 </script>
 
 <!-- Top gradient section -->
@@ -28,14 +30,14 @@
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			Dibangun untuk lebih dari<br />sekadar efisiensi.
+			{#each c.heading.split('\n') as line, i}{#if i > 0}<br />{/if}{line}{/each}
 		</h2>
 		<p
 			class="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/60 transition-all delay-150 duration-700 ease-out {visible
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-6 opacity-0'}"
 		>
-			MASCHE hadir sebagai fondasi bagi institusi yang ingin bertumbuh.
+			{c.subtitle}
 		</p>
 	</div>
 
@@ -48,24 +50,23 @@
 		<div class="rounded-3xl bg-white px-8 py-10 shadow-2xl shadow-plum/20 ring-1 ring-stone/10">
 			<img src={logo} alt="Masche Academics" class="mx-auto mb-6 h-7 w-auto" />
 			<h3 class="text-[1.4rem] font-bold tracking-tight text-ink">
-				Mari mulai dari kebutuhan Anda.
+				{c.cardHeading}
 			</h3>
 			<p class="mx-auto mt-3 max-w-md text-[14px] leading-relaxed text-slate/50">
-				Setiap institusi memiliki kebutuhan yang berbeda. Kami siap membantu Anda menemukan
-				konfigurasi yang paling tepat untuk sekolah Anda.
+				{c.cardDesc}
 			</p>
 			<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
 				<a
 					href="{base}/contact"
 					class="w-full cursor-pointer rounded-full border border-stone/30 px-7 py-3.5 text-[14px] font-semibold text-slate/70 transition-all duration-200 hover:border-ink/30 hover:text-ink sm:w-auto"
 				>
-					Konsultasi Kebutuhan
+					{c.cta1}
 				</a>
 				<a
 					href="{base}/contact"
 					class="w-full cursor-pointer rounded-full bg-amber px-7 py-3.5 text-[14px] font-semibold text-white transition-all duration-200 hover:bg-amber-dark hover:shadow-lg hover:shadow-amber/25 sm:w-auto"
 				>
-					Request Demo
+					{c.cta2}
 				</a>
 			</div>
 		</div>

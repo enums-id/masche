@@ -1,19 +1,17 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
+	import content from '$lib/data/content.json';
 
 	let visible = $state(false);
 
-	const stats = [
-		{ value: '50+', label: 'Sekolah & institusi\npendidikan di Indonesia' },
-		{ value: '250+', label: 'Total guru\ndi Indonesia' },
-		{ value: '1000+', label: 'Total siswa\ndi Indonesia' }
-	];
+	const c = content.impact;
+	const stats = c.stats;
 </script>
 
 <!-- Full-width plum banner -->
 <div class="bg-plum px-6 py-16 text-center">
 	<p class="text-[clamp(1.2rem,3vw,1.8rem)] leading-snug font-bold text-white">
-		Semua sistem terhubung dalam satu ekosistem terpadu.
+		{c.banner}
 	</p>
 </div>
 
@@ -25,7 +23,7 @@
 				? 'opacity-100'
 				: 'opacity-0'}"
 		>
-			TELAH DIPILIH OLEH
+			{c.statsLabel}
 		</p>
 		<div class="grid grid-cols-1 gap-8 text-center sm:grid-cols-3">
 			{#each stats as stat, i}

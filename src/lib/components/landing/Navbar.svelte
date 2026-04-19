@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
+	import content from '$lib/data/content.json';
 
 	let scrollY = $state(0);
 	let heroHeight = $state(0);
@@ -20,13 +21,8 @@
 
 	let pastHero = $derived(scrollY >= heroHeight && heroHeight > 0);
 
-	const navLinks = [
-		{ label: 'Produk & Fitur', href: `${base}/#produk` },
-		{ label: 'Benefit', href: `${base}/#benefit` },
-		{ label: 'Artikel', href: `${base}/#artikel` },
-		{ label: 'Tentang Kami', href: `${base}/about` },
-		{ label: 'Kontak', href: `${base}/contact` }
-	];
+	const c = content.navbar;
+	const navLinks = c.links.map((l) => ({ ...l, href: `${base}${l.href}` }));
 </script>
 
 <svelte:window bind:scrollY />
@@ -58,7 +54,7 @@
 			href="{base}/contact"
 			class="cursor-pointer rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all duration-200 bg-plum text-white hover:bg-plum-light hover:shadow-md hover:shadow-plum/20"
 		>
-			Hubungi Kami
+			{c.cta}
 		</a>
 	</div>
 </header>

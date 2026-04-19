@@ -2,34 +2,15 @@
 	import { base } from '$app/paths';
 	import logo from '$lib/assets/logo/masche-primary-horizontal.svg';
 	import enumsLogo from '$lib/assets/logo/enums-black.svg';
+	import content from '$lib/data/content.json';
 
 	let currentYear = new Date().getFullYear();
 
-	const nav = [
-		{
-			heading: 'Produk dan Layanan',
-			links: [
-				{ label: 'Sistem Manajemen Sekolah Terpadu', href: `${base}/#produk` },
-				{ label: 'Konsultasi dan Pengembangan Solusi', href: `${base}/contact` },
-				{ label: 'Artikel', href: `${base}/articles` }
-			]
-		},
-		{
-			heading: 'Perusahaan',
-			links: [
-				{ label: 'Tentang Kami', href: `${base}/about` },
-				{ label: 'Kontak', href: `${base}/contact` }
-			]
-		},
-		{
-			heading: 'Legal',
-			links: [
-				{ label: 'Kebijakan Privasi', href: `${base}/legal/privacy` },
-				{ label: 'Keamanan', href: `${base}/legal/security` },
-				{ label: 'Syarat & Ketentuan', href: `${base}/legal/terms` }
-			]
-		}
-	];
+	const c = content.footer;
+	const nav = c.nav.map((col) => ({
+		...col,
+		links: col.links.map((l) => ({ ...l, href: `${base}${l.href}` }))
+	}));
 </script>
 
 <footer class="border-t border-stone/15 bg-white px-6 pt-16 pb-10">
@@ -40,7 +21,7 @@
 			<div>
 				<img src={logo} alt="Masche Academics" class="h-7 w-auto" />
 				<p class="mt-4 max-w-52 text-[13px] leading-relaxed text-slate/40">
-					Sistem operasi untuk institusi pendidikan modern.
+					{c.tagline}
 				</p>
 				<!-- Social icons -->
 				<div class="mt-6 flex items-center gap-3">
@@ -112,11 +93,11 @@
 			class="mt-16 flex flex-col items-center justify-between gap-4 border-t border-stone/10 pt-8 md:flex-row"
 		>
 			<p class="text-[12px] text-slate/30">
-				&copy; {currentYear} Masche Academics. Semua hak dilindungi.
+				&copy; {currentYear} {c.copyright}
 			</p>
 			<div class="flex flex-col items-center gap-2">
 				<p class="text-[12px] text-slate/25">
-					Dikembangan oleh <span class="text-slate/40"></span>
+					{c.credit}
 				</p>
 				<img src={enumsLogo} alt="enums" class="w-16" />
 			</div>
