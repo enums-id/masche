@@ -208,6 +208,10 @@
       }
     },
     "articles": {
+      "sectionLabel": "ARTIKEL MASCHE",
+      "sectionTitle": "Wawasan untuk Institusi",
+      "sectionSubtitle": "yang Terus Berkembang",
+      "viewAllArticles": "Lihat Semua Artikel",
       "pageTitle": "Artikel",
       "pageSubtitle": "Wawasan untuk Institusi yang Terus Berkembang",
       "pageDescription": "Panduan praktis, studi kasus, dan perspektif seputar manajemen institusi pendidikan modern.",
@@ -430,6 +434,10 @@
       }
     },
     "articles": {
+      "sectionLabel": "MASCHE ARTICLES",
+      "sectionTitle": "Insights for Institutions",
+      "sectionSubtitle": "That Keep Growing",
+      "viewAllArticles": "View All Articles",
       "pageTitle": "Articles",
       "pageSubtitle": "Insights for Institutions That Keep Growing",
       "pageDescription": "Practical guides, case studies, and perspectives on modern educational institution management.",

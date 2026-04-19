@@ -2,10 +2,12 @@
 	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
 	import { articles } from '$lib/data/articles';
+	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
 
-	// Show first 3 on landing
+	const c = $derived((content as any)[langStore.value].articles);
 	const preview = articles.slice(0, 3);
 </script>
 
@@ -19,17 +21,17 @@
 		>
 			<div>
 				<p class="mb-3 text-[11px] font-semibold tracking-widest text-plum uppercase">
-					ARTIKEL MASCHE
+					{c.sectionLabel}
 				</p>
 				<h2 class="text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold tracking-tight text-ink">
-					Wawasan untuk Institusi<br class="hidden sm:block" /> yang Terus Berkembang
+					{c.sectionTitle}<br class="hidden sm:block" /> {c.sectionSubtitle}
 				</h2>
 			</div>
 			<a
 				href="{base}/articles"
 				class="shrink-0 cursor-pointer rounded-full border border-plum/25 px-5 py-2.5 text-[13px] font-semibold text-plum transition-all duration-200 hover:bg-plum hover:text-white"
 			>
-				Lihat Semua Artikel
+				{c.viewAllArticles}
 			</a>
 		</div>
 
@@ -66,7 +68,7 @@
 							{article.title}
 						</h3>
 						<div class="mt-4 flex items-center gap-1.5 text-[12px] font-semibold text-plum">
-							Baca selengkapnya
+							{c.readMore}
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
