@@ -8,10 +8,12 @@
 	let currentYear = new Date().getFullYear();
 
 	const c = $derived((content as any)[langStore.value].footer);
-	const nav = $derived(c.nav.map((col: any) => ({
-		...col,
-		links: col.links.map((l: any) => ({ ...l, href: `${base}${l.href}` }))
-	})));
+	const nav = $derived(
+		c.nav.map((col: any) => ({
+			...col,
+			links: col.links.map((l: any) => ({ ...l, href: `${base}${l.href}` }))
+		}))
+	);
 </script>
 
 <footer class="border-t border-stone/15 bg-white px-6 pt-16 pb-10">
@@ -25,7 +27,7 @@
 					{c.tagline}
 				</p>
 				<!-- Social icons -->
-				<div class="mt-6 flex items-center gap-3">
+				<!-- <div class="mt-6 flex items-center gap-3">
 					<a
 						href="{base}/"
 						class="flex size-8 cursor-pointer items-center justify-center rounded-full border border-stone/20 text-slate/35 transition-colors duration-200 hover:border-ink/20 hover:text-ink"
@@ -58,7 +60,7 @@
 							/>
 						</svg>
 					</a>
-				</div>
+				</div> -->
 			</div>
 
 			<!-- Nav columns -->
@@ -94,7 +96,8 @@
 			class="mt-16 flex flex-col items-center justify-between gap-4 border-t border-stone/10 pt-8 md:flex-row"
 		>
 			<p class="text-[12px] text-slate/30">
-				&copy; {currentYear} {c.copyright}
+				&copy; {currentYear}
+				{c.copyright}
 			</p>
 			<div class="flex flex-col items-center gap-2">
 				<p class="text-[12px] text-slate/25">

@@ -121,6 +121,91 @@
       ],
       "copyright": "Masche Academics. Semua hak dilindungi.",
       "credit": "Dikembangan oleh"
+    },
+    "about": {
+      "pageTitle": "Tentang Masche Academics",
+      "pageSubtitle": "Sistem di balik setiap sekolah yang berjalan dengan baik.",
+      "missionLabel": "Misi Kami",
+      "missionTitle": "Membawa kejelasan dalam pengelolaan pendidikan.",
+      "missionContent": [
+        "Di seluruh Indonesia, ribuan sekolah masih beroperasi dengan tambal sulam spreadsheet, grup WhatsApp, formulir kertas, dan perangkat lunak yang tidak terhubung satu sama lain. Data akademik ada di satu sistem, absensi di sistem lain, keuangan di sistem ketiga — dan semuanya tidak bisa saling berbicara.",
+        "Masche Academics hadir untuk menggantikan fragmentasi itu dengan satu platform yang koheren. Kami memberikan infrastruktur yang layak bagi sekolah — agar administrator bisa fokus memimpin, guru bisa fokus mengajar, dan siswa bisa fokus belajar."
+      ],
+      "storyLabel": "Cerita Kami",
+      "storyTitle": "Lahir dari masalah nyata.",
+      "storyContent": [
+        "Masche dibangun oleh Enums, sebuah studio teknologi yang berbasis di Indonesia. Setelah bekerja erat dengan berbagai sekolah dan menyaksikan langsung betapa banyak waktu dan energi yang terbuang akibat alur kerja administratif yang rusak, kami tahu pasti ada cara yang lebih baik.",
+        "Kami memulai dengan satu keyakinan sederhana: sekolah layak mendapatkan infrastruktur sebaik kualitas pengajaran mereka. Keyakinan itulah yang menjadi Masche — platform yang dirancang dari dasar untuk cara kerja sekolah Indonesia yang sebenarnya."
+      ],
+      "valuesLabel": "Yang Kami Yakini",
+      "valuesTitle": "Prinsip yang membentuk setiap keputusan.",
+      "values": [
+        { "title": "Sekolah adalah ekosistem", "desc": "Setiap peran — manajemen, guru, staf, siswa, dan orang tua — saling terhubung. Platform kami mencerminkan realita tersebut." },
+        { "title": "Data harus melayani manusia", "desc": "Bukan sebaliknya. Kami mengubah data mentah menjadi insight yang jelas dan dapat ditindaklanjuti oleh setiap pemangku kepentingan." },
+        { "title": "Kesederhanaan adalah fitur", "desc": "Sistem yang powerful tidak harus rumit. Kami terus berupaya membuat alur kerja yang kompleks terasa mudah dan alami." },
+        { "title": "Dibangun untuk Indonesia", "desc": "Dilokalisasi sejak awal — NISN, IJAZAH, antarmuka dwibahasa, dan kepatuhan terhadap standar pendidikan nasional." }
+      ],
+      "ctaHeading": "Siap melihat Masche beraksi?",
+      "ctaDesc": "Jadwalkan demo personal dan lihat bagaimana Masche dapat mengubah operasional sekolah Anda.",
+      "ctaButton": "Request Demo"
+    },
+    "contact": {
+      "pageTitle": "Hubungi Kami",
+      "pageSubtitle": "Kami senang mendengar dari Anda.",
+      "formName": "Nama Lengkap",
+      "formNamePlaceholder": "Nama lengkap Anda",
+      "formEmail": "Alamat Email",
+      "formEmailPlaceholder": "anda@sekolah.sch.id",
+      "formInstitution": "Nama Institusi",
+      "formInstitutionPlaceholder": "Nama sekolah atau yayasan Anda",
+      "formRole": "Peran Anda",
+      "formRoles": ["Pemilik Yayasan / Sekolah", "Kepala Sekolah", "Wakil Kepala Sekolah", "Staf IT", "Guru", "Lainnya"],
+      "formMessage": "Pesan",
+      "formMessagePlaceholder": "Ceritakan kebutuhan spesifik Anda...",
+      "formSubmit": "Kirim Pesan",
+      "successTitle": "Pesan terkirim!",
+      "successMessage": "Kami akan menghubungi Anda dalam 1 hari kerja.",
+      "faqTitle": "Pertanyaan yang Sering Diajukan",
+      "faqs": [
+        { "q": "Bagaimana cara mendapatkan demo?", "a": "Isi formulir di atas atau hubungi kami langsung via email. Kami akan menjadwalkan sesi walkthrough personal dalam waktu 48 jam." },
+        { "q": "Apakah ada masa percobaan gratis?", "a": "Ya — 30 hari gratis tanpa kartu kredit. Anda akan mendapatkan akses penuh untuk mengeksplorasi platform dengan data Anda sendiri." },
+        { "q": "Sekolah seperti apa yang didukung?", "a": "Masche dibangun untuk institusi pendidikan K-12 di seluruh Indonesia, dari sekolah satu kampus hingga jaringan multi-unit." }
+      ]
+    },
+    "legal": {
+      "privacy": {
+        "title": "Kebijakan Privasi",
+        "effectiveDate": "Berlaku: 1 Januari 2024 · Terakhir diperbarui: 1 Januari 2024",
+        "intro": "Kami berkomitmen melindungi privasi Anda. Kebijakan ini menjelaskan data apa yang kami kumpulkan dan bagaimana kami menggunakannya.",
+        "sections": [
+          { "heading": "Data yang Kami Kumpulkan", "content": "Kami mengumpulkan informasi yang Anda berikan secara langsung, seperti nama, email, dan data institusi Anda. Kami juga mengumpulkan informasi penggunaan untuk meningkatkan layanan kami." },
+          { "heading": "Bagaimana Kami Menggunakan Data Anda", "content": "Data Anda digunakan untuk menyediakan, memelihara, dan meningkatkan layanan kami. Kami tidak pernah menjual data Anda kepada pihak ketiga." },
+          { "heading": "Keamanan Data", "content": "Kami menggunakan enkripsi tingkat enterprise untuk melindungi data Anda. Semua transmisi dilakukan melalui HTTPS yang aman." },
+          { "heading": "Hubungi Kami", "content": "Jika Anda memiliki pertanyaan tentang kebijakan privasi kami, silakan hubungi kami di privacy@enums.id" }
+        ]
+      },
+      "security": {
+        "title": "Keamanan",
+        "effectiveDate": "Berlaku: 1 Januari 2024 · Terakhir diperbarui: 1 Januari 2024",
+        "intro": "Keamanan data Anda adalah prioritas utama kami. Kami menerapkan standar keamanan industri terbaik.",
+        "sections": [
+          { "heading": "Enkripsi", "content": "Semua data dienkripsi baik saat transit maupun saat istirahat. Kami menggunakan algoritma enkripsi AES-256 standar industri." },
+          { "heading": "Kontrol Akses", "content": "Akses dibatasi berdasarkan peran dan kebutuhan. Kami melakukan audit akses secara berkala." },
+          { "heading": "Monitoring", "content": "Sistem kami dipantau 24/7 untuk aktivitas yang mencurigakan dan ancaman keamanan potensial." },
+          { "heading": "Laporan Kerentanan", "content": "Jika Anda menemukan kerentanan keamanan, silakan hubungi security@enums.id dengan detail lengkap." }
+        ]
+      },
+      "terms": {
+        "title": "Syarat & Ketentuan",
+        "effectiveDate": "Berlaku: 1 Januari 2024 · Terakhir diperbarui: 1 Januari 2024",
+        "intro": "Dengan menggunakan Masche Academics, Anda setuju dengan syarat dan ketentuan ini.",
+        "sections": [
+          { "heading": "Penggunaan yang Diizinkan", "content": "Anda menyetujui untuk menggunakan Masche hanya untuk tujuan yang sah dan sesuai dengan semua undang-undang yang berlaku." },
+          { "heading": "Tanggung Jawab Pengguna", "content": "Anda bertanggung jawab atas semua aktivitas yang terjadi di akun Anda. Jaga kerahasiaan kata sandi Anda." },
+          { "heading": "Batasan Tanggung Jawab", "content": "Masche disediakan 'sebagaimana adanya'. Kami tidak bertanggung jawab atas kerugian tidak langsung atau konsekuensial." },
+          { "heading": "Perubahan Layanan", "content": "Kami berhak mengubah atau menghentikan layanan kapan saja dengan pemberitahuan sebelumnya." }
+        ]
+      }
     }
   },
   "en": {
@@ -245,6 +330,91 @@
       ],
       "copyright": "Masche Academics. All rights reserved.",
       "credit": "Developed by"
+    },
+    "about": {
+      "pageTitle": "About Masche Academics",
+      "pageSubtitle": "The system behind every well-run school.",
+      "missionLabel": "Our Mission",
+      "missionTitle": "Bring clarity to educational management.",
+      "missionContent": [
+        "Across Indonesia, thousands of schools still operate with patchwork spreadsheets, WhatsApp groups, paper forms, and disconnected software. Academic data lives in one system, attendance in another, finances in a third — and none of it speaks to each other.",
+        "Masche Academics is here to replace that fragmentation with one coherent platform. We provide schools with infrastructure worthy of their commitment — so administrators can lead, teachers can teach, and students can learn."
+      ],
+      "storyLabel": "Our Story",
+      "storyTitle": "Born from real problems.",
+      "storyContent": [
+        "Masche was built by Enums, a technology studio based in Indonesia. After working closely with schools and witnessing firsthand how much time and energy is wasted due to broken administrative workflows, we knew there had to be a better way.",
+        "We started with one simple belief: schools deserve infrastructure as good as the quality of their teaching. That belief became Masche — a platform designed from the ground up for how Indonesian schools actually work."
+      ],
+      "valuesLabel": "What We Believe",
+      "valuesTitle": "Principles that shape every decision.",
+      "values": [
+        { "title": "School is an ecosystem", "desc": "Every role — management, teachers, staff, students, and parents — is interconnected. Our platform reflects that reality." },
+        { "title": "Data should serve people", "desc": "Not the other way around. We transform raw data into clear, actionable insights for every stakeholder." },
+        { "title": "Simplicity is a feature", "desc": "Powerful systems don't have to be complex. We work hard to make intricate workflows feel easy and natural." },
+        { "title": "Built for Indonesia", "desc": "Localized from day one — NISN, IJAZAH, bilingual interface, and compliance with national education standards." }
+      ],
+      "ctaHeading": "Ready to see Masche in action?",
+      "ctaDesc": "Schedule a personal demo and see how Masche can transform your school's operations.",
+      "ctaButton": "Request Demo"
+    },
+    "contact": {
+      "pageTitle": "Contact Us",
+      "pageSubtitle": "We'd love to hear from you.",
+      "formName": "Full Name",
+      "formNamePlaceholder": "Your full name",
+      "formEmail": "Email Address",
+      "formEmailPlaceholder": "you@school.sch.id",
+      "formInstitution": "Institution Name",
+      "formInstitutionPlaceholder": "Your school or foundation name",
+      "formRole": "Your Role",
+      "formRoles": ["Foundation / School Owner", "School Principal", "Vice Principal", "IT Staff", "Teacher", "Other"],
+      "formMessage": "Message",
+      "formMessagePlaceholder": "Tell us your specific needs...",
+      "formSubmit": "Send Message",
+      "successTitle": "Message sent!",
+      "successMessage": "We'll get back to you within 1 business day.",
+      "faqTitle": "Frequently Asked Questions",
+      "faqs": [
+        { "q": "How do I get a demo?", "a": "Fill out the form above or contact us directly via email. We'll schedule a personal walkthrough session within 48 hours." },
+        { "q": "Is there a free trial?", "a": "Yes — 30 days free, no credit card required. You'll get full access to explore the platform with your own data." },
+        { "q": "What kind of schools do you support?", "a": "Masche is built for K-12 educational institutions across Indonesia, from single-campus schools to multi-unit networks." }
+      ]
+    },
+    "legal": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "effectiveDate": "Effective: January 1, 2024 · Last updated: January 1, 2024",
+        "intro": "We're committed to protecting your privacy. This policy explains what data we collect and how we use it.",
+        "sections": [
+          { "heading": "Data We Collect", "content": "We collect information you provide directly, such as your name, email, and institution details. We also collect usage information to improve our service." },
+          { "heading": "How We Use Your Data", "content": "Your data is used to provide, maintain, and improve our service. We never sell your data to third parties." },
+          { "heading": "Data Security", "content": "We use enterprise-grade encryption to protect your data. All transmissions are conducted over secure HTTPS." },
+          { "heading": "Contact Us", "content": "If you have questions about our privacy policy, please contact us at privacy@enums.id" }
+        ]
+      },
+      "security": {
+        "title": "Security",
+        "effectiveDate": "Effective: January 1, 2024 · Last updated: January 1, 2024",
+        "intro": "Your data security is our top priority. We implement industry-leading security standards.",
+        "sections": [
+          { "heading": "Encryption", "content": "All data is encrypted both in transit and at rest. We use industry-standard AES-256 encryption algorithms." },
+          { "heading": "Access Control", "content": "Access is restricted based on role and need-to-know basis. We conduct regular access audits." },
+          { "heading": "Monitoring", "content": "Our systems are monitored 24/7 for suspicious activity and potential security threats." },
+          { "heading": "Vulnerability Reporting", "content": "If you discover a security vulnerability, please contact security@enums.id with full details." }
+        ]
+      },
+      "terms": {
+        "title": "Terms & Conditions",
+        "effectiveDate": "Effective: January 1, 2024 · Last updated: January 1, 2024",
+        "intro": "By using Masche Academics, you agree to these terms and conditions.",
+        "sections": [
+          { "heading": "Permitted Use", "content": "You agree to use Masche only for lawful purposes and in accordance with all applicable laws." },
+          { "heading": "User Responsibility", "content": "You are responsible for all activity that occurs on your account. Keep your password confidential." },
+          { "heading": "Limitation of Liability", "content": "Masche is provided 'as is'. We are not liable for indirect or consequential damages." },
+          { "heading": "Service Changes", "content": "We reserve the right to modify or discontinue service at any time with prior notice." }
+        ]
+      }
     }
   }
 }
