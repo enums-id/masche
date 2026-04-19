@@ -206,6 +206,19 @@
           { "heading": "Perubahan Layanan", "content": "Kami berhak mengubah atau menghentikan layanan kapan saja dengan pemberitahuan sebelumnya." }
         ]
       }
+    },
+    "articles": {
+      "pageTitle": "Artikel",
+      "pageSubtitle": "Wawasan untuk Institusi yang Terus Berkembang",
+      "pageDescription": "Panduan praktis, studi kasus, dan perspektif seputar manajemen institusi pendidikan modern.",
+      "readMore": "Baca selengkapnya",
+      "pagination": {
+        "previous": "Halaman sebelumnya",
+        "next": "Halaman berikutnya",
+        "page": "Halaman",
+        "of": "dari",
+        "articles": "artikel"
+      }
     }
   },
   "en": {
@@ -414,6 +427,19 @@
           { "heading": "Limitation of Liability", "content": "Masche is provided 'as is'. We are not liable for indirect or consequential damages." },
           { "heading": "Service Changes", "content": "We reserve the right to modify or discontinue service at any time with prior notice." }
         ]
+      }
+    },
+    "articles": {
+      "pageTitle": "Articles",
+      "pageSubtitle": "Insights for Institutions That Keep Growing",
+      "pageDescription": "Practical guides, case studies, and perspectives on modern educational institution management.",
+      "readMore": "Read more",
+      "pagination": {
+        "previous": "Previous page",
+        "next": "Next page",
+        "page": "Page",
+        "of": "of",
+        "articles": "articles"
       }
     }
   }

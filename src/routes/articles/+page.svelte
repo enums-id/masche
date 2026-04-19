@@ -2,12 +2,15 @@
 	import { base } from '$app/paths';
 	import Navbar from '$lib/components/landing/Navbar.svelte';
 	import Footer from '$lib/components/landing/Footer.svelte';
+	import content from '$lib/data/content.json';
+	import { langStore } from '$lib/stores/lang.svelte';
 
 	let { data } = $props();
 
 	const PAGE_SIZE = 4;
 	let currentPage = $state(1);
 
+	const c = $derived((content as any)[langStore.value].articles);
 	const totalPages = $derived(Math.ceil(data.articles.length / PAGE_SIZE));
 	const paged = $derived(data.articles.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE));
 
@@ -18,10 +21,10 @@
 </script>
 
 <svelte:head>
-	<title>Artikel &mdash; Masche Academics</title>
+	<title>{c.pageTitle} &mdash; Masche Academics</title>
 	<meta
 		name="description"
-		content="Wawasan dan panduan praktis seputar manajemen institusi pendidikan modern dari tim Masche."
+		content={c.pageDescription}
 	/>
 </svelte:head>
 
@@ -32,13 +35,13 @@
 	<section class="bg-plum px-6 pt-28 pb-16 md:pt-36 md:pb-20">
 		<div class="mx-auto max-w-5xl">
 			<p class="mb-3 text-[11px] font-semibold tracking-widest text-white/40 uppercase">
-				ARTIKEL MASCHE
+				{langStore.value === 'id' ? 'ARTIKEL MASCHE' : 'MASCHE ARTICLES'}
 			</p>
 			<h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-tight tracking-tight text-white">
-				Wawasan untuk Institusi<br />yang Terus Berkembang
+				{c.pageSubtitle}
 			</h1>
 			<p class="mt-3 max-w-lg text-base leading-relaxed text-white/50">
-				Panduan praktis, studi kasus, dan perspektif seputar manajemen institusi pendidikan modern.
+				{c.pageDescription}
 			</p>
 		</div>
 	</section>
@@ -80,7 +83,7 @@
 								{article.excerpt}
 							</p>
 							<div class="mt-4 flex items-center gap-1.5 text-[12px] font-semibold text-plum">
-								Baca selengkapnya
+								{c.readMore}
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -104,7 +107,7 @@
 						onclick={() => goPage(currentPage - 1)}
 						disabled={currentPage === 1}
 						class="flex size-9 items-center justify-center rounded-full border border-stone/25 text-slate/50 transition-all duration-200 hover:border-plum/30 hover:text-plum disabled:cursor-not-allowed disabled:opacity-30"
-						aria-label="Halaman sebelumnya"
+						aria-label={c.pagination.previous}
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -117,7 +120,7 @@
 							class="flex size-9 items-center justify-center rounded-full text-[13px] font-semibold transition-all duration-200 {page === currentPage
 								? 'bg-plum text-white shadow-sm'
 								: 'border border-stone/25 text-slate/50 hover:border-plum/30 hover:text-plum'}"
-							aria-label="Halaman {page}"
+							aria-label="{c.pagination.page} {page}"
 						>
 							{page}
 						</button>
@@ -127,7 +130,7 @@
 						onclick={() => goPage(currentPage + 1)}
 						disabled={currentPage === totalPages}
 						class="flex size-9 items-center justify-center rounded-full border border-stone/25 text-slate/50 transition-all duration-200 hover:border-plum/30 hover:text-plum disabled:cursor-not-allowed disabled:opacity-30"
-						aria-label="Halaman berikutnya"
+						aria-label={c.pagination.next}
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4">
 							<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -136,7 +139,7 @@
 				</div>
 
 				<p class="mt-4 text-center text-[12px] text-slate/35">
-					Halaman {currentPage} dari {totalPages} &middot; {data.articles.length} artikel
+					{c.pagination.page} {currentPage} {c.pagination.of} {totalPages} &middot; {data.articles.length} {c.pagination.articles}
 				</p>
 			{/if}
 		</div>
