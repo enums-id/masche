@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
+	import { fly } from 'svelte/transition';
 
 	let visible = $state(false);
 	let current = $state(0);
@@ -165,7 +166,7 @@
 		>
 			<div class="grid md:grid-cols-[2fr_3fr]">
 				<!-- Left panel -->
-				<div class="flex flex-col justify-between p-8 md:p-10 transition-all duration-500 ease-out">
+				<div class="flex flex-col justify-between p-8 transition-all duration-500 ease-out md:p-10">
 					{#key current}
 						<div class="transition-all duration-500">
 							<span
@@ -225,7 +226,9 @@
 				</div>
 
 				<!-- Right panel: gradient placeholder with stat -->
-				<div class="relative min-h-72 overflow-hidden md:min-h-0 transition-all duration-500 ease-out">
+				<div
+					class="relative min-h-72 overflow-hidden transition-all duration-500 ease-out md:min-h-0"
+				>
 					{#key current}
 						<div
 							class="absolute inset-0"

@@ -143,10 +143,12 @@
 	});
 
 	const hasMoreLogos = $derived(logos.length > (logosPage + 1) * itemsPerPageLogos);
-	const hasMoreTestimonials = $derived(testimonials.length > (testimonialsPage + 1) * itemsPerPageTestimonials);
+	const hasMoreTestimonials = $derived(
+		testimonials.length > (testimonialsPage + 1) * itemsPerPageTestimonials
+	);
 </script>
 
-<section class="px-6 py-20 md:py-28" use:reveal={() => (visible = true)}>
+<section class="px-6 py-8" use:reveal={() => (visible = true)}>
 	<div class="mx-auto max-w-6xl">
 		<!-- School logo grid -->
 		<div

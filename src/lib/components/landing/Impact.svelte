@@ -12,7 +12,7 @@
 
 <!-- Full-width plum banner -->
 <div class="bg-plum px-6 py-16 text-center">
-	<p class="text-[clamp(1.2rem,3vw,1.8rem)] font-bold leading-snug text-white">
+	<p class="text-[clamp(1.2rem,3vw,1.8rem)] leading-snug font-bold text-white">
 		Semua sistem terhubung dalam satu ekosistem terpadu.
 	</p>
 </div>
@@ -27,7 +27,7 @@
 		>
 			TELAH DIPILIH OLEH
 		</p>
-		<div class="grid grid-cols-3 gap-8 text-center">
+		<div class="grid grid-cols-1 gap-8 text-center sm:grid-cols-3">
 			{#each stats as stat, i}
 				<div
 					class="transition-all duration-700 ease-out {visible
@@ -35,7 +35,7 @@
 						: 'translate-y-8 opacity-0'}"
 					style="transition-delay: {i * 100}ms;"
 				>
-					<p class="text-[clamp(2.5rem,6vw,4rem)] font-bold leading-none text-plum">
+					<p class="text-[clamp(2.5rem,6vw,4rem)] leading-none font-bold text-plum">
 						{stat.value}
 					</p>
 					<p class="mt-3 text-[13px] leading-relaxed text-slate/60">

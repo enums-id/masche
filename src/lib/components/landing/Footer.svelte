@@ -114,7 +114,7 @@
 			<p class="text-[12px] text-slate/30">
 				&copy; {currentYear} Masche Academics. Semua hak dilindungi.
 			</p>
-			<div class="flex flex-col gap-2">
+			<div class="flex flex-col items-center gap-2">
 				<p class="text-[12px] text-slate/25">
 					Dikembangan oleh <span class="text-slate/40"></span>
 				</p>

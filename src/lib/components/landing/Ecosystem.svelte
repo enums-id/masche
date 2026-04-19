@@ -296,21 +296,8 @@
 					class="flex items-start gap-3 rounded-2xl bg-white p-5 ring-1 ring-stone/15 transition-all duration-300 hover:shadow-md hover:ring-plum/15"
 					style="transition-delay: {visible ? i * 60 : 0}ms"
 				>
-					<div
-						class="{node.id === 'management'
-							? 'size-11'
-							: 'size-10'} shrink-0 {node.shape} {node.bg} flex items-center justify-center shadow-sm"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="size-5 {node.iconColor}"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" d={node.icon} />
-						</svg>
+					<div class="flex size-12 shrink-0 items-center justify-center">
+						<img src={`${base}/icons/${node.id}.svg`} alt={node.icon} />
 					</div>
 					<div>
 						<p class="text-sm font-semibold text-ink">{node.label}</p>
