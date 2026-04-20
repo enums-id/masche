@@ -4,18 +4,23 @@
 	import { getArticles } from '$lib/sanity';
 	import content from '$lib/data/content.json';
 	import { langStore } from '$lib/stores/lang.svelte';
+	import { getWhatsAppLink, whatsappMessages } from '$lib/utils/whatsapp';
 	import type { Article } from '$lib/sanity';
 
 	let visible = $state(false);
 	let preview = $state<Article[]>([]);
+	let allArticles = $state<Article[]>([]);
 	let failedImages = $state(new Set<string>());
+	let showMobileMenu = $state(false);
 
 	const c = $derived((content as any)[langStore.value].articles);
 
 	async function loadArticles() {
 		const lang = langStore.value;
 		const articles = await getArticles(lang);
+		allArticles = articles;
 		preview = articles.slice(0, 3);
+		showMobileMenu = false;
 	}
 
 	$effect(() => {
@@ -55,15 +60,15 @@
 		<!-- Article cards -->
 		<div class="grid gap-6 md:grid-cols-3">
 			{#each preview as article, i}
-				<a
-					href="{base}/articles/{article.slug}"
+				<div
 					class="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-stone/10 transition-all duration-700 ease-out hover:shadow-md hover:ring-plum/15 hover:-translate-y-0.5 {visible
 						? 'translate-y-0 opacity-100'
 						: 'translate-y-8 opacity-0'}"
 					style="transition-delay: {100 + i * 100}ms;"
 				>
 					<!-- Image with gradient fallback (16:9) -->
-					<div
+					<a
+						href="{base}/articles/{article.slug}"
 						class="relative aspect-video w-full overflow-hidden"
 						style="background: {article.gradient};"
 					>
@@ -80,7 +85,7 @@
 						>
 							{article.tag}
 						</span>
-					</div>
+					</a>
 
 					<!-- Content -->
 					<div class="flex flex-1 flex-col p-6">
@@ -89,10 +94,12 @@
 							<span>&middot;</span>
 							<span>{article.readTime}</span>
 						</div>
-						<h3 class="mt-2 flex-1 text-[15px] font-bold leading-snug text-ink group-hover:text-plum transition-colors duration-200">
-							{article.title}
-						</h3>
-						<div class="mt-4 flex items-center gap-1.5 text-[12px] font-semibold text-plum">
+						<a href="{base}/articles/{article.slug}" class="mt-2 flex-1">
+							<h3 class="text-[15px] font-bold leading-snug text-ink group-hover:text-plum transition-colors duration-200">
+								{article.title}
+							</h3>
+						</a>
+						<a href="{base}/articles/{article.slug}" class="mt-4 flex items-center gap-1.5 text-[12px] font-semibold text-plum">
 							{c.readMore}
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -104,10 +111,74 @@
 							>
 								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
 							</svg>
-						</div>
+						</a>
 					</div>
-				</a>
+				</div>
 			{/each}
+		</div>
+
+		<!-- Mobile hamburger menu for all articles -->
+		<div class="mt-8 md:hidden">
+			<button
+				onclick={() => (showMobileMenu = !showMobileMenu)}
+				class="w-full rounded-2xl border border-plum/25 bg-white px-5 py-3 text-[13px] font-semibold text-plum transition-all duration-200 hover:bg-plum/5"
+			>
+				{showMobileMenu ? 'Sembunyikan Semua Artikel' : 'Tampilkan Semua Artikel'}
+			</button>
+
+			{#if showMobileMenu}
+				<div class="mt-6 space-y-4">
+					{#each allArticles as article, i}
+						<div
+							class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-stone/10 transition-all duration-200"
+							style="animation: slideIn 0.3s ease-out {i * 50}ms both;"
+						>
+							<a
+								href="{base}/articles/{article.slug}"
+								class="relative aspect-video w-full overflow-hidden"
+								style="background: {article.gradient};"
+							>
+								{#if article.imageUrl && !failedImages.has(article.slug)}
+									<img
+										src={article.imageUrl}
+										alt={article.title}
+										class="h-full w-full object-cover"
+										onerror={() => handleImageError(article.slug)}
+									/>
+								{/if}
+								<span class="absolute top-3 left-3 rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-sm">
+									{article.tag}
+								</span>
+							</a>
+							<div class="flex flex-1 flex-col p-4">
+								<div class="flex items-center gap-2 text-[11px] text-slate/40">
+									<span>{article.date}</span>
+									<span>&middot;</span>
+									<span>{article.readTime}</span>
+								</div>
+								<a href="{base}/articles/{article.slug}">
+									<h4 class="mt-2 text-[13px] font-bold leading-snug text-ink">
+										{article.title}
+									</h4>
+								</a>
+							</div>
+						</div>
+					{/each}
+				</div>
+			{/if}
 		</div>
 	</div>
 </section>
+
+<style>
+	@keyframes slideIn {
+		from {
+			opacity: 0;
+			transform: translateY(-8px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

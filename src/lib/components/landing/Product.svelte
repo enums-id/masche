@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
+	import { getWhatsAppLink, whatsappMessages } from '$lib/utils/whatsapp';
 	import feature01 from '$lib/assets/icons/masche-fitur-01.svg';
 	import feature02 from '$lib/assets/icons/masche-fitur-02.svg';
 	import feature03 from '$lib/assets/icons/masche-fitur-03.svg';
@@ -74,7 +74,9 @@
 						{c.cardDesc}
 					</p>
 					<a
-						href="{base}/contact"
+						href={getWhatsAppLink(whatsappMessages.consultation)}
+						target="_blank"
+						rel="noopener noreferrer"
 						class="mt-6 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-[13px] font-medium text-white transition-all duration-200 hover:border-white/50 hover:bg-white/10"
 					>
 						{c.cardCta}

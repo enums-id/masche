@@ -100,9 +100,9 @@
 				{c.copyright}
 			</p>
 			<div class="flex flex-col items-center gap-2">
-				<p class="text-[12px] text-slate/25">
+				<!-- <p class="text-[12px] text-slate/25">
 					{c.credit}
-				</p>
+				</p> -->
 				<img src={enumsLogo} alt="enums" class="w-16" />
 			</div>
 		</div>

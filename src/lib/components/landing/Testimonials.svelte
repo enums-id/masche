@@ -38,27 +38,19 @@
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-				{#each paginatedLogos as _, i}
+			<div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+				{#each c.schools as school, i}
 					<div
-						class="flex h-16 items-center justify-center rounded-2xl bg-white shadow-sm"
+						class="flex flex-col items-center gap-3 transition-all duration-500"
 						style="transition-delay: {i * 60}ms;"
 					>
-						<div class="h-8 w-20 rounded-lg bg-stone/40"></div>
+						<div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-white">
+							<img src={school.iconURL} alt={school.label} class="h-16 w-16" />
+						</div>
+						<p class="text-[13px] font-medium text-slate-600">{school.label}</p>
 					</div>
 				{/each}
 			</div>
-
-			{#if hasMoreLogos}
-				<div class="mt-6 flex justify-center">
-					<button
-						onclick={() => (logosPage += 1)}
-						class="rounded-lg bg-plum/10 px-6 py-2 text-sm font-medium text-plum transition-all hover:bg-plum/15"
-					>
-						{c.showMoreSchools}
-					</button>
-				</div>
-			{/if}
 		</div>
 
 		<!-- Testimonial cards -->

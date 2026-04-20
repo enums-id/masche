@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import PageShell from '$lib/components/PageShell.svelte';
 	import { reveal } from '$lib/actions/reveal';
 	import content from '$lib/data/content.json';
 	import { langStore } from '$lib/stores/lang.svelte';
+	import { getWhatsAppLink, whatsappMessages } from '$lib/utils/whatsapp';
 
 	let visible = $state(false);
 
@@ -103,7 +103,9 @@
 				{c.ctaDesc}
 			</p>
 			<a
-				href="{base}/contact"
+				href={getWhatsAppLink(whatsappMessages.consultation)}
+				target="_blank"
+				rel="noopener noreferrer"
 				class="mt-8 inline-block cursor-pointer rounded-full bg-plum px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-plum/20"
 			>
 				{c.ctaButton}

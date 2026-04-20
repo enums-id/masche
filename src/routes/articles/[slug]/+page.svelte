@@ -4,6 +4,7 @@
 	import Navbar from '$lib/components/landing/Navbar.svelte';
 	import Footer from '$lib/components/landing/Footer.svelte';
 	import { langStore } from '$lib/stores/lang.svelte';
+	import { getWhatsAppLink, whatsappMessages } from '$lib/utils/whatsapp';
 	import type { Article } from '$lib/sanity';
 	import content from '$lib/data/content.json';
 
@@ -163,13 +164,17 @@
 				</p>
 				<div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
 					<a
-						href="{base}/contact"
+						href={getWhatsAppLink(whatsappMessages.consultation)}
+						target="_blank"
+						rel="noopener noreferrer"
 						class="cursor-pointer rounded-full bg-white px-6 py-2.5 text-[13px] font-semibold text-plum transition-all duration-200 hover:bg-white/90 hover:shadow-md"
 					>
 						Konsultasi Gratis
 					</a>
 					<a
-						href="{base}/contact"
+						href={getWhatsAppLink(whatsappMessages.demo)}
+						target="_blank"
+						rel="noopener noreferrer"
 						class="cursor-pointer rounded-full border border-white/30 px-6 py-2.5 text-[13px] font-semibold text-white transition-all duration-200 hover:bg-white/10"
 					>
 						Request Demo

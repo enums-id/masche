@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import content from '$lib/data/content.json';
 	import { langStore } from '$lib/stores/lang.svelte';
+	import { getWhatsAppLink, whatsappMessages } from '$lib/utils/whatsapp';
 
 	let mounted = $state(false);
 	const c = $derived((content as any)[langStore.value].hero);
@@ -44,13 +44,17 @@
 				: 'translate-y-6 opacity-0'}"
 		>
 			<a
-				href="{base}/contact"
+				href={getWhatsAppLink(whatsappMessages.consultation)}
+				target="_blank"
+				rel="noopener noreferrer"
 				class="cursor-pointer rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-plum backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10 hover:text-white"
 			>
 				{c.cta1}
 			</a>
 			<a
-				href="{base}/contact"
+				href={getWhatsAppLink(whatsappMessages.learnMore)}
+				target="_blank"
+				rel="noopener noreferrer"
 				class="cursor-pointer rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-plum backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10  hover:text-white"
 			>
 				{c.cta2}
