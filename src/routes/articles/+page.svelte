@@ -4,20 +4,38 @@
 	import Footer from '$lib/components/landing/Footer.svelte';
 	import content from '$lib/data/content.json';
 	import { langStore } from '$lib/stores/lang.svelte';
+	import type { Article } from '$lib/sanity';
 
 	let { data } = $props();
 
 	const PAGE_SIZE = 4;
 	let currentPage = $state(1);
+	let articles = $state<Article[]>(data.articles);
 
 	const c = $derived((content as any)[langStore.value].articles);
-	const totalPages = $derived(Math.ceil(data.articles.length / PAGE_SIZE));
-	const paged = $derived(data.articles.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE));
+	const totalPages = $derived(Math.ceil(articles.length / PAGE_SIZE));
+	const paged = $derived(articles.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE));
 
 	function goPage(n: number) {
 		currentPage = n;
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
+
+	// Fetch articles when language changes
+	$effect(() => {
+		const lang = langStore.value;
+		fetch(`/api/articles?lang=${lang}`)
+			.then((res) => res.json())
+			.then((newArticles) => {
+				articles = newArticles;
+				currentPage = 1;
+			})
+			.catch((err) => {
+				console.error('Failed to fetch articles:', err);
+				// Fall back to initial data
+				articles = data.articles;
+			});
+	});
 </script>
 
 <svelte:head>

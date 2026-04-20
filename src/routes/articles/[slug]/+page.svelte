@@ -3,13 +3,30 @@
 	import { articles } from '$lib/data/articles';
 	import Navbar from '$lib/components/landing/Navbar.svelte';
 	import Footer from '$lib/components/landing/Footer.svelte';
+	import { langStore } from '$lib/stores/lang.svelte';
+	import type { Article } from '$lib/sanity';
 
 	let { data } = $props();
 
-	const { article } = data;
+	let article = $state<Article>(data.article);
 
 	// Related: other articles excluding current, pick up to 3
-	const related = articles.filter((a) => a.slug !== article.slug).slice(0, 3);
+	const related = $derived(articles.filter((a) => a.slug !== article.slug).slice(0, 3));
+
+	// Fetch article in different language when langStore changes
+	$effect(() => {
+		const lang = langStore.value;
+		const slug = article.slug;
+		fetch(`/api/articles?lang=${lang}&slug=${slug}`)
+			.then((res) => res.json())
+			.then((newArticle) => {
+				article = newArticle;
+			})
+			.catch((err) => {
+				console.error('Failed to fetch article:', err);
+				// Keep current article if fetch fails
+			});
+	});
 </script>
 
 <svelte:head>
@@ -28,18 +45,30 @@
 				href="{base}/articles"
 				class="mb-6 inline-flex items-center gap-1.5 text-[12px] font-medium text-white/60 transition-colors duration-200 hover:text-white"
 			>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-3.5">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="2"
+					stroke="currentColor"
+					class="size-3.5"
+				>
 					<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
 				</svg>
 				Semua Artikel
 			</a>
-
-			<span class="inline-block rounded-full bg-white/20 px-3 py-1 text-[10px] font-bold tracking-widest text-white uppercase backdrop-blur-sm">
-				{article.tag}
-			</span>
-			<h1 class="mt-4 text-[clamp(1.6rem,4vw,2.6rem)] font-bold leading-tight tracking-tight text-white">
-				{article.title}
-			</h1>
+			<div class="flex flex-col gap-0.5">
+				<span
+					class="inline-block w-fit rounded-full bg-white/20 px-3 py-1 text-[10px] font-bold tracking-widest text-white uppercase backdrop-blur-sm"
+				>
+					{article.tag}
+				</span>
+				<h1
+					class="mt-4 text-[clamp(1.6rem,4vw,2.6rem)] leading-tight font-bold tracking-tight text-white"
+				>
+					{article.title}
+				</h1>
+			</div>
 			<div class="mt-4 flex items-center gap-2 text-[12px] text-white/50">
 				<span>{article.date}</span>
 				<span>&middot;</span>
@@ -52,7 +81,9 @@
 	<main class="px-6 py-14 md:py-20">
 		<div class="mx-auto max-w-2xl">
 			<!-- Excerpt -->
-			<p class="mb-10 text-[16px] font-medium leading-relaxed text-slate/70 border-l-4 border-plum/30 pl-5 italic">
+			<p
+				class="mb-10 border-l-4 border-plum/30 pl-5 text-[16px] leading-relaxed font-medium text-slate/70 italic"
+			>
 				{article.excerpt}
 			</p>
 
@@ -91,9 +122,15 @@
 
 			<!-- CTA -->
 			<div class="mt-16 rounded-2xl bg-plum px-8 py-10 text-center">
-				<p class="text-[11px] font-semibold tracking-widest text-white/40 uppercase">MASCHE ACADEMICS</p>
-				<h3 class="mt-2 text-[1.2rem] font-bold text-white">Siap mewujudkan sistem ini di institusi Anda?</h3>
-				<p class="mt-2 text-[13px] text-white/55">Konsultasikan kebutuhan Anda dengan tim kami secara gratis.</p>
+				<p class="text-[11px] font-semibold tracking-widest text-white/40 uppercase">
+					MASCHE ACADEMICS
+				</p>
+				<h3 class="mt-2 text-[1.2rem] font-bold text-white">
+					Siap mewujudkan sistem ini di institusi Anda?
+				</h3>
+				<p class="mt-2 text-[13px] text-white/55">
+					Konsultasikan kebutuhan Anda dengan tim kami secara gratis.
+				</p>
 				<div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
 					<a
 						href="{base}/contact"
@@ -121,18 +158,33 @@
 					{#each related as rel}
 						<a
 							href="{base}/articles/{rel.slug}"
-							class="group flex flex-col overflow-hidden rounded-2xl bg-lavender ring-1 ring-stone/10 transition-all duration-200 hover:shadow-md hover:ring-plum/15 hover:-translate-y-0.5"
+							class="group flex flex-col overflow-hidden rounded-2xl bg-lavender ring-1 ring-stone/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:ring-plum/15"
 						>
 							<div class="aspect-video w-full" style="background: {rel.gradient};"></div>
 							<div class="flex flex-1 flex-col p-5">
-								<span class="text-[10px] font-semibold tracking-wider text-plum/60 uppercase">{rel.tag}</span>
-								<h3 class="mt-1.5 text-[13px] font-bold leading-snug text-ink group-hover:text-plum transition-colors duration-200 line-clamp-3">
+								<span class="text-[10px] font-semibold tracking-wider text-plum/60 uppercase"
+									>{rel.tag}</span
+								>
+								<h3
+									class="mt-1.5 line-clamp-3 text-[13px] leading-snug font-bold text-ink transition-colors duration-200 group-hover:text-plum"
+								>
 									{rel.title}
 								</h3>
-								<p class="mt-3 text-[11px] font-semibold text-plum flex items-center gap-1">
+								<p class="mt-3 flex items-center gap-1 text-[11px] font-semibold text-plum">
 									Baca
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-3 transition-transform duration-200 group-hover:translate-x-1">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="2"
+										stroke="currentColor"
+										class="size-3 transition-transform duration-200 group-hover:translate-x-1"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+										/>
 									</svg>
 								</p>
 							</div>
