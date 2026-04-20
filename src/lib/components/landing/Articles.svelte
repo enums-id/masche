@@ -1,14 +1,31 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
-	import { articles } from '$lib/data/articles';
+	import { getArticles } from '$lib/sanity';
 	import content from '$lib/data/content.json';
 	import { langStore } from '$lib/stores/lang.svelte';
+	import type { Article } from '$lib/sanity';
 
 	let visible = $state(false);
+	let preview = $state<Article[]>([]);
+	let failedImages = $state(new Set<string>());
 
 	const c = $derived((content as any)[langStore.value].articles);
-	const preview = articles.slice(0, 3);
+
+	async function loadArticles() {
+		const lang = langStore.value;
+		const articles = await getArticles(lang);
+		preview = articles.slice(0, 3);
+	}
+
+	$effect(() => {
+		loadArticles();
+	});
+
+	function handleImageError(slug: string) {
+		failedImages.add(slug);
+		failedImages = failedImages;
+	}
 </script>
 
 <section id="artikel" class="scroll-mt-24 px-6 py-20 md:py-28" use:reveal={() => (visible = true)}>
@@ -45,11 +62,19 @@
 						: 'translate-y-8 opacity-0'}"
 					style="transition-delay: {100 + i * 100}ms;"
 				>
-					<!-- Gradient image placeholder (16:9) -->
+					<!-- Image with gradient fallback (16:9) -->
 					<div
 						class="relative aspect-video w-full overflow-hidden"
 						style="background: {article.gradient};"
 					>
+						{#if article.imageUrl && !failedImages.has(article.slug)}
+							<img
+								src={article.imageUrl}
+								alt={article.title}
+								class="h-full w-full object-cover"
+								onerror={() => handleImageError(article.slug)}
+							/>
+						{/if}
 						<span
 							class="absolute top-3 left-3 rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-sm"
 						>

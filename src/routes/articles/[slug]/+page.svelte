@@ -5,13 +5,28 @@
 	import Footer from '$lib/components/landing/Footer.svelte';
 	import { langStore } from '$lib/stores/lang.svelte';
 	import type { Article } from '$lib/sanity';
+	import content from '$lib/data/content.json';
 
 	let { data } = $props();
 
 	let article = $state<Article>(data.article);
+	let imageLoaded = $state(false);
+	let imageFailed = $state(false);
+
+	const c = $derived((content as any)[langStore.value].articles);
 
 	// Related: other articles excluding current, pick up to 3
 	const related = $derived(articles.filter((a) => a.slug !== article.slug).slice(0, 3));
+
+	function handleImageLoad() {
+		imageLoaded = true;
+		imageFailed = false;
+	}
+
+	function handleImageError() {
+		imageFailed = true;
+		imageLoaded = false;
+	}
 
 	// Fetch article in different language when langStore changes
 	$effect(() => {
@@ -21,6 +36,8 @@
 			.then((res) => res.json())
 			.then((newArticle) => {
 				article = newArticle;
+				imageLoaded = false;
+				imageFailed = false;
 			})
 			.catch((err) => {
 				console.error('Failed to fetch article:', err);
@@ -37,9 +54,22 @@
 <div class="min-h-screen bg-lavender font-sans text-ink antialiased selection:bg-plum/10">
 	<Navbar />
 
-	<!-- Hero banner -->
+	<!-- Hero banner with image or gradient -->
 	<div class="relative overflow-hidden pt-20" style="background: {article.gradient};">
-		<div class="mx-auto max-w-4xl px-6 py-16 md:py-24">
+		<!-- Article image -->
+		{#if article.imageUrl && !imageFailed}
+			<img
+				src={article.imageUrl}
+				alt={article.title}
+				class="absolute inset-0 h-full w-full object-cover"
+				onload={handleImageLoad}
+				onerror={handleImageError}
+			/>
+			<!-- Overlay for text readability -->
+			<div class="absolute inset-0 bg-black/30"></div>
+		{/if}
+
+		<div class="relative z-10 mx-auto max-w-4xl px-6 py-16 md:py-24">
 			<!-- Back link -->
 			<a
 				href="{base}/articles"
@@ -55,7 +85,7 @@
 				>
 					<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
 				</svg>
-				Semua Artikel
+				{c.viewAllArticles}
 			</a>
 			<div class="flex flex-col gap-0.5">
 				<span
@@ -150,7 +180,7 @@
 	</main>
 
 	<!-- Related articles -->
-	{#if related.length > 0}
+	<!-- {#if related.length > 0}
 		<section class="border-t border-stone/15 bg-white px-6 py-16">
 			<div class="mx-auto max-w-5xl">
 				<h2 class="mb-8 text-[1.1rem] font-bold text-ink">Artikel Lainnya</h2>
@@ -193,7 +223,7 @@
 				</div>
 			</div>
 		</section>
-	{/if}
+	{/if} -->
 
 	<Footer />
 </div>

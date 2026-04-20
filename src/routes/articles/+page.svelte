@@ -11,6 +11,7 @@
 	const PAGE_SIZE = 4;
 	let currentPage = $state(1);
 	let articles = $state<Article[]>(data.articles);
+	let failedImages = $state(new Set<string>());
 
 	const c = $derived((content as any)[langStore.value].articles);
 	const totalPages = $derived(Math.ceil(articles.length / PAGE_SIZE));
@@ -21,6 +22,11 @@
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 
+	function handleImageError(slug: string) {
+		failedImages.add(slug);
+		failedImages = failedImages;
+	}
+
 	// Fetch articles when language changes
 	$effect(() => {
 		const lang = langStore.value;
@@ -28,6 +34,7 @@
 			.then((res) => res.json())
 			.then((newArticles) => {
 				articles = newArticles;
+				failedImages.clear();
 				currentPage = 1;
 			})
 			.catch((err) => {
@@ -73,11 +80,19 @@
 						href="{base}/articles/{article.slug}"
 						class="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-stone/10 transition-all duration-200 hover:shadow-md hover:ring-plum/20 hover:-translate-y-0.5"
 					>
-						<!-- Gradient image -->
+						<!-- Article image with gradient fallback -->
 						<div
-							class="relative aspect-video w-full overflow-hidden"
+							class="relative aspect-video w-full overflow-hidden bg-cover bg-center"
 							style="background: {article.gradient};"
 						>
+							{#if article.imageUrl && !failedImages.has(article.slug)}
+								<img
+									src={article.imageUrl}
+									alt={article.title}
+									class="h-full w-full object-cover"
+									onerror={() => handleImageError(article.slug)}
+								/>
+							{/if}
 							<span
 								class="absolute top-3 left-3 rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-sm"
 							>

@@ -1,9 +1,21 @@
 import { env } from '$env/dynamic/public';
 import { createClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
 
 const projectId = env.PUBLIC_SANITY_PROJECT_ID;
 const dataset = 'production';
 const apiVersion = '2024-01-01';
+
+function buildImageUrl(image: SanityImage | undefined): string | undefined {
+	if (!image) return undefined;
+
+	const builder = imageUrlBuilder({
+		projectId: projectId || '',
+		dataset: dataset || ''
+	});
+
+	return builder.image(image).width(400).height(300).auto('format').fit('crop').url();
+}
 
 let sanityClientInstance: ReturnType<typeof createClient> | null = null;
 
@@ -32,6 +44,26 @@ export interface ArticleSection {
 	items?: string[];
 }
 
+export interface SanityImage {
+	_type: string;
+	asset: {
+		_ref: string;
+		_type: string;
+	};
+	hotspot?: {
+		x: number;
+		y: number;
+		height: number;
+		width: number;
+	};
+	crop?: {
+		top: number;
+		bottom: number;
+		left: number;
+		right: number;
+	};
+}
+
 export interface Article {
 	slug: string;
 	title: string;
@@ -41,6 +73,8 @@ export interface Article {
 	date: string;
 	readTime: string;
 	content: ArticleSection[];
+	image?: SanityImage;
+	imageUrl?: string;
 }
 
 export async function getArticles(lang: 'id' | 'en' = 'id'): Promise<Article[]> {
@@ -63,13 +97,15 @@ export async function getArticles(lang: 'id' | 'en' = 'id'): Promise<Article[]> 
       gradient,
       date,
       "readTime": ${readTimeField},
-      "content": ${contentField}
+      "content": ${contentField},
+      image
     }`;
 
 		const articles = await client.fetch(query);
 		return articles.map((article: any) => ({
 			...article,
 			slug: article.slug?.current || article.slug,
+			imageUrl: buildImageUrl(article.image),
 			date: new Date(article.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', {
 				year: 'numeric',
 				month: 'long',
@@ -102,7 +138,8 @@ export async function getArticle(slug: string, lang: 'id' | 'en' = 'id'): Promis
       gradient,
       date,
       "readTime": ${readTimeField},
-      "content": ${contentField}
+      "content": ${contentField},
+      image
     }`;
 
 		const article = await client.fetch(query, { slug });
@@ -112,6 +149,7 @@ export async function getArticle(slug: string, lang: 'id' | 'en' = 'id'): Promis
 		return {
 			...article,
 			slug: article.slug?.current || article.slug,
+			imageUrl: buildImageUrl(article.image),
 			date: new Date(article.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', {
 				year: 'numeric',
 				month: 'long',
