@@ -6,16 +6,9 @@
 	import { langStore } from '$lib/stores/lang.svelte';
 
 	let visible = $state(false);
-	let submitted = $state(false);
 
 	const c = $derived((content as any)[langStore.value].contact);
-	const roles = $derived(c.formRoles);
 	const faqs = $derived(c.faqs);
-
-	function handleSubmit(e: Event) {
-		e.preventDefault();
-		submitted = true;
-	}
 </script>
 
 <PageShell title={c.pageTitle} subtitle={c.pageSubtitle}>
@@ -25,100 +18,36 @@
 				? 'translate-y-0 opacity-100'
 				: 'translate-y-8 opacity-0'}"
 		>
-			<!-- Formulir -->
+			<!-- Formulir → Google Form Redirect -->
 			<div>
-				{#if submitted}
-					<div class="rounded-3xl border border-success/20 bg-success/5 p-10 text-center">
-						<div
-							class="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-success/10"
+				<div class="rounded-3xl border border-plum/20 bg-plum/5 p-10 text-center">
+					<div
+						class="mx-auto mb-6 flex size-14 items-center justify-center rounded-full bg-plum/10"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="currentColor"
+							class="size-7 text-plum"
 						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="2"
-								stroke="currentColor"
-								class="size-6 text-success"
-							>
-								<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-							</svg>
-						</div>
-						<h3 class="text-lg font-bold text-ink">{c.successTitle}</h3>
-						<p class="mt-2 text-[14px] text-slate/50">
-							{c.successMessage}
-						</p>
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m2.121 2.121a4.5 4.5 0 0 1 6.364 0m-1.414-1.414L12.586 9M9 18H6.5a4.5 4.5 0 0 1 0-9h3" />
+						</svg>
 					</div>
-				{:else}
-					<form class="space-y-5" onsubmit={handleSubmit}>
-						<div>
-							<label for="name" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>{c.formName}</label
-							>
-							<input
-								id="name"
-								type="text"
-								required
-								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder={c.formNamePlaceholder}
-							/>
-						</div>
-						<div>
-							<label for="email" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>{c.formEmail}</label
-							>
-							<input
-								id="email"
-								type="email"
-								required
-								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder={c.formEmailPlaceholder}
-							/>
-						</div>
-						<div>
-							<label for="institution" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>{c.formInstitution}</label
-							>
-							<input
-								id="institution"
-								type="text"
-								class="w-full rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder={c.formInstitutionPlaceholder}
-							/>
-						</div>
-						<div>
-							<label for="role" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>{c.formRole}</label
-							>
-							<select
-								id="role"
-								class="w-full rounded-xl border border-stone/20 bg-white px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-							>
-								<option value="" disabled selected>Select your role</option>
-								{#each roles as role}
-									<option value={role}>{role}</option>
-								{/each}
-							</select>
-						</div>
-						<div>
-							<label for="message" class="mb-1.5 block text-[13px] font-medium text-ink"
-								>{c.formMessage}</label
-							>
-							<textarea
-								id="message"
-								rows="4"
-								required
-								class="w-full resize-none rounded-xl border border-stone/20 px-4 py-3 text-[14px] text-ink transition-colors duration-200 outline-none placeholder:text-slate/30 focus:border-plum/40 focus:ring-2 focus:ring-plum/10"
-								placeholder={c.formMessagePlaceholder}
-							></textarea>
-						</div>
-						<button
-							type="submit"
-							class="w-full cursor-pointer rounded-full bg-plum px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-plum/20"
-						>
-							{c.formSubmit}
-						</button>
-					</form>
-				{/if}
+					<h3 class="text-xl font-bold text-ink">{c.formTitle || 'Hubungi Kami'}</h3>
+					<p class="mt-3 text-[15px] leading-relaxed text-slate/60">
+						{c.formDescription || 'Silakan isi formulir di bawah untuk mengirimkan pertanyaan atau inquiry Anda kepada kami. Kami akan merespons secepat mungkin.'}
+					</p>
+					<a
+						href="https://docs.google.com/forms/d/e/1FAIpQLSeTUzNmju5rUd1_ru7OASlv1iNAnMFPsB8IJ8jKg3pRvG43Qw/viewform?usp=dialog"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="mt-8 inline-block cursor-pointer rounded-full bg-plum px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-plum/20"
+					>
+						{c.formSubmit || 'Buka Formulir'}
+					</a>
+				</div>
 			</div>
 
 			<!-- Info kontak -->
