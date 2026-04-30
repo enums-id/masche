@@ -15,8 +15,9 @@
 <LegalPageLayout
 	title={c.title}
 	effectiveDate={c.effectiveDate}
-	lastUpdated={c.effectiveDate}
+	lastUpdated={c.lastUpdated}
 	{sections}
+	version={c.version}
 >
 	<p>{c.intro}</p>
 

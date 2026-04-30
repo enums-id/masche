@@ -5,6 +5,7 @@
 	let {
 		title,
 		subtitle,
+		version,
 		effectiveDate,
 		lastUpdated,
 		sections,
@@ -12,6 +13,7 @@
 	}: {
 		title: string;
 		subtitle?: string;
+		version: string;
 		effectiveDate: string;
 		lastUpdated: string;
 		sections: { id: string; label: string }[];
@@ -43,10 +45,10 @@
 		<!-- Prose content -->
 		<div class="min-w-0 flex-1">
 			<p class="mb-8 text-[13px] text-slate/40">
-				Berlaku: {effectiveDate} &middot; Terakhir diperbarui: {lastUpdated}
+				Berlaku: {effectiveDate} &middot; Terakhir diperbarui: {lastUpdated} &middot; Versi: {version}
 			</p>
 			<div
-				class="prose prose-slate max-w-none prose-headings:text-ink prose-h2:text-xl prose-h2:font-bold prose-h2:tracking-tight prose-h3:text-base prose-h3:font-semibold prose-p:text-[15px] prose-p:leading-relaxed prose-p:text-slate/60 prose-a:text-plum prose-li:text-[15px] prose-li:text-slate/60"
+				class="prose max-w-none prose-slate prose-headings:text-ink prose-h2:text-xl prose-h2:font-bold prose-h2:tracking-tight prose-h3:text-base prose-h3:font-semibold prose-p:text-[15px] prose-p:leading-relaxed prose-p:text-slate/60 prose-a:text-plum prose-li:text-[15px] prose-li:text-slate/60"
 			>
 				{@render children()}
 			</div>
