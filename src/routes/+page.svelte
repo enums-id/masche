@@ -27,7 +27,7 @@
 	<TheShift />
 	<Ecosystem />
 	<Impact />
-	<Testimonials />
+	<!-- <Testimonials /> -->
 	<Articles />
 	<CallToAction />
 	<Footer />

@@ -17,7 +17,7 @@
 </div>
 
 <!-- Stats row -->
-<section class="px-6 py-16 md:py-20" use:reveal={() => (visible = true)}>
+<!-- <section class="px-6 py-16 md:py-20" use:reveal={() => (visible = true)}>
 	<div class="mx-auto max-w-4xl">
 		<p
 			class="mb-10 text-center text-[11px] font-semibold tracking-widest text-plum uppercase transition-all duration-700 ease-out {visible
@@ -46,4 +46,4 @@
 			{/each}
 		</div>
 	</div>
-</section>
+</section> -->
