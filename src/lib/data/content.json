@@ -150,22 +150,6 @@
 					"gradientFrom": "#edb85e",
 					"gradientTo": "#8faf9a",
 					"videoSrc": "/videos/Assessment vis.webm"
-				},
-				{
-					"category": "AKSES & SEKURITAS",
-					"categoryColor": "#4a4f57",
-					"categoryBg": "#4a4f5718",
-					"title": "Kontrol Akses Berbasis Peran",
-					"desc": "Memastikan setiap pengguna mengakses data yang relevan dengan tanggung jawabnya.",
-					"bullets": [
-						"Sistem 5 role",
-						"Audit trail untuk setiap aktivitas",
-						"Pencegahan akses tidak sah"
-					],
-					"stat": "5 peran, 100% kontrol akses\n& pelacakan aktivitas",
-					"gradientFrom": "#d7d9dd",
-					"gradientTo": "#4b2e83",
-					"videoSrc": "/videos/Admin.webm"
 				}
 			]
 		},
@@ -743,22 +727,6 @@
 					"gradientFrom": "#edb85e",
 					"gradientTo": "#8faf9a",
 					"videoSrc": "/videos/Assessment vis.webm"
-				},
-				{
-					"category": "ACCESS & SECURITY",
-					"categoryColor": "#4a4f57",
-					"categoryBg": "#4a4f5718",
-					"title": "Role-Based Access Control",
-					"desc": "Ensure each user accesses data relevant to their responsibility.",
-					"bullets": [
-						"5-role system",
-						"Audit trail for every activity",
-						"Prevention of unauthorized access"
-					],
-					"stat": "5 roles, 100% access control\n& activity tracking",
-					"gradientFrom": "#d7d9dd",
-					"gradientTo": "#4b2e83",
-					"videoSrc": "/videos/Admin.webm"
 				}
 			]
 		},
