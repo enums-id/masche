@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import content from '$lib/data/content.json';
 	import { langStore } from '$lib/stores/lang.svelte';
@@ -20,7 +21,7 @@
 >
 	<!-- Video background -->
 	<video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
-		<source src="/videos/OSS.webm" type="video/webm" />
+		<source src="{base}/videos/OSS.webm" type="video/webm" />
 	</video>
 
 	<!-- Dark overlay for contrast -->

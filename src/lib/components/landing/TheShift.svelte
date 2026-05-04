@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
 	import { fly } from 'svelte/transition';
 	import content from '$lib/data/content.json';
@@ -136,7 +137,7 @@
 							loop
 							playsinline
 						>
-							<source src={slides[current].videoSrc} type="video/webm" />
+							<source src={base + slides[current].videoSrc} type="video/webm" />
 						</video>
 						<div class="absolute right-0 bottom-0" in:fly={{ y: 12, duration: 400, delay: 150 }}>
 							<p
