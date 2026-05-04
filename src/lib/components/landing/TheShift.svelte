@@ -122,23 +122,25 @@
 					</div>
 				</div>
 
-				<!-- Right panel: gradient placeholder with stat -->
+				<!-- Right panel: video with stat -->
 				<div
 					class="relative min-h-72 overflow-hidden transition-all duration-500 ease-out md:min-h-0"
 				>
+					<!-- Stat overlay -->
 					{#key current}
-						<div
-							class="absolute inset-0"
-							style="background: linear-gradient(135deg, {slides[current].gradientFrom} 0%, {slides[
-								current
-							].gradientTo} 100%);"
-						></div>
-						<div
-							class="absolute right-8 bottom-8 left-8"
-							in:fly={{ y: 12, duration: 400, delay: 150 }}
+						<!-- Video background -->
+						<video
+							class="absolute inset-0 h-full w-full object-cover"
+							autoplay
+							muted
+							loop
+							playsinline
 						>
+							<source src={slides[current].videoSrc} type="video/webm" />
+						</video>
+						<div class="absolute right-0 bottom-0" in:fly={{ y: 12, duration: 400, delay: 150 }}>
 							<p
-								class="text-[clamp(1.1rem,2.5vw,1.8rem)] leading-snug font-bold text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.3)]"
+								class="w-fit rounded-xl bg-plum p-4 text-[clamp(1.1rem,2.5vw,1.8rem)] leading-snug font-bold text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.3)]"
 							>
 								{#each slides[current].stat.split('\n') as line, i}
 									{#if i > 0}<br />{/if}{line}

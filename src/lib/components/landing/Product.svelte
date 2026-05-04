@@ -63,7 +63,7 @@
 				<!-- Gradient placeholder -->
 				<div
 					class="h-52 w-full"
-					style="background: linear-gradient(135deg, #4b2e83 0%, #3a2368 40%, #e6a23c 100%);"
+					style="background: url('/images/dashboard.png') top/cover no-repeat;"
 				></div>
 				<!-- Text content -->
 				<div class="p-8">

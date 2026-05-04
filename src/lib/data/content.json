@@ -84,7 +84,8 @@
 					],
 					"stat": "Kelola 2–10+ unit sekolah\ndalam satu sistem terpusat",
 					"gradientFrom": "#4b2e83",
-					"gradientTo": "#5e3da0"
+					"gradientTo": "#5e3da0",
+					"videoSrc": "/videos/Program.webm"
 				},
 				{
 					"category": "AKADEMIK",
@@ -97,9 +98,10 @@
 						"Sinkronisasi data akademik real-time",
 						"Siap untuk laporan & rapor"
 					],
-					"stat": "+5 jam efisiensi kerja\nper guru / minggu",
+					"stat": "+6 jam efisiensi kerja\nper guru / minggu",
 					"gradientFrom": "#5e3da0",
-					"gradientTo": "#8faf9a"
+					"gradientTo": "#8faf9a",
+					"videoSrc": "/videos/Class analysis.webm"
 				},
 				{
 					"category": "PENGEMBANGAN SISWA",
@@ -114,7 +116,8 @@
 					],
 					"stat": "Insight 360° untuk peningkatan\nkualitas sekolah secara terukur",
 					"gradientFrom": "#8faf9a",
-					"gradientTo": "#e6a23c"
+					"gradientTo": "#e6a23c",
+					"videoSrc": "/videos/Behavior note.webm"
 				},
 				{
 					"category": "OPERASIONAL",
@@ -129,22 +132,8 @@
 					],
 					"stat": "↓ 90% pekerjaan administratif\nmelalui otomatisasi sistem",
 					"gradientFrom": "#59b88a",
-					"gradientTo": "#4b2e83"
-				},
-				{
-					"category": "PEMENUHAN KEBIJAKAN",
-					"categoryColor": "#c88a2a",
-					"categoryBg": "#e6a23c18",
-					"title": "Pelaporan Tanpa Double Entry",
-					"desc": "Sinkronisasi data dan laporan ke sistem pemerintah tanpa proses input ulang.",
-					"bullets": [
-						"Export data siap Dapodik",
-						"Integrasi sistem pelaporan",
-						"Mengurangi risiko kesalahan data"
-					],
-					"stat": "Pelaporan otomatis dengan\nkepatuhan regulasi 100%",
-					"gradientFrom": "#e6a23c",
-					"gradientTo": "#4b2e83"
+					"gradientTo": "#4b2e83",
+					"videoSrc": "/videos/Attendance and assessment.webm"
 				},
 				{
 					"category": "DUKUNGAN AKADEMIK",
@@ -157,9 +146,10 @@
 						"Program remedial & enrichment terstruktur",
 						"Monitoring progres intervensi"
 					],
-					"stat": "↑ Retensi siswa & peningkatan\nperforma akademik hingga 10–20%",
+					"stat": "↑ Peningkatan kualitas analisis guru\nterhadap siswa hingga 10-20%",
 					"gradientFrom": "#edb85e",
-					"gradientTo": "#8faf9a"
+					"gradientTo": "#8faf9a",
+					"videoSrc": "/videos/Assessment vis.webm"
 				},
 				{
 					"category": "AKSES & SEKURITAS",
@@ -174,7 +164,8 @@
 					],
 					"stat": "5 peran, 100% kontrol akses\n& pelacakan aktivitas",
 					"gradientFrom": "#d7d9dd",
-					"gradientTo": "#4b2e83"
+					"gradientTo": "#4b2e83",
+					"videoSrc": "/videos/Admin.webm"
 				}
 			]
 		},
@@ -686,7 +677,8 @@
 					],
 					"stat": "Manage 2–10+ school units\nin one centralized system",
 					"gradientFrom": "#4b2e83",
-					"gradientTo": "#5e3da0"
+					"gradientTo": "#5e3da0",
+					"videoSrc": "/videos/Program.webm"
 				},
 				{
 					"category": "ACADEMICS",
@@ -699,9 +691,10 @@
 						"Real-time academic data synchronization",
 						"Ready for reports & grade cards"
 					],
-					"stat": "+5 hours of work efficiency\nper teacher / week",
+					"stat": "+6 hours of work efficiency\nper teacher / week",
 					"gradientFrom": "#5e3da0",
-					"gradientTo": "#8faf9a"
+					"gradientTo": "#8faf9a",
+					"videoSrc": "/videos/Class analysis.webm"
 				},
 				{
 					"category": "STUDENT DEVELOPMENT",
@@ -716,7 +709,8 @@
 					],
 					"stat": "360° insight for measurable\nquality improvement",
 					"gradientFrom": "#8faf9a",
-					"gradientTo": "#e6a23c"
+					"gradientTo": "#e6a23c",
+					"videoSrc": "/videos/Behavior note.webm"
 				},
 				{
 					"category": "OPERATIONS",
@@ -731,22 +725,8 @@
 					],
 					"stat": "↓ 90% of administrative work\nthrough system automation",
 					"gradientFrom": "#59b88a",
-					"gradientTo": "#4b2e83"
-				},
-				{
-					"category": "POLICY COMPLIANCE",
-					"categoryColor": "#c88a2a",
-					"categoryBg": "#e6a23c18",
-					"title": "Reporting Without Double Entry",
-					"desc": "Sync data and reports to government systems without re-entering information.",
-					"bullets": [
-						"Export data ready for Dapodik",
-						"Reporting system integration",
-						"Reduce risk of data errors"
-					],
-					"stat": "Automated reporting with\n100% regulatory compliance",
-					"gradientFrom": "#e6a23c",
-					"gradientTo": "#4b2e83"
+					"gradientTo": "#4b2e83",
+					"videoSrc": "/videos/Attendance and assessment.webm"
 				},
 				{
 					"category": "ACADEMIC SUPPORT",
@@ -761,7 +741,8 @@
 					],
 					"stat": "↑ Student retention & academic\nperformance improvement up to 10–20%",
 					"gradientFrom": "#edb85e",
-					"gradientTo": "#8faf9a"
+					"gradientTo": "#8faf9a",
+					"videoSrc": "/videos/Assessment vis.webm"
 				},
 				{
 					"category": "ACCESS & SECURITY",
@@ -776,7 +757,8 @@
 					],
 					"stat": "5 roles, 100% access control\n& activity tracking",
 					"gradientFrom": "#d7d9dd",
-					"gradientTo": "#4b2e83"
+					"gradientTo": "#4b2e83",
+					"videoSrc": "/videos/Admin.webm"
 				}
 			]
 		},

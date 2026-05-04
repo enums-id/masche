@@ -14,51 +14,64 @@
 	});
 </script>
 
-<section id="hero" class="relative flex min-h-svh items-center justify-center overflow-hidden bg-white">
+<section
+	id="hero"
+	class="relative flex min-h-svh items-center justify-center overflow-hidden bg-white"
+>
+	<!-- Video background -->
+	<video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
+		<source src="/videos/OSS.webm" type="video/webm" />
+	</video>
+
+	<!-- Dark overlay for contrast -->
+	<div class="absolute inset-0 bg-plum/80"></div>
 
 	<!-- ─── Center content ─── -->
-	<div class="z-10  w-full px-6 text-center bg-plum py-16 sm:py-32 mx-8 sm:mx-16 rounded-2xl">
-		<!-- Big headline -->
-		<div
-			class="text-[clamp(1.2rem,7vw,3rem)] leading-[1.06] font-bold tracking-tight transition-all duration-700 ease-out {mounted
-				? 'translate-y-0 opacity-100'
-				: 'translate-y-8 opacity-0'}"
-		>
-			<span class="text-white">{c.headline1}</span><br />
-			<span class="text-white">{c.headline2}</span>
-	</div>
-
-		<!-- Subtitle -->
-		<p
-			class="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white font-bold transition-all delay-200 duration-700 ease-out md:text-lg {mounted
-				? 'translate-y-0 opacity-100'
-				: 'translate-y-6 opacity-0'}"
-		>
-			{c.subtitle}
-		</p>
-
-		<!-- CTAs -->
-		<div
-			class="mt-10 flex flex-col items-center justify-center gap-3 transition-all delay-400 duration-700 ease-out sm:flex-row {mounted
-				? 'translate-y-0 opacity-100'
-				: 'translate-y-6 opacity-0'}"
-		>
-			<a
-				href={getWhatsAppLink(whatsappMessages.consultation)}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="cursor-pointer rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-plum backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10 hover:text-white"
+	<div class="relative z-10 mx-auto w-full max-w-4xl px-6 py-16 text-center sm:py-32">
+		<!-- Content wrapper -->
+		<div>
+			<!-- Big headline -->
+			<div
+				class="text-[clamp(1.8rem,6vw,3.5rem)] leading-[1.1] font-bold tracking-tight text-white transition-all duration-700 ease-out {mounted
+					? 'translate-y-0 opacity-100'
+					: 'translate-y-8 opacity-0'}"
 			>
-				{c.cta1}
-			</a>
-			<a
-				href={getWhatsAppLink(whatsappMessages.learnMore)}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="cursor-pointer rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-plum backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10  hover:text-white"
+				{c.headline1}<br />
+				{c.headline2}
+			</div>
+
+			<!-- Subtitle -->
+			<p
+				class="mx-auto mt-6 max-w-2xl text-base leading-relaxed font-medium text-white transition-all delay-200 duration-700 ease-out md:text-lg {mounted
+					? 'translate-y-0 opacity-100'
+					: 'translate-y-6 opacity-0'}"
 			>
-				{c.cta2}
-			</a>
+				{c.subtitle}
+			</p>
+
+			<!-- CTAs -->
+			<div
+				class="mt-10 flex flex-col items-center justify-center gap-4 transition-all delay-400 duration-700 ease-out sm:flex-row {mounted
+					? 'translate-y-0 opacity-100'
+					: 'translate-y-6 opacity-0'}"
+			>
+				<a
+					href={getWhatsAppLink(whatsappMessages.consultation)}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="cursor-pointer rounded-full bg-white px-8 py-3 text-[14px] font-bold text-plum transition-all duration-200 hover:bg-white/90"
+				>
+					{c.cta1}
+				</a>
+				<a
+					href={getWhatsAppLink(whatsappMessages.learnMore)}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="cursor-pointer rounded-full bg-plum px-8 py-3 text-[14px] font-bold text-white transition-all duration-200 hover:bg-plum-light"
+				>
+					{c.cta2}
+				</a>
+			</div>
 		</div>
 	</div>
 
