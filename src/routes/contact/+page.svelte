@@ -32,12 +32,17 @@
 							stroke="currentColor"
 							class="size-7 text-plum"
 						>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m2.121 2.121a4.5 4.5 0 0 1 6.364 0m-1.414-1.414L12.586 9M9 18H6.5a4.5 4.5 0 0 1 0-9h3" />
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m2.121 2.121a4.5 4.5 0 0 1 6.364 0m-1.414-1.414L12.586 9M9 18H6.5a4.5 4.5 0 0 1 0-9h3"
+							/>
 						</svg>
 					</div>
 					<h3 class="text-xl font-bold text-ink">{c.formTitle || 'Hubungi Kami'}</h3>
 					<p class="mt-3 text-[15px] leading-relaxed text-slate/60">
-						{c.formDescription || 'Silakan isi formulir di bawah untuk mengirimkan pertanyaan atau inquiry Anda kepada kami. Kami akan merespons secepat mungkin.'}
+						{c.formDescription ||
+							'Silakan isi formulir di bawah untuk mengirimkan pertanyaan atau inquiry Anda kepada kami. Kami akan merespons secepat mungkin.'}
 					</p>
 					<a
 						href="https://docs.google.com/forms/d/e/1FAIpQLSeTUzNmju5rUd1_ru7OASlv1iNAnMFPsB8IJ8jKg3pRvG43Qw/viewform?usp=dialog"
@@ -56,7 +61,7 @@
 					<p class="mb-1 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
 						Email
 					</p>
-					<p class="text-[15px] font-medium text-ink">hello@masche.id</p>
+					<p class="text-[15px] font-medium text-ink">masche.academics@enums.id</p>
 				</div>
 				<div>
 					<p class="mb-1 text-[11px] font-semibold tracking-widest text-slate/40 uppercase">
