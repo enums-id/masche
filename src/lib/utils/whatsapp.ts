@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '62812345678'; // Mock Indonesian number
+const WHATSAPP_NUMBER = '6285195554878'; // Mock Indonesian number
 
 export function getWhatsAppLink(message: string): string {
 	const encodedMessage = encodeURIComponent(message);
