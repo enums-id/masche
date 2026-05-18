@@ -1,60 +1,28 @@
-# sv
+# Masche — Landing Page
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+SvelteKit + Tailwind CSS landing page for Masche Academics, built for deployment on GitHub Pages.
 
-## Creating a project
+## Tech Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [SvelteKit](https://kit.svelte.dev/) with static adapter
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Sanity](https://www.sanity.io/) for content
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Development
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@0.12.7 create --template minimal --types ts --add prettier tailwindcss="plugins:typography" --install npm masche
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+```bash
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Build
 
-To create a production version of your app:
-
-```sh
+```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## License
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Source code is licensed under the [MIT License](LICENSE).
 
-I've reviewed your works. Some feedbacks are:
-
-I. We need to have a good page structuring, so the user/potential customers will enjoy the journey on our landing page. Imagine if our landing page could replace entire pitch deck with more interactive ways.
-
-My proposed sections structures:
-
-1. Navbar (always add the CTA for Request Demo)
-2. Interactive Hero
-3. Introduction section that tells how the school works and what are the stakeholders doing.
-4. Pain points section, expose what the stakeholders pains and struggles
-5. How do we cover and overcome those struggles (solution section)
-6. Comes up with the how much they can saved (costs) by using our app (impact section)
-7. Define our core app along with the main features (products section)
-8. More detail products section
-9. Testimonies
-10. CTA
-11. Footer
+> **Note:** Assets in `static/` and `src/lib/assets/` (images, videos, icons, logos) are proprietary and copyright © 2026 Masche. All rights reserved. They may not be copied or reused without written permission.
