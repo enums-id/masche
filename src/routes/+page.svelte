@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-	<title>Masche &mdash; Sistem Operasi untuk Institusi Pendidikan Modern</title>
+	<title>Masche &mdash; Platform Manajemen Terintegrasi untuk Institusi Pendidikan Modern</title>
 	<meta
 		name="description"
 		content="Platform terpadu untuk mengelola akademik, keuangan, dan operasional sekolah. Dirancang khusus untuk ekosistem pendidikan Indonesia."
