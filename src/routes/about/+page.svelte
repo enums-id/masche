@@ -90,6 +90,17 @@
 			</div>
 		</section>
 
+		<!-- PT Statement -->
+		<section
+			class="flex items-center justify-center transition-all delay-200 duration-700 ease-out {visible
+				? 'translate-y-0 opacity-100'
+				: 'translate-y-8 opacity-0'}"
+		>
+			<p class="text-center text-[15px] leading-relaxed text-slate/60">
+				{c.ptStatement}
+			</p>
+		</section>
+
 		<!-- CTA -->
 		<section
 			class="rounded-3xl bg-plum/5 p-10 text-center transition-all delay-300 duration-700 ease-out md:p-14 {visible
